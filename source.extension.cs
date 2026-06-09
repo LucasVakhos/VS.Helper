@@ -10,11 +10,11 @@ namespace VS.Helper
     {
         public const string Id = "VS.Helper.594f3931-1da9-4fe1-83cf-803dab09a528";
         public const string Name = "VS.Helper";
-        public const string Description = @"Empty VSIX Project.";
-        public const string Language = "en-US";
+        public const string Description = @"VS Project помощник.";
+        public const string Language = "ru-RU";
         public const string Version = "1.0";
-        public const string Author = "Company";
+        public const string Author = "GH-Programmer";
         public const string Tags = "";
-        public const bool IsPreview = false;
+        public const bool IsPreview = true;
     }
 }
