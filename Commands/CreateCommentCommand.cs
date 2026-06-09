@@ -15,7 +15,7 @@ namespace VS.Helper.Commands;
 [Command(PackageIds.CreateCommentCommand)]
 internal sealed class CreateCommentCommand : BaseCommand<CreateCommentCommand>
 {
-    private static WindowEvents? _windowEvents;
+    private static EnvDTE.WindowEvents? _windowEvents;
     private static bool _isAutoRunning;
     private static DateTime _lastAutoRun = DateTime.MinValue;
 
@@ -28,7 +28,7 @@ internal sealed class CreateCommentCommand : BaseCommand<CreateCommentCommand>
     {
         await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
 
-        if (Package.GetGlobalService(typeof(DTE)) is not DTE dte)
+        if (ServiceProvider.GlobalProvider.GetService(typeof(DTE)) is not DTE dte)
             return;
 
         _windowEvents = dte.Events.WindowEvents;
@@ -94,7 +94,7 @@ internal sealed class CreateCommentCommand : BaseCommand<CreateCommentCommand>
     {
         ThreadHelper.ThrowIfNotOnUIThread();
 
-        if (Package.GetGlobalService(typeof(DTE)) is not DTE dte)
+        if (ServiceProvider.GlobalProvider.GetService(typeof(DTE)) is not DTE dte)
             return;
 
         if (dte.ActiveDocument?.Object("TextDocument") is not TextDocument textDocument)
@@ -119,7 +119,7 @@ internal sealed class CreateCommentCommand : BaseCommand<CreateCommentCommand>
     {
         await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
 
-        DTE? dte = Package.GetGlobalService(typeof(DTE)) as DTE;
+        DTE? dte = ServiceProvider.GlobalProvider.GetService(typeof(DTE)) as DTE;
 
         string? filePath = dte?.ActiveDocument?.FullName;
         string? solutionPath = dte?.Solution?.FullName;
@@ -149,7 +149,7 @@ internal sealed class CreateCommentCommand : BaseCommand<CreateCommentCommand>
             ".less" => $"/* {relativePath} */",
 
             ".sql" => $"-- {relativePath}",
-            ".vb" => $"'{relativePath}",
+            ".vb" => $"' {relativePath}",
             ".ps1" => $"# {relativePath}",
 
             _ => $"// {relativePath}"
