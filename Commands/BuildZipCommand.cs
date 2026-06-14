@@ -136,6 +136,12 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
                 foreach (string file in GetFilesFromProject(projectPath, out projectReferences))
                     files.Add(file);
 
+                // SDK-style проекты обычно НЕ перечисляют .cs/.razor/.json файлы в .csproj.
+                // Поэтому для ZIP берём всю папку проекта по файловой системе,
+                // исключая только мусорные каталоги/файлы сборки.
+                foreach (string file in GetFilesFromProjectDirectory(projectPath))
+                    files.Add(file);
+
                 foreach (string reference in projectReferences)
                     if (!visitedProjects.Contains(reference))
                         projects.Enqueue(reference);
@@ -143,7 +149,7 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
 
             foreach (string file in files.OrderBy(x => x, StringComparer.OrdinalIgnoreCase))
             {
-                if (IsIgnoredPath(file))
+                if (IsIgnoredPath(file) || IsSamePath(file, zipPath))
                     continue;
 
                 string relativePath = GetRelativePath(solutionDir, file);
@@ -214,6 +220,19 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
             .Where(File.Exists)
             .Distinct(StringComparer.OrdinalIgnoreCase)
             .ToList();
+    }
+
+    private static IEnumerable<string> GetFilesFromProjectDirectory(string projectPath)
+    {
+        string projectDir = Path.GetDirectoryName(projectPath);
+        if (string.IsNullOrWhiteSpace(projectDir) || !Directory.Exists(projectDir))
+            yield break;
+
+        foreach (string file in Directory.EnumerateFiles(projectDir, "*.*", SearchOption.AllDirectories))
+        {
+            if (!IsIgnoredPath(file))
+                yield return Path.GetFullPath(file);
+        }
     }
 
     private static List<string> GetFilesFromProject(string projectPath, out List<string> projectReferences)
@@ -318,14 +337,36 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
 
     private static bool HasWildcard(string path) => path.Contains('*') || path.Contains('?');
 
+    private static bool IsSamePath(string left, string right)
+    {
+        return string.Equals(
+            Path.GetFullPath(left).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar),
+            Path.GetFullPath(right).TrimEnd(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar),
+            StringComparison.OrdinalIgnoreCase);
+    }
+
     private static bool IsIgnoredPath(string path)
     {
         string fullPath = Path.GetFullPath(path);
         string[] parts = fullPath.Split(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar);
 
+        string fileName = Path.GetFileName(fullPath);
+
+        if (fileName.EndsWith(".user", StringComparison.OrdinalIgnoreCase) ||
+            fileName.EndsWith(".suo", StringComparison.OrdinalIgnoreCase) ||
+            fileName.EndsWith(".pdb", StringComparison.OrdinalIgnoreCase) ||
+            fileName.EndsWith(".cache", StringComparison.OrdinalIgnoreCase) ||
+            fileName.EndsWith(".log", StringComparison.OrdinalIgnoreCase))
+        {
+            return true;
+        }
+
         return parts.Any(part =>
             part.Equals("bin", StringComparison.OrdinalIgnoreCase) ||
             part.Equals("obj", StringComparison.OrdinalIgnoreCase) ||
-            part.Equals(".vs", StringComparison.OrdinalIgnoreCase));
+            part.Equals(".vs", StringComparison.OrdinalIgnoreCase) ||
+            part.Equals(".git", StringComparison.OrdinalIgnoreCase) ||
+            part.Equals("node_modules", StringComparison.OrdinalIgnoreCase) ||
+            part.Equals("packages", StringComparison.OrdinalIgnoreCase));
     }
 }
