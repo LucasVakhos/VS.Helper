@@ -10,7 +10,6 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using Microsoft.VisualStudio;
 
 namespace VS.Helper.Commands;
 
@@ -72,26 +71,22 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
     {
         ThreadHelper.ThrowIfNotOnUIThread();
 
-        VsShellUtilities.ShowMessageBox(
-            ServiceProvider.GlobalProvider,
+        System.Windows.Forms.MessageBox.Show(
             message,
             "VS.Helper",
-            OLEMSGICON.OLEMSGICON_INFO,
-            OLEMSGBUTTON.OLEMSGBUTTON_OK,
-            OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+            System.Windows.Forms.MessageBoxButtons.OK,
+            System.Windows.Forms.MessageBoxIcon.Information);
     }
 
     private static void ShowError(string message)
     {
         ThreadHelper.ThrowIfNotOnUIThread();
 
-        VsShellUtilities.ShowMessageBox(
-            ServiceProvider.GlobalProvider,
+        System.Windows.Forms.MessageBox.Show(
             message,
             "Ошибка сборки ZIP",
-            OLEMSGICON.OLEMSGICON_CRITICAL,
-            OLEMSGBUTTON.OLEMSGBUTTON_OK,
-            OLEMSGDEFBUTTON.OLEMSGDEFBUTTON_FIRST);
+            System.Windows.Forms.MessageBoxButtons.OK,
+            System.Windows.Forms.MessageBoxIcon.Error);
     }
 
     private static bool HasOpenSolution()
@@ -198,7 +193,7 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
         XDocument document = XDocument.Load(solutionPath);
 
         return document
-            .Descendants("Project")
+            .Descendants().Where(x => x.Name.LocalName == "Project")
             .Select(x => (string?)x.Attribute("Path"))
             .Where(x => !string.IsNullOrWhiteSpace(x) && x.EndsWith(".csproj", StringComparison.OrdinalIgnoreCase))
             .Select(x => Path.GetFullPath(Path.Combine(solutionDir, x!)))
