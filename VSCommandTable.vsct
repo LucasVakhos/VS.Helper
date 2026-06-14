@@ -23,6 +23,15 @@
 					<LocCanonicalName>Edit.CreateComment</LocCanonicalName>
 				</Strings>
 			</Button>
+
+			<Button guid="VS.Helper" id="BuildZipCommand" priority="0x0200" type="Button">
+				<Parent guid="VS.Helper" id="GHMenuGroup" />
+				<CommandFlag>DynamicVisibility</CommandFlag>
+				<Strings>
+					<ButtonText>Собрать ZIP</ButtonText>
+					<LocCanonicalName>Edit.BuildZip</LocCanonicalName>
+				</Strings>
+			</Button>
 		</Buttons>
 
 	</Commands>
@@ -39,6 +48,7 @@
 		<GuidSymbol name="VS.Helper" value="{32bf848a-bd7e-4f10-9b06-9c9f9feb8e4a}">
 			<IDSymbol name="GHMenuGroup" value="0x0001" />
 			<IDSymbol name="CreateCommentCommand" value="0x0100" />
+			<IDSymbol name="BuildZipCommand" value="0x0200" />
 		</GuidSymbol>
 	</Symbols>
 </CommandTable>

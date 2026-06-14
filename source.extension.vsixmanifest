@@ -4,6 +4,7 @@
         <Identity Id="VS.Helper.594f3931-1da9-4fe1-83cf-803dab09a528" Version="1.0" Language="ru-RU" Publisher="GH-Programmer" />
         <DisplayName>VS.Helper</DisplayName>
         <Description xml:space="preserve">VS Project помощник.</Description>
+        <License>LICENSE.txt</License>
         <Icon>Resources\Icon.png</Icon>
         <PreviewImage>Resources\Icon.png</PreviewImage>
         <Preview>true</Preview>

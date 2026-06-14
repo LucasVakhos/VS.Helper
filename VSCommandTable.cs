@@ -24,5 +24,6 @@ namespace VS.Helper
     {
         public const int VSHelperGroup = 0x0001;
         public const int CreateCommentCommand = 0x0100;
+        public const int BuildZipCommand = 0x0200;
     }
 }
