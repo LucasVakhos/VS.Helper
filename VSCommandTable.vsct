@@ -6,16 +6,25 @@
 	<Include href="KnownImageIds.vsct"/>
 	<Include href="VSGlobals.vsct"/>
 
+	<Symbols>
+		<GuidSymbol name="VS.Helper" value="{32bf848a-bd7e-4f10-9b06-9c9f9feb8e4a}">
+			<IDSymbol name="VSHelperGroup" value="0x0001" />
+			<IDSymbol name="CreateCommentCommand" value="0x0100" />
+			<IDSymbol name="BuildZipCommand" value="0x0200" />
+			<IDSymbol name="CommitStampSyncGitCommand" value="0x0300" />
+		</GuidSymbol>
+	</Symbols>
+
 	<Commands package="VS.Helper">
 		<Groups>
-			<Group guid="VS.Helper" id="GHMenuGroup" priority="0x0600">
-				<Parent guid="VSMainMenu" id="Edit"/>
+			<Group guid="VS.Helper" id="VSHelperGroup" priority="0x0600">
+				<Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_EDIT"/>
 			</Group>
 		</Groups>
 
 		<Buttons>
 			<Button guid="VS.Helper" id="CreateCommentCommand" priority="0x0100" type="Button">
-				<Parent guid="VS.Helper" id="GHMenuGroup" />
+				<Parent guid="VS.Helper" id="VSHelperGroup" />
 				<Icon guid="ImageCatalogGuid" id="PasteAppend" />
 				<CommandFlag>IconIsMoniker</CommandFlag>
 				<Strings>
@@ -25,11 +34,22 @@
 			</Button>
 
 			<Button guid="VS.Helper" id="BuildZipCommand" priority="0x0200" type="Button">
-				<Parent guid="VS.Helper" id="GHMenuGroup" />
-				<CommandFlag>DynamicVisibility</CommandFlag>
+				<Parent guid="VS.Helper" id="VSHelperGroup" />
+				<Icon guid="ImageCatalogGuid" id="PasteAppend" />
+				<CommandFlag>IconIsMoniker</CommandFlag>
 				<Strings>
 					<ButtonText>Собрать ZIP</ButtonText>
 					<LocCanonicalName>Edit.BuildZip</LocCanonicalName>
+				</Strings>
+			</Button>
+
+			<Button guid="VS.Helper" id="CommitStampSyncGitCommand" priority="0x0300" type="Button">
+				<Parent guid="VS.Helper" id="VSHelperGroup" />
+				<Icon guid="ImageCatalogGuid" id="PasteAppend" />
+				<CommandFlag>IconIsMoniker</CommandFlag>
+				<Strings>
+					<ButtonText>Commit + Stamp + Sync Git</ButtonText>
+					<LocCanonicalName>Edit.CommitStampSyncGit</LocCanonicalName>
 				</Strings>
 			</Button>
 		</Buttons>
@@ -44,11 +64,4 @@
 			key1="V"
 			mod1="Alt Shift" />
 	</KeyBindings>
-	<Symbols>
-		<GuidSymbol name="VS.Helper" value="{32bf848a-bd7e-4f10-9b06-9c9f9feb8e4a}">
-			<IDSymbol name="GHMenuGroup" value="0x0001" />
-			<IDSymbol name="CreateCommentCommand" value="0x0100" />
-			<IDSymbol name="BuildZipCommand" value="0x0200" />
-		</GuidSymbol>
-	</Symbols>
 </CommandTable>

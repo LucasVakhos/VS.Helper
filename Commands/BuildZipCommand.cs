@@ -48,7 +48,7 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
             return;
         }
 
-        string? solutionPath = dte.Solution?.FullName;
+        string solutionPath = dte.Solution == null ? null : dte.Solution.FullName;
 
         if (string.IsNullOrWhiteSpace(solutionPath) || !File.Exists(solutionPath))
         {
@@ -96,14 +96,15 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
         if (ServiceProvider.GlobalProvider.GetService(typeof(DTE)) is not DTE dte)
             return false;
 
-        string? solutionPath = dte.Solution?.FullName;
+        string solutionPath = dte.Solution == null ? null : dte.Solution.FullName;
         return !string.IsNullOrWhiteSpace(solutionPath) && File.Exists(solutionPath);
     }
 
     private static string BuildZipArchive(string solutionPath)
     {
-        string solutionDir = Path.GetDirectoryName(solutionPath)
-            ?? throw new InvalidOperationException("Не удалось определить папку Solution.");
+        string solutionDir = Path.GetDirectoryName(solutionPath);
+        if (string.IsNullOrWhiteSpace(solutionDir))
+            throw new InvalidOperationException("Не удалось определить папку Solution.");
 
         string solutionName = Path.GetFileNameWithoutExtension(solutionPath);
         string zipPath = Path.Combine(solutionDir, solutionName + ".zip");
@@ -154,7 +155,7 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
                 }
 
                 string destination = Path.Combine(tempRoot, relativePath);
-                Directory.CreateDirectory(Path.GetDirectoryName(destination)!);
+                Directory.CreateDirectory(Path.GetDirectoryName(destination));
                 File.Copy(file, destination, true);
             }
 
@@ -180,7 +181,7 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
 
     private static List<string> GetProjectsFromSolution(string solutionPath)
     {
-        string solutionDir = Path.GetDirectoryName(solutionPath)!;
+        string solutionDir = Path.GetDirectoryName(solutionPath);
         string extension = Path.GetExtension(solutionPath);
 
         return extension.Equals(".slnx", StringComparison.OrdinalIgnoreCase)
@@ -194,9 +195,9 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
 
         return document
             .Descendants().Where(x => x.Name.LocalName == "Project")
-            .Select(x => (string?)x.Attribute("Path"))
+            .Select(x => (string)x.Attribute("Path"))
             .Where(x => !string.IsNullOrWhiteSpace(x) && x.EndsWith(".csproj", StringComparison.OrdinalIgnoreCase))
-            .Select(x => Path.GetFullPath(Path.Combine(solutionDir, x!)))
+            .Select(x => Path.GetFullPath(Path.Combine(solutionDir, x)))
             .Where(File.Exists)
             .Distinct(StringComparer.OrdinalIgnoreCase)
             .ToList();
@@ -217,7 +218,7 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
 
     private static List<string> GetFilesFromProject(string projectPath, out List<string> projectReferences)
     {
-        string projectDir = Path.GetDirectoryName(projectPath)!;
+        string projectDir = Path.GetDirectoryName(projectPath);
         XDocument document = XDocument.Load(projectPath);
 
         List<string> result = new();
@@ -225,7 +226,7 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
 
         foreach (XElement element in document.Descendants().Where(x => x.Name.LocalName == "ProjectReference"))
         {
-            string? include = (string?)element.Attribute("Include");
+            string include = (string)element.Attribute("Include");
             if (string.IsNullOrWhiteSpace(include))
                 continue;
 
@@ -236,7 +237,7 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
 
         foreach (XElement element in document.Descendants().Where(x => ProjectItemNames.Contains(x.Name.LocalName)))
         {
-            string? include = (string?)element.Attribute("Include");
+            string include = (string)element.Attribute("Include");
             if (string.IsNullOrWhiteSpace(include))
                 continue;
 
@@ -302,8 +303,8 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
 
     private static string GetRelativePath(string baseDirectory, string filePath)
     {
-        Uri baseUri = new(AppendDirectorySeparatorChar(Path.GetFullPath(baseDirectory)));
-        Uri fileUri = new(Path.GetFullPath(filePath));
+        Uri baseUri = new Uri(AppendDirectorySeparatorChar(Path.GetFullPath(baseDirectory)));
+        Uri fileUri = new Uri(Path.GetFullPath(filePath));
         return Uri.UnescapeDataString(baseUri.MakeRelativeUri(fileUri).ToString())
             .Replace('/', Path.DirectorySeparatorChar);
     }

@@ -19,7 +19,5 @@ public sealed class VSHelperPackage : ToolkitPackage
         IProgress<ServiceProgressData> progress)
     {
         await this.RegisterCommandsAsync();
-
-        await VS.Helper.Commands.CreateCommentCommand.StartGitChangesAutoPasteAsync();
     }
 }

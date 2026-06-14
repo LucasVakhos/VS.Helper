@@ -7,153 +7,100 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Forms;
 
 namespace VS.Helper.Commands;
 
 [Command(PackageIds.CreateCommentCommand)]
 internal sealed class CreateCommentCommand : BaseCommand<CreateCommentCommand>
 {
-    private static EnvDTE.WindowEvents? _windowEvents;
-    private static bool _isAutoRunning;
-    private static DateTime _lastAutoRun = DateTime.MinValue;
-
     protected override async Task ExecuteAsync(OleMenuCmdEventArgs e)
     {
-        await RunAsync();
-    }
-
-    internal static async Task StartGitChangesAutoPasteAsync()
-    {
         await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
 
-        if (ServiceProvider.GlobalProvider.GetService(typeof(DTE)) is not DTE dte)
-            return;
+        string comment = await CreateCommentAsync();
 
-        _windowEvents = dte.Events.WindowEvents;
-
-        _windowEvents.WindowActivated += async (gotFocus, lostFocus) =>
+        if (!IsFocusInCodeEditor())
         {
-            await OnWindowActivatedAsync(gotFocus);
-        };
-    }
-
-    private static async Task OnWindowActivatedAsync(Window gotFocus)
-    {
-        await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
-
-        if (_isAutoRunning)
-            return;
-
-        if ((DateTime.Now - _lastAutoRun).TotalSeconds < 2)
-            return;
-
-        string caption = gotFocus.Caption ?? string.Empty;
-
-        bool isGitChanges =
-            caption.Contains("Git Changes", StringComparison.OrdinalIgnoreCase) ||
-            caption.Contains("Изменения Git", StringComparison.OrdinalIgnoreCase);
-
-        if (!isGitChanges)
-            return;
-
-        _isAutoRunning = true;
-        _lastAutoRun = DateTime.Now;
-
-        try
-        {
-            await Task.Delay(300);
-
-            string stamp = await CreateStampAsync();
-
-            await PasteIntoFocusedControlAsync(stamp);
-        }
-        finally
-        {
-            _isAutoRunning = false;
-        }
-    }
-
-    private static async Task RunAsync()
-    {
-        await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
-
-        string stamp = await CreateStampAsync();
-
-        if (IsFocusInCodeEditor())
-        {
-            InsertIntoActiveDocument(stamp);
+            System.Windows.Forms.MessageBox.Show(
+                "Команду \"Вставить комментарий\" нужно выполнять из окна редактора кода.",
+                "VS.Helper",
+                System.Windows.Forms.MessageBoxButtons.OK,
+                System.Windows.Forms.MessageBoxIcon.Information);
             return;
         }
 
-        await PasteIntoFocusedControlAsync(stamp);
+        InsertIntoActiveDocument(comment);
     }
 
-    private static void InsertIntoActiveDocument(string stamp)
+    private static void InsertIntoActiveDocument(string comment)
     {
         ThreadHelper.ThrowIfNotOnUIThread();
 
-        if (ServiceProvider.GlobalProvider.GetService(typeof(DTE)) is not DTE dte)
+        DTE dte = ServiceProvider.GlobalProvider.GetService(typeof(DTE)) as DTE;
+        if (dte == null)
             return;
 
-        if (dte.ActiveDocument?.Object("TextDocument") is not TextDocument textDocument)
+        if (!(dte.ActiveDocument != null && dte.ActiveDocument.Object("TextDocument") is TextDocument textDocument))
             return;
 
         EditPoint editPoint = textDocument.StartPoint.CreateEditPoint();
-        editPoint.Insert(stamp + Environment.NewLine);
+        editPoint.Insert(comment + Environment.NewLine);
     }
 
-    private static async Task PasteIntoFocusedControlAsync(string stamp)
+    private static async Task<string> CreateCommentAsync()
     {
         await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
 
-        Clipboard.SetText(stamp);
+        DTE dte = ServiceProvider.GlobalProvider.GetService(typeof(DTE)) as DTE;
 
-        await Task.Delay(150);
+        string filePath = null;
+        string solutionPath = null;
 
-        SendKeys.SendWait("^v");
-    }
+        if (dte != null)
+        {
+            if (dte.ActiveDocument != null)
+                filePath = dte.ActiveDocument.FullName;
 
-    private static async Task<string> CreateStampAsync()
-    {
-        await ThreadHelper.JoinableTaskFactory.SwitchToMainThreadAsync();
-
-        DTE? dte = ServiceProvider.GlobalProvider.GetService(typeof(DTE)) as DTE;
-
-        string? filePath = dte?.ActiveDocument?.FullName;
-        string? solutionPath = dte?.Solution?.FullName;
+            if (dte.Solution != null)
+                solutionPath = dte.Solution.FullName;
+        }
 
         if (string.IsNullOrWhiteSpace(filePath))
-        {
-            string solutionName = GetSolutionName(solutionPath);
-            return $"{solutionName} {DateTime.Now:yyyy-MM-dd HH:mm:ss}";
-        }
+            return "//";
 
         string relativePath = GetRelativePath(solutionPath, filePath)
             .Replace("/", "\\");
 
         string extension = Path.GetExtension(filePath).ToLowerInvariant();
 
-        return extension switch
+        switch (extension)
         {
-            ".razor" => $"@* {relativePath} *@",
-            ".cshtml" => $"@* {relativePath} *@",
+            case ".razor":
+            case ".cshtml":
+                return "@* " + relativePath + " *@";
 
-            ".html" => $"<!-- {relativePath} -->",
-            ".xml" => $"<!-- {relativePath} -->",
-            ".xaml" => $"<!-- {relativePath} -->",
+            case ".html":
+            case ".xml":
+            case ".xaml":
+                return "<!-- " + relativePath + " -->";
 
-            ".css" => $"/* {relativePath} */",
-            ".scss" => $"/* {relativePath} */",
-            ".less" => $"/* {relativePath} */",
+            case ".css":
+            case ".scss":
+            case ".less":
+                return "/* " + relativePath + " */";
 
-            ".sql" => $"-- {relativePath}",
-            ".vb" => $"' {relativePath}",
-            ".ps1" => $"# {relativePath}",
+            case ".sql":
+                return "-- " + relativePath;
 
-            _ => $"// {relativePath}"
-        };
+            case ".vb":
+                return "' " + relativePath;
+
+            case ".ps1":
+                return "# " + relativePath;
+
+            default:
+                return "// " + relativePath;
+        }
     }
 
     private static bool IsFocusInCodeEditor()
@@ -165,33 +112,23 @@ internal sealed class CreateCommentCommand : BaseCommand<CreateCommentCommand>
 
         string className = GetWindowClassName(hwnd);
 
-        return className.Contains("WpfTextView", StringComparison.OrdinalIgnoreCase)
-            || className.Contains("VsTextEditPane", StringComparison.OrdinalIgnoreCase);
+        return className.IndexOf("WpfTextView", StringComparison.OrdinalIgnoreCase) >= 0
+            || className.IndexOf("VsTextEditPane", StringComparison.OrdinalIgnoreCase) >= 0;
     }
 
     private static string GetWindowClassName(IntPtr hwnd)
     {
-        StringBuilder className = new(256);
+        StringBuilder className = new StringBuilder(256);
         GetClassName(hwnd, className, 256);
         return className.ToString();
     }
 
-    private static string GetSolutionName(string? solutionPath)
-    {
-        if (string.IsNullOrWhiteSpace(solutionPath))
-            return "Project";
-
-        string? name = Path.GetFileNameWithoutExtension(solutionPath);
-
-        return string.IsNullOrWhiteSpace(name) ? "Project" : name;
-    }
-
-    private static string GetRelativePath(string? solutionPath, string filePath)
+    private static string GetRelativePath(string solutionPath, string filePath)
     {
         if (string.IsNullOrWhiteSpace(solutionPath))
             return Path.GetFileName(filePath);
 
-        string? solutionDir = Path.GetDirectoryName(solutionPath);
+        string solutionDir = Path.GetDirectoryName(solutionPath);
 
         if (string.IsNullOrWhiteSpace(solutionDir))
             return Path.GetFileName(filePath);
