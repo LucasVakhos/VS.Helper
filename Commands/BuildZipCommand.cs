@@ -1,14 +1,11 @@
 ﻿// Commands\BuildZipCommand.cs
-using Community.VisualStudio.Toolkit;
 using EnvDTE;
-using Microsoft.VisualStudio.Shell;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace VS.Helper.Commands;
@@ -16,6 +13,8 @@ namespace VS.Helper.Commands;
 [Command(PackageIds.BuildZipCommand)]
 internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
 {
+    private const string ConfigFileName = "VS.Helper.Zip.xml";
+
     private static readonly HashSet<string> ProjectItemNames = new(StringComparer.OrdinalIgnoreCase)
     {
         "Compile",
@@ -106,6 +105,123 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
         if (string.IsNullOrWhiteSpace(solutionDir))
             throw new InvalidOperationException("Не удалось определить папку Solution.");
 
+        ZipBuildConfig config = ZipBuildConfig.Load(solutionPath);
+
+        return config == null
+            ? BuildZipArchiveBySolution(solutionPath)
+            : BuildZipArchiveByConfig(solutionPath, config);
+    }
+
+    private static string BuildZipArchiveByConfig(string solutionPath, ZipBuildConfig config)
+    {
+        string solutionDir = Path.GetDirectoryName(solutionPath);
+        string solutionName = Path.GetFileNameWithoutExtension(solutionPath);
+
+        string rootDir = ResolvePath(solutionDir, ReplaceVariables(config.Root, solutionDir, solutionName));
+        if (!Directory.Exists(rootDir))
+            throw new InvalidOperationException($"Корневая папка из конфига не найдена:\n{rootDir}");
+
+        string archiveName = string.IsNullOrWhiteSpace(config.ArchiveName)
+            ? solutionName + ".zip"
+            : ReplaceVariables(config.ArchiveName, solutionDir, solutionName);
+
+        if (!archiveName.EndsWith(".zip", StringComparison.OrdinalIgnoreCase))
+            archiveName += ".zip";
+
+        string outputDir = string.IsNullOrWhiteSpace(config.OutputDir)
+            ? solutionDir
+            : ResolvePath(solutionDir, ReplaceVariables(config.OutputDir, solutionDir, solutionName));
+
+        Directory.CreateDirectory(outputDir);
+
+        string zipPath = Path.Combine(outputDir, archiveName);
+        string tempRoot = Path.Combine(Path.GetTempPath(), "VS.Helper.Zip", Guid.NewGuid().ToString("N"));
+
+        Directory.CreateDirectory(tempRoot);
+
+        try
+        {
+            HashSet<string> files = new(StringComparer.OrdinalIgnoreCase);
+
+            foreach (string include in config.Include)
+            {
+                foreach (string file in ExpandConfiguredPath(rootDir, include))
+                    files.Add(file);
+            }
+
+            if (!string.IsNullOrWhiteSpace(config.StartProject))
+            {
+                string startProjectPath = ResolvePath(rootDir, config.StartProject);
+
+                if (File.Exists(startProjectPath))
+                {
+                    files.Add(startProjectPath);
+
+                    Queue<string> projects = new();
+                    projects.Enqueue(startProjectPath);
+
+                    HashSet<string> visitedProjects = new(StringComparer.OrdinalIgnoreCase);
+
+                    while (projects.Count > 0)
+                    {
+                        string projectPath = Path.GetFullPath(projects.Dequeue());
+
+                        if (!File.Exists(projectPath) || !visitedProjects.Add(projectPath))
+                            continue;
+
+                        files.Add(projectPath);
+
+                        List<string> projectReferences;
+
+                        foreach (string file in GetFilesFromProject(projectPath, out projectReferences))
+                            files.Add(file);
+
+                        foreach (string reference in projectReferences)
+                            if (!visitedProjects.Contains(reference))
+                                projects.Enqueue(reference);
+                    }
+                }
+            }
+
+            foreach (string file in files.OrderBy(x => x, StringComparer.OrdinalIgnoreCase))
+            {
+                if (!File.Exists(file) || IsSamePath(file, zipPath))
+                    continue;
+
+                string relativePath = GetRelativePath(rootDir, file);
+
+                if (relativePath.StartsWith(".." + Path.DirectorySeparatorChar, StringComparison.Ordinal) ||
+                    relativePath.Equals("..", StringComparison.Ordinal))
+                {
+                    relativePath = Path.Combine("_External", Path.GetFileName(file));
+                }
+
+                if (IsIgnoredPath(file) || IsExcluded(relativePath, config.Exclude))
+                    continue;
+
+                string destination = Path.Combine(tempRoot, relativePath);
+                Directory.CreateDirectory(Path.GetDirectoryName(destination));
+                File.Copy(file, destination, true);
+            }
+
+            if (File.Exists(zipPath))
+                File.Delete(zipPath);
+
+            ZipFile.CreateFromDirectory(tempRoot, zipPath, CompressionLevel.Optimal, false);
+            return zipPath;
+        }
+        finally
+        {
+            TryDeleteDirectory(tempRoot);
+        }
+    }
+
+    private static string BuildZipArchiveBySolution(string solutionPath)
+    {
+        string solutionDir = Path.GetDirectoryName(solutionPath);
+        if (string.IsNullOrWhiteSpace(solutionDir))
+            throw new InvalidOperationException("Не удалось определить папку Solution.");
+
         string solutionName = Path.GetFileNameWithoutExtension(solutionPath);
         string zipPath = Path.Combine(solutionDir, solutionName + ".zip");
         string tempRoot = Path.Combine(Path.GetTempPath(), "VS.Helper.Zip", Guid.NewGuid().ToString("N"));
@@ -136,9 +252,6 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
                 foreach (string file in GetFilesFromProject(projectPath, out projectReferences))
                     files.Add(file);
 
-                // SDK-style проекты обычно НЕ перечисляют .cs/.razor/.json файлы в .csproj.
-                // Поэтому для ZIP берём всю папку проекта по файловой системе,
-                // исключая только мусорные каталоги/файлы сборки.
                 foreach (string file in GetFilesFromProjectDirectory(projectPath))
                     files.Add(file);
 
@@ -173,15 +286,7 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
         }
         finally
         {
-            try
-            {
-                if (Directory.Exists(tempRoot))
-                    Directory.Delete(tempRoot, true);
-            }
-            catch
-            {
-                // Временная папка не должна ломать результат/сообщение пользователю.
-            }
+            TryDeleteDirectory(tempRoot);
         }
     }
 
@@ -319,6 +424,98 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
         }
     }
 
+    private static IEnumerable<string> ExpandConfiguredPath(string rootDir, string include)
+    {
+        if (string.IsNullOrWhiteSpace(include))
+            yield break;
+
+        include = include.Replace('/', Path.DirectorySeparatorChar);
+
+        if (HasWildcard(include))
+        {
+            foreach (string file in ExpandProjectItem(rootDir, include))
+                yield return file;
+
+            yield break;
+        }
+
+        string fullPath = ResolvePath(rootDir, include);
+
+        if (File.Exists(fullPath))
+        {
+            yield return fullPath;
+            yield break;
+        }
+
+        if (!Directory.Exists(fullPath))
+            yield break;
+
+        foreach (string file in Directory.EnumerateFiles(fullPath, "*.*", SearchOption.AllDirectories))
+            yield return Path.GetFullPath(file);
+    }
+
+    private static bool IsExcluded(string relativePath, IEnumerable<string> excludes)
+    {
+        string normalized = NormalizeRelativePath(relativePath);
+
+        foreach (string exclude in excludes ?? Enumerable.Empty<string>())
+        {
+            string pattern = NormalizeRelativePath(exclude);
+
+            if (string.IsNullOrWhiteSpace(pattern))
+                continue;
+
+            if (WildcardMatch(normalized, pattern))
+                return true;
+
+            string segmentPattern = pattern.Trim('/');
+
+            if (!segmentPattern.Contains("*") && normalized.Split('/').Any(x => x.Equals(segmentPattern, StringComparison.OrdinalIgnoreCase)))
+                return true;
+        }
+
+        return false;
+    }
+
+    private static bool WildcardMatch(string text, string pattern)
+    {
+        pattern = "^" + Regex.Escape(pattern)
+            .Replace("\\*\\*", ".*")
+            .Replace("\\*", "[^/]*")
+            .Replace("\\?", ".") + "$";
+
+        return Regex.IsMatch(text, pattern, RegexOptions.IgnoreCase);
+    }
+
+    private static string NormalizeRelativePath(string path)
+    {
+        return (path ?? string.Empty)
+            .Replace('\\', '/')
+            .TrimStart('/')
+            .TrimEnd('/');
+    }
+
+    private static string ResolvePath(string baseDir, string path)
+    {
+        if (string.IsNullOrWhiteSpace(path))
+            return Path.GetFullPath(baseDir);
+
+        path = Environment.ExpandEnvironmentVariables(path);
+
+        return Path.IsPathRooted(path)
+            ? Path.GetFullPath(path)
+            : Path.GetFullPath(Path.Combine(baseDir, path));
+    }
+
+    private static string ReplaceVariables(string value, string solutionDir, string solutionName)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+            return value;
+
+        return value
+            .Replace("$(SolutionDir)", AppendDirectorySeparatorChar(solutionDir))
+            .Replace("$(SolutionName)", solutionName);
+    }
 
     private static string GetRelativePath(string baseDirectory, string filePath)
     {
@@ -368,5 +565,76 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
             part.Equals(".git", StringComparison.OrdinalIgnoreCase) ||
             part.Equals("node_modules", StringComparison.OrdinalIgnoreCase) ||
             part.Equals("packages", StringComparison.OrdinalIgnoreCase));
+    }
+
+    private static void TryDeleteDirectory(string directory)
+    {
+        try
+        {
+            if (Directory.Exists(directory))
+                Directory.Delete(directory, true);
+        }
+        catch
+        {
+            // Временная папка не должна ломать результат/сообщение пользователю.
+        }
+    }
+
+    private sealed class ZipBuildConfig
+    {
+        public string Root { get; private set; }
+        public string OutputDir { get; private set; }
+        public string ArchiveName { get; private set; }
+        public string StartProject { get; private set; }
+        public List<string> Include { get; } = new();
+        public List<string> Exclude { get; } = new();
+
+        public static ZipBuildConfig Load(string solutionPath)
+        {
+            string solutionDir = Path.GetDirectoryName(solutionPath);
+            string configPath = Path.Combine(solutionDir, ConfigFileName);
+
+            if (!File.Exists(configPath))
+                return null;
+
+            XDocument document = XDocument.Load(configPath);
+            XElement root = document.Root;
+
+            if (root == null)
+                throw new InvalidOperationException($"Пустой конфиг: {configPath}");
+
+            ZipBuildConfig config = new()
+            {
+                Root = ReadValue(root, "Root") ?? "$(SolutionDir)",
+                OutputDir = ReadValue(root, "OutputDir") ?? "$(SolutionDir)",
+                ArchiveName = ReadValue(root, "ArchiveName") ?? "$(SolutionName).zip",
+                StartProject = ReadValue(root, "StartProject")
+            };
+
+            foreach (XElement element in root.Element("Include")?.Elements("Path") ?? Enumerable.Empty<XElement>())
+            {
+                string value = ((string)element).Trim();
+                if (!string.IsNullOrWhiteSpace(value))
+                    config.Include.Add(value);
+            }
+
+            foreach (XElement element in root.Element("Exclude")?.Elements("Path") ?? Enumerable.Empty<XElement>())
+            {
+                string value = ((string)element).Trim();
+                if (!string.IsNullOrWhiteSpace(value))
+                    config.Exclude.Add(value);
+            }
+
+            if (config.Include.Count == 0)
+                throw new InvalidOperationException($"{ConfigFileName}: секция <Include> пуста.");
+
+            return config;
+        }
+
+        private static string ReadValue(XElement root, string name)
+        {
+            string value = (string)root.Element(name);
+            return string.IsNullOrWhiteSpace(value) ? null : value.Trim();
+        }
     }
 }

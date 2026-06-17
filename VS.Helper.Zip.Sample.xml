@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VSHelperZip>
+  <Root>$(SolutionDir)</Root>
+  <OutputDir>$(SolutionDir)</OutputDir>
+  <ArchiveName>$(SolutionName).zip</ArchiveName>
+  <StartProject>RhymeContest.Blazor.Server\RhymeContest.Blazor.Server.csproj</StartProject>
+
+  <Git>
+    <UserName>YOUR_GITHUB_LOGIN</UserName>
+    <Token></Token>
+    <TokenProtected></TokenProtected>
+  </Git>
+
+  <Include>
+    <Path>RhymeContest.sln</Path>
+    <Path>RhymeContest.Blazor.Server</Path>
+    <Path>RhymeContest.Module</Path>
+    <Path>RhymeContest.Module.Blazor</Path>
+    <Path>Directory.Build.props</Path>
+    <Path>Directory.Packages.props</Path>
+    <Path>NuGet.config</Path>
+    <Path>README.md</Path>
+  </Include>
+
+  <Exclude>
+    <Path>**/bin/**</Path>
+    <Path>**/obj/**</Path>
+    <Path>**/.vs/**</Path>
+    <Path>**/.git/**</Path>
+    <Path>**/node_modules/**</Path>
+    <Path>**/packages/**</Path>
+    <Path>**/*.user</Path>
+    <Path>**/*.suo</Path>
+    <Path>**/*.pdb</Path>
+    <Path>**/*.cache</Path>
+    <Path>**/*.log</Path>
+    <Path>**/appsettings.Development.json</Path>
+    <Path>**/appsettings.Production.json</Path>
+    <Path>**/*.db</Path>
+    <Path>**/*.sqlite</Path>
+  </Exclude>
+</VSHelperZip>
