@@ -1,20 +1,21 @@
-﻿using System.Reflection;
+﻿// Properties\AssemblyInfo.cs
+using System.Reflection;
 using System.Runtime.InteropServices;
-using VS.Helper;
 
-[assembly: AssemblyTitle(Vsix.Name)]
-[assembly: AssemblyDescription(Vsix.Description)]
+[assembly: AssemblyTitle("VS.Helper")]
+[assembly: AssemblyDescription("Помощник программиста")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany(Vsix.Author)]
-[assembly: AssemblyProduct(Vsix.Name)]
-[assembly: AssemblyCopyright(Vsix.Author)]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyCompany("GH Frilance")]
+[assembly: AssemblyProduct("VS.Helper")]
+[assembly: AssemblyCopyright("© GH Freelance, 2026. All rights reserved.")]
+[assembly: AssemblyTrademark("VS.Helper™")]
 [assembly: AssemblyCulture("")]
 
 [assembly: ComVisible(false)]
 
-[assembly: AssemblyVersion(Vsix.Version)]
-[assembly: AssemblyFileVersion(Vsix.Version)]
+[assembly: AssemblyVersion("2026.0.2.6")]
+[assembly: AssemblyFileVersion("2026.1")]
+[assembly: Guid("7E3B6F2D-91A8-4C47-8D5E-2F1A9BC64E73")]
 
 namespace System.Runtime.CompilerServices
 {

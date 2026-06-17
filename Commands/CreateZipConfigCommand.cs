@@ -1,6 +1,5 @@
-// Commands\CreateZipConfigCommand.cs
+﻿// Commands\CreateZipConfigCommand.cs
 using EnvDTE;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;

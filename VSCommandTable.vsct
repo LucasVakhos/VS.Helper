@@ -1,69 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable">
-	<Extern href="stdidcmd.h" />
-	<Extern href="vsshlids.h" />
-	<Include href="VSGlobals.vsct" />
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable"
+              xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-	<Commands package="guidVSHelperPackage">
-		<Groups>
-			<Group guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" priority="0x0600">
-				<Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_EDIT" />
-			</Group>
-		</Groups>
+  <Extern href="stdidcmd.h" />
+  <Extern href="vsshlids.h" />
 
-		<Buttons>
-			<Button guid="guidVSHelperPackageCmdSet" id="AppCleanerToolsCommand" priority="0x0500" type="Button">
-				<Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
-				<CommandFlag>DynamicVisibility</CommandFlag>
-				<Strings>
-					<ButtonText>VS.Helper: AppCleaner Tools</ButtonText>
-				</Strings>
-			</Button>
-			<Button guid="guidVSHelperPackageCmdSet" id="CreateCommentCommand" priority="0x0100" type="Button">
-				<Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
-				<CommandFlag>DynamicVisibility</CommandFlag>
-				<Strings>
-					<ButtonText>VS.Helper: Create Comment</ButtonText>
-				</Strings>
-			</Button>
+  <Include href="VSGlobals.vsct" />
+  <Include href="KnownImageIds.vsct" />
 
-			<Button guid="guidVSHelperPackageCmdSet" id="BuildZipCommand" priority="0x0200" type="Button">
-				<Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
-				<CommandFlag>DynamicVisibility</CommandFlag>
-				<Strings>
-					<ButtonText>VS.Helper: Build ZIP</ButtonText>
-				</Strings>
-			</Button>
+  <Commands package="guidVSHelperPackage">
+    <Groups>
+      <Group guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" priority="0x0600">
+        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_EDIT" />
+      </Group>
+    </Groups>
 
-			<Button guid="guidVSHelperPackageCmdSet" id="CreateZipConfigCommand" priority="0x0300" type="Button">
-				<Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
-				<CommandFlag>DynamicVisibility</CommandFlag>
-				<Strings>
-					<ButtonText>VS.Helper: Create ZIP Config</ButtonText>
-				</Strings>
-			</Button>
+    <Buttons>
+      <Button guid="guidVSHelperPackageCmdSet" id="CreateCommentCommand" priority="0x0100" type="Button">
+        <Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
+        <Strings>
+          <ButtonText>VS.Helper: Insert file path comment</ButtonText>
+        </Strings>
+      </Button>
 
-			<Button guid="guidVSHelperPackageCmdSet" id="CommitStampSyncGitCommand" priority="0x0400" type="Button">
-				<Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
-				<CommandFlag>DynamicVisibility</CommandFlag>
-				<Strings>
-					<ButtonText>VS.Helper: Commit + Sync Git</ButtonText>
-				</Strings>
-			</Button>
+      <Button guid="guidVSHelperPackageCmdSet" id="BuildZipCommand" priority="0x0200" type="Button">
+        <Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
+        <Strings>
+          <ButtonText>VS.Helper: Build ZIP</ButtonText>
+        </Strings>
+      </Button>
 
+      <Button guid="guidVSHelperPackageCmdSet" id="CreateZipConfigCommand" priority="0x0300" type="Button">
+        <Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
+        <Strings>
+          <ButtonText>VS.Helper: Create ZIP config</ButtonText>
+        </Strings>
+      </Button>
 
-		</Buttons>
-	</Commands>
+      <Button guid="guidVSHelperPackageCmdSet" id="CommitStampSyncGitCommand" priority="0x0400" type="Button">
+        <Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
+        <Strings>
+          <ButtonText>VS.Helper: Commit + Sync Git</ButtonText>
+        </Strings>
+      </Button>
 
-	<Symbols>
-		<GuidSymbol name="guidVSHelperPackage" value="{32bf848a-bd7e-4f10-9b06-9c9f9feb8e4a}" />
-		<GuidSymbol name="guidVSHelperPackageCmdSet" value="{32bf848a-bd7e-4f10-9b06-9c9f9feb8e4a}">
-			<IDSymbol name="VSHelperGroup" value="0x0001" />
-			<IDSymbol name="CreateCommentCommand" value="0x0100" />
-			<IDSymbol name="BuildZipCommand" value="0x0200" />
-			<IDSymbol name="CreateZipConfigCommand" value="0x0300" />
-			<IDSymbol name="CommitStampSyncGitCommand" value="0x0400" />
-			<IDSymbol name="AppCleanerToolsCommand" value="0x0500" />
-		</GuidSymbol>
-	</Symbols>
+      <Button guid="guidVSHelperPackageCmdSet" id="AppCleanerToolsCommand" priority="0x0500" type="Button">
+        <Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
+        <Strings>
+          <ButtonText>VS.Helper: AppCleaner Tools</ButtonText>
+        </Strings>
+      </Button>
+    </Buttons>
+  </Commands>
+
+  <Symbols>
+    <GuidSymbol name="guidVSHelperPackage" value="{32BF848A-BD7E-4F10-9B06-9C9F9FEB8E4A}" />
+
+    <GuidSymbol name="guidVSHelperPackageCmdSet" value="{32BF848A-BD7E-4F10-9B06-9C9F9FEB8E4A}">
+      <IDSymbol name="VSHelperGroup" value="0x0001" />
+      <IDSymbol name="CreateCommentCommand" value="0x0100" />
+      <IDSymbol name="BuildZipCommand" value="0x0200" />
+      <IDSymbol name="CreateZipConfigCommand" value="0x0300" />
+      <IDSymbol name="CommitStampSyncGitCommand" value="0x0400" />
+      <IDSymbol name="AppCleanerToolsCommand" value="0x0500" />
+    </GuidSymbol>
+  </Symbols>
 </CommandTable>

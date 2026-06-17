@@ -1,8 +1,5 @@
 ﻿// Commands\CommitStampSyncGitCommand.cs
-using Community.VisualStudio.Toolkit;
 using EnvDTE;
-using Microsoft.VisualStudio.Shell;
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
@@ -354,7 +351,7 @@ internal sealed class CommitStampSyncGitCommand : BaseCommand<CommitStampSyncGit
         using (StringReader reader = new StringReader(status.Output ?? string.Empty))
         {
             string line;
-            while ((line = reader.ReadLine()) != null)
+            while ((line = await reader.ReadLineAsync()) != null)
             {
                 if (line.Length < 3)
                     continue;
