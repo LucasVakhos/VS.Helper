@@ -2,7 +2,7 @@
 // Commands\OperationTypes.cs
 namespace VS.Helper.Commands;
 
-internal enum OperationTypes
+internal enum VSHelperOperationTypes
 {
     ProcessContent,
     ProcessFiles,

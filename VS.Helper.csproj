@@ -8,7 +8,8 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>GH Programmer.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -53,21 +54,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Helpers\AppCleanerEngine.cs" />
-    <Compile Include="Helpers\AppCleanerLogDialog.cs">
+    <Compile Include="Helpers\VSHelperEngine.cs" />
+    <Compile Include="Helpers\VSHelperLogDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Helpers\AppCleanerToolsDialog.cs">
+    <Compile Include="Helpers\VSHelperToolsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Helpers\AppCleanerToolsHelper.cs" />
-    <Compile Include="Helpers\Classes\AppCleanerOptions.cs" />
-    <Compile Include="Helpers\Classes\AppCleanerSolutionInfo.cs" />
-    <Compile Include="Helpers\Classes\ComboTodoAttribute.cs" />
-    <Compile Include="Helpers\Classes\ComboTodoItems.cs" />
-    <Compile Include="Helpers\Classes\EnumExtensions.cs" />
-    <Compile Include="Helpers\Classes\OperationTypes.cs" />
-    <Compile Include="Helpers\Classes\PatternType.cs" />
+    <Compile Include="Helpers\VSHelperToolsHelper.cs" />
+    <Compile Include="Helpers\Classes\VSHelperOptions.cs" />
+    <Compile Include="Helpers\Classes\VSHelperSolutionInfo.cs" />
+    <Compile Include="Helpers\Classes\VSHelperComboTodoAttribute.cs" />
+    <Compile Include="Helpers\Classes\VSHelperComboTodoItems.cs" />
+    <Compile Include="Helpers\Classes\VSHelperEnumExtensions.cs" />
+    <Compile Include="Helpers\Classes\VSHelperOperationTypes.cs" />
+    <Compile Include="Helpers\Classes\VSHelperPatternType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Commands\CreateCommentCommand.cs" />
     <Compile Include="Commands\BuildZipCommand.cs" />
@@ -89,7 +90,6 @@
   <ItemGroup>
     <Content Include=".gitignore" />
     <Content Include="VS.Helper.Zip.xml" />
-    <None Include="GH Programmer.pfx" />
     <None Include="source.extension.vsixmanifest">
       <SubType>Designer</SubType>
     </None>
@@ -126,9 +126,7 @@
     <PackageReference Include="Community.VisualStudio.Toolkit.17" Version="17.0.549" ExcludeAssets="Runtime" />
     <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.14.2120" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="VSIX\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

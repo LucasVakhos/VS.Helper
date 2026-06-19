@@ -1,13 +1,13 @@
-﻿// Helpers\AppCleanerToolsDialog.cs
-// Commands\AppCleanerToolsDialog.cs
+﻿// Helpers\VSHelperToolsDialog.cs
+// Commands\VSHelperToolsDialog.cs
 using System.IO;
 using System.Windows.Forms;
 
 namespace VS.Helper.Commands;
 
-internal sealed class AppCleanerToolsDialog : Form
+internal sealed class VSHelperToolsDialog : Form
 {
-    private readonly AppCleanerSolutionInfo _solution;
+    private readonly VSHelperSolutionInfo _solution;
     private readonly ComboBox _combo = new ComboBox();
     private readonly TextBox _solutionPath = new TextBox();
     private readonly ComboBox _projectPath = new ComboBox();
@@ -29,11 +29,11 @@ internal sealed class AppCleanerToolsDialog : Form
 
     private readonly Button _placeBrowse = new Button();
 
-    public AppCleanerToolsDialog(AppCleanerSolutionInfo solution)
+    public VSHelperToolsDialog(VSHelperSolutionInfo solution)
     {
         _solution = solution;
 
-        Text = "VS.Helper / AppCleaner Tools";
+        Text = "VS.Helper / VSHelper Tools";
         Width = 800;
         Height = 430;
         StartPosition = FormStartPosition.CenterScreen;
@@ -46,7 +46,7 @@ internal sealed class AppCleanerToolsDialog : Form
         _combo.Top = 16;
         _combo.Width = 748;
 
-        foreach (ComboTodoItems item in Enum.GetValues(typeof(ComboTodoItems)))
+        foreach (VSHelperComboTodoItems item in Enum.GetValues(typeof(VSHelperComboTodoItems)))
             _combo.Items.Add(new ComboItem(item));
 
         _combo.SelectedIndex = 0;
@@ -185,10 +185,10 @@ internal sealed class AppCleanerToolsDialog : Form
         ApplySelectedMetadata();
     }
 
-    public AppCleanerOptions GetOptions()
+    public VSHelperOptions GetOptions()
     {
         ComboItem selected = (ComboItem)_combo.SelectedItem;
-        ComboTodoAttribute attr = selected.Value.GetAttribute<ComboTodoAttribute>();
+        VSHelperComboTodoAttribute attr = selected.Value.GetAttribute<VSHelperComboTodoAttribute>();
 
         string searchPath = _solution.SolutionDir;
 
@@ -202,7 +202,7 @@ internal sealed class AppCleanerToolsDialog : Form
         else if (attr.ShowPlace)
             placePath = _placePath.Text.Trim();
 
-        return new AppCleanerOptions
+        return new VSHelperOptions
         {
             Item = selected.Value,
             SolutionPath = _solution.SolutionPath,
@@ -219,7 +219,7 @@ internal sealed class AppCleanerToolsDialog : Form
 
     private void LoadProjects()
     {
-        string[] projects = AppCleanerToolsHelper.GetProjectsFromSolution(_solution);
+        string[] projects = VSHelperToolsHelper.GetProjectsFromSolution(_solution);
 
         foreach (string project in projects)
         {
@@ -240,7 +240,7 @@ internal sealed class AppCleanerToolsDialog : Form
         if (selected == null)
             return;
 
-        ComboTodoAttribute attr = selected.Value.GetAttribute<ComboTodoAttribute>();
+        VSHelperComboTodoAttribute attr = selected.Value.GetAttribute<VSHelperComboTodoAttribute>();
 
         _projectLabel.Text = attr.SearchLabel;
         _sampleProjectLabel.Text = attr.PlaceLabel;
@@ -295,16 +295,16 @@ internal sealed class AppCleanerToolsDialog : Form
 
     private sealed class ComboItem
     {
-        public ComboItem(ComboTodoItems value)
+        public ComboItem(VSHelperComboTodoItems value)
         {
             Value = value;
         }
 
-        public ComboTodoItems Value { get; }
+        public VSHelperComboTodoItems Value { get; }
 
         public override string ToString()
         {
-            ComboTodoAttribute attr = Value.GetAttribute<ComboTodoAttribute>();
+            VSHelperComboTodoAttribute attr = Value.GetAttribute<VSHelperComboTodoAttribute>();
             return attr == null ? Value.ToString() : attr.Name;
         }
     }

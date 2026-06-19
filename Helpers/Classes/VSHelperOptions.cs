@@ -1,10 +1,10 @@
-﻿// Helpers\Classes\AppCleanerOptions.cs
-// Commands\AppCleanerOptions.cs
+﻿// Helpers\Classes\VSHelperOptions.cs
+// Commands\VSHelperOptions.cs
 namespace VS.Helper.Commands;
 
-internal sealed class AppCleanerOptions
+internal sealed class VSHelperOptions
 {
-    public ComboTodoItems Item { get; set; }
+    public VSHelperComboTodoItems Item { get; set; }
     public string SolutionPath { get; set; }
     public string SolutionDir { get; set; }
     public string SearchPath { get; set; }

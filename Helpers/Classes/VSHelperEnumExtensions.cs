@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace VS.Helper.Commands;
 
-internal static class EnumExtensions
+internal static class VSHelperEnumExtensions
 {
     public static TAttribute GetAttribute<TAttribute>(this Enum value)
         where TAttribute : Attribute

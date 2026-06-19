@@ -21,6 +21,6 @@ namespace VS.Helper
         public const int BuildZipCommand = 0x0200;
         public const int CreateZipConfigCommand = 0x0300;
         public const int CommitStampSyncGitCommand = 0x0400;
-        public const int AppCleanerToolsCommand = 0x0500;
+        public const int VSHelperToolsCommand = 0x0500;
     }
 }

@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace VS.Helper.Commands;
 
-internal enum PatternType
+internal enum VSHelperPatternType
 {
     [Description("*.cs")]
     CS,

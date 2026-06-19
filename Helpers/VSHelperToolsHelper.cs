@@ -1,5 +1,5 @@
-﻿// Helpers\AppCleanerToolsHelper.cs
-// Commands\AppCleanerToolsHelper.cs
+﻿// Helpers\VSHelperToolsHelper.cs
+// Commands\VSHelperToolsHelper.cs
 using EnvDTE;
 using System.IO;
 using System.Linq;
@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace VS.Helper.Commands;
 
-internal static class AppCleanerToolsHelper
+internal static class VSHelperToolsHelper
 {
-    public static bool TryGetOpenedSolution(out AppCleanerSolutionInfo info)
+    public static bool TryGetOpenedSolution(out VSHelperSolutionInfo info)
     {
         ThreadHelper.ThrowIfNotOnUIThread();
 
@@ -27,7 +27,7 @@ internal static class AppCleanerToolsHelper
             !string.Equals(ext, ".slnx", StringComparison.OrdinalIgnoreCase))
             return false;
 
-        info = new AppCleanerSolutionInfo
+        info = new VSHelperSolutionInfo
         {
             SolutionPath = solutionPath,
             SolutionDir = Path.GetDirectoryName(solutionPath),
@@ -37,7 +37,7 @@ internal static class AppCleanerToolsHelper
         return true;
     }
 
-    public static string[] GetProjectsFromSolution(AppCleanerSolutionInfo solution)
+    public static string[] GetProjectsFromSolution(VSHelperSolutionInfo solution)
     {
         if (solution == null || string.IsNullOrWhiteSpace(solution.SolutionDir) || !Directory.Exists(solution.SolutionDir))
             return Array.Empty<string>();
@@ -78,7 +78,7 @@ internal static class AppCleanerToolsHelper
 
         System.Windows.Forms.MessageBox.Show(
             message,
-            "VS.Helper / AppCleaner",
+            "VS.Helper / VSHelper",
             System.Windows.Forms.MessageBoxButtons.OK,
             System.Windows.Forms.MessageBoxIcon.Error);
     }

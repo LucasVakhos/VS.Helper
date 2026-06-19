@@ -16,38 +16,32 @@
     </Groups>
 
     <Buttons>
-      <Button guid="guidVSHelperPackageCmdSet" id="CreateCommentCommand" priority="0x0100" type="Button">
-        <Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
-        <Strings>
-          <ButtonText>VS.Helper: Insert file path comment</ButtonText>
-        </Strings>
-      </Button>
 
       <Button guid="guidVSHelperPackageCmdSet" id="BuildZipCommand" priority="0x0200" type="Button">
         <Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
         <Strings>
-          <ButtonText>VS.Helper: Build ZIP</ButtonText>
+          <ButtonText>GH: Build ZIP</ButtonText>
         </Strings>
       </Button>
 
       <Button guid="guidVSHelperPackageCmdSet" id="CreateZipConfigCommand" priority="0x0300" type="Button">
         <Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
         <Strings>
-          <ButtonText>VS.Helper: Create ZIP config</ButtonText>
+          <ButtonText>GH: Create config</ButtonText>
         </Strings>
       </Button>
 
       <Button guid="guidVSHelperPackageCmdSet" id="CommitStampSyncGitCommand" priority="0x0400" type="Button">
         <Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
         <Strings>
-          <ButtonText>VS.Helper: Commit + Sync Git</ButtonText>
+          <ButtonText>GH: Commit + Sync Git</ButtonText>
         </Strings>
       </Button>
 
-      <Button guid="guidVSHelperPackageCmdSet" id="AppCleanerToolsCommand" priority="0x0500" type="Button">
+      <Button guid="guidVSHelperPackageCmdSet" id="VSHelperToolsCommand" priority="0x0500" type="Button">
         <Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
         <Strings>
-          <ButtonText>VS.Helper: AppCleaner Tools</ButtonText>
+          <ButtonText>GH: Other tools</ButtonText>
         </Strings>
       </Button>
     </Buttons>
@@ -62,7 +56,7 @@
       <IDSymbol name="BuildZipCommand" value="0x0200" />
       <IDSymbol name="CreateZipConfigCommand" value="0x0300" />
       <IDSymbol name="CommitStampSyncGitCommand" value="0x0400" />
-      <IDSymbol name="AppCleanerToolsCommand" value="0x0500" />
+      <IDSymbol name="VSHelperToolsCommand" value="0x0500" />
     </GuidSymbol>
   </Symbols>
 </CommandTable>

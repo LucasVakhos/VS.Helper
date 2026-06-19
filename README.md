@@ -48,8 +48,8 @@ On the next run it is encrypted via Windows DPAPI and moved to:
 
 `TokenProtected` can be decrypted only by the same Windows user on the same machine.
 
-### AppCleaner Tools
-One command opens a dialog with AppCleaner-style operations:
+### VSHelper Tools
+One command opens a dialog with VSHelper-style operations:
 
 - Delete empty lines
 - Delete `#region` / `#endregion`
@@ -128,7 +128,7 @@ Do not commit plain GitHub tokens.
 
 ## Notes
 
-This migration ports AppCleaner’s main workflow into VS.Helper as one VS command with a combo dialog.  
+This migration ports VSHelper’s main workflow into VS.Helper as one VS command with a combo dialog.  
 The old WinForms/DevExpress `FileScanner` UI is not embedded; the VS extension has its own lightweight dialog.
 
 
@@ -140,7 +140,7 @@ The old WinForms/DevExpress `FileScanner` UI is not embedded; the VS extension h
 2. Build ZIP
 3. Commit + Sync Git
 4. Create ZIP Config
-5. AppCleaner Tools
+5. VSHelper Tools
 
 Если видны только 4 команды, значит в проект не попал `VSCommandTable.vsct` или Visual Studio держит старую установленную версию расширения. Удали старую версию из Extensions, закрой VS, очисти `bin/obj`, пересобери и установи новый VSIX.
 
@@ -149,4 +149,4 @@ The old WinForms/DevExpress `FileScanner` UI is not embedded; the VS extension h
 
 - VSIX version bumped to 2.0.4.0.
 - Menu table synchronized: 5 commands under Tools.
-- AppCleaner Tools command id: 0x0500.
+- VSHelper Tools command id: 0x0500.

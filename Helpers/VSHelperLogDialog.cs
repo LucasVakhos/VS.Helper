@@ -1,14 +1,14 @@
-﻿// Helpers\AppCleanerLogDialog.cs
-// Commands\AppCleanerLogDialog.cs
+﻿// Helpers\VSHelperLogDialog.cs
+// Commands\VSHelperLogDialog.cs
 using System.Windows.Forms;
 
 namespace VS.Helper.Commands;
 
-internal sealed class AppCleanerLogDialog : Form
+internal sealed class VSHelperLogDialog : Form
 {
-    private AppCleanerLogDialog(string log)
+    private VSHelperLogDialog(string log)
     {
-        Text = "VS.Helper / AppCleaner Log";
+        Text = "VS.Helper / VSHelper Log";
         Width = 980;
         Height = 700;
         StartPosition = FormStartPosition.CenterScreen;
@@ -27,7 +27,7 @@ internal sealed class AppCleanerLogDialog : Form
 
     public static void ShowLog(string log)
     {
-        using AppCleanerLogDialog dialog = new AppCleanerLogDialog(log);
+        using VSHelperLogDialog dialog = new VSHelperLogDialog(log);
         dialog.ShowDialog();
     }
 }

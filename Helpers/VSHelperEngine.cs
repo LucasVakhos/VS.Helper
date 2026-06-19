@@ -1,5 +1,5 @@
-﻿// Helpers\AppCleanerEngine.cs
-// Commands\AppCleanerEngine.cs
+﻿// Helpers\VSHelperEngine.cs
+// Commands\VSHelperEngine.cs
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,21 +9,21 @@ using System.Xml.Linq;
 
 namespace VS.Helper.Commands;
 
-internal static class AppCleanerEngine
+internal static class VSHelperEngine
 {
     private static readonly string[] IgnoredDirectoryNames =
     {
         "bin", "obj", ".vs", ".git", "node_modules", "packages"
     };
 
-    public static string Run(AppCleanerOptions options)
+    public static string Run(VSHelperOptions options)
     {
         if (string.IsNullOrWhiteSpace(options.SearchPath))
             options.SearchPath = options.SolutionDir;
 
         StringBuilder log = new StringBuilder();
 
-        log.AppendLine("VS.Helper / AppCleaner");
+        log.AppendLine("VS.Helper / VSHelper");
         log.AppendLine("Solution: " + options.SolutionPath);
         log.AppendLine("Операция: " + options.Item);
         log.AppendLine("Search: " + options.SearchPath);
@@ -35,79 +35,79 @@ internal static class AppCleanerEngine
 
         switch (options.Item)
         {
-            case ComboTodoItems.DeleteEmpty:
+            case VSHelperComboTodoItems.DeleteEmpty:
                 ProcessTextFiles(options, log, RemoveExtraEmptyLines);
                 break;
 
-            case ComboTodoItems.DeleteRegionRows:
+            case VSHelperComboTodoItems.DeleteRegionRows:
                 ProcessTextFiles(options, log, RemoveRegionLines);
                 break;
 
-            case ComboTodoItems.FindAndReplace:
+            case VSHelperComboTodoItems.FindAndReplace:
                 FindAndReplace(options, log);
                 break;
 
-            case ComboTodoItems.FindValueOrClassAddScaveToProject:
+            case VSHelperComboTodoItems.FindValueOrClassAddScaveToProject:
                 FindValueOrClassAddScaveToProject(options, log);
                 break;
 
-            case ComboTodoItems.ClearNameSpace:
+            case VSHelperComboTodoItems.ClearNameSpace:
                 ProcessTextFiles(options, log, ClearDuplicateUsingBlocks);
                 break;
 
-            case ComboTodoItems.CollectAllNameSpaces:
+            case VSHelperComboTodoItems.CollectAllNameSpaces:
                 CollectRegex(options, log, @"^\s*namespace\s+([A-Za-z_][A-Za-z0-9_.]*)", "namespaces.txt");
                 break;
 
-            case ComboTodoItems.CollectUsingPackages:
+            case VSHelperComboTodoItems.CollectUsingPackages:
                 CollectRegex(options, log, @"^\s*using\s+([A-Za-z_][A-Za-z0-9_.]*)\s*;", "usings.txt");
                 break;
 
-            case ComboTodoItems.DeleteBakFiles:
+            case VSHelperComboTodoItems.DeleteBakFiles:
                 DeleteBakFiles(options, log);
                 break;
 
-            case ComboTodoItems.DeleteNonProjectFiles:
+            case VSHelperComboTodoItems.DeleteNonProjectFiles:
                 DeleteNonProjectFiles(options, log);
                 break;
 
-            case ComboTodoItems.SyncProjectFileWithSample:
+            case VSHelperComboTodoItems.SyncProjectFileWithSample:
                 SyncProjectFileWithSample(options, log);
                 break;
 
-            case ComboTodoItems.ConvertOldCsprojToSdkStyle:
+            case VSHelperComboTodoItems.ConvertOldCsprojToSdkStyle:
                 ConvertOldCsprojToSdkStyle(options, log);
                 break;
 
-            case ComboTodoItems.TranslateEnToRu:
+            case VSHelperComboTodoItems.TranslateEnToRu:
                 log.AppendLine("Перевод через AI/API в VS.Helper пока не подключён. Операция оставлена в списке как зарезервированная.");
                 break;
 
-            case ComboTodoItems.NormalizeMethodSignatures:
+            case VSHelperComboTodoItems.NormalizeMethodSignatures:
                 ProcessTextFiles(options, log, NormalizeMethodSignatures);
                 break;
 
-            case ComboTodoItems.RestoreCSharpFilesFromBak:
+            case VSHelperComboTodoItems.RestoreCSharpFilesFromBak:
                 RestoreCSharpFilesFromBak(options, log);
                 break;
 
-            case ComboTodoItems.RestoreMissingUsings:
+            case VSHelperComboTodoItems.RestoreMissingUsings:
                 RestoreMissingUsings(options, log);
                 break;
 
-            case ComboTodoItems.AddFilePathCommentToCsFiles:
+            case VSHelperComboTodoItems.AddFilePathCommentToCsFiles:
                 AddFilePathCommentToCsFiles(options, log);
                 break;
 
-            case ComboTodoItems.CreateVsHelperZipConfig:
+            case VSHelperComboTodoItems.CreateVsHelperZipConfig:
                 CreateOrUpdateVsHelperZipConfig(options, log);
                 break;
 
-            case ComboTodoItems.BuildVsHelperZip:
+            case VSHelperComboTodoItems.BuildVsHelperZip:
                 log.AppendLine("Сборка ZIP уже есть отдельной командой VS.Helper: Build ZIP. В диалоге операция оставлена как напоминание.");
                 break;
 
-            case ComboTodoItems.CommitPullPushWithToken:
+            case VSHelperComboTodoItems.CommitPullPushWithToken:
                 log.AppendLine("Git Sync уже есть отдельной командой VS.Helper: Commit + Sync Git. В диалоге операция оставлена как напоминание.");
                 break;
 
@@ -119,7 +119,7 @@ internal static class AppCleanerEngine
         return log.ToString();
     }
 
-    private static void ProcessTextFiles(AppCleanerOptions options, StringBuilder log, Func<string, string> transform)
+    private static void ProcessTextFiles(VSHelperOptions options, StringBuilder log, Func<string, string> transform)
     {
         int changed = 0;
         int total = 0;
@@ -161,7 +161,7 @@ internal static class AppCleanerEngine
         log.AppendLine("Изменено: " + changed);
     }
 
-    private static void FindAndReplace(AppCleanerOptions options, StringBuilder log)
+    private static void FindAndReplace(VSHelperOptions options, StringBuilder log)
     {
         if (string.IsNullOrEmpty(options.FindText))
         {
@@ -237,7 +237,7 @@ internal static class AppCleanerEngine
         return string.Join(newline, output) + newline;
     }
 
-    private static void CollectRegex(AppCleanerOptions options, StringBuilder log, string pattern, string outputFileName)
+    private static void CollectRegex(VSHelperOptions options, StringBuilder log, string pattern, string outputFileName)
     {
         Regex regex = new Regex(pattern, RegexOptions.Multiline);
         SortedSet<string> values = new SortedSet<string>(StringComparer.OrdinalIgnoreCase);
@@ -265,7 +265,7 @@ internal static class AppCleanerEngine
             log.AppendLine(value);
     }
 
-    private static void DeleteBakFiles(AppCleanerOptions options, StringBuilder log)
+    private static void DeleteBakFiles(VSHelperOptions options, StringBuilder log)
     {
         int count = 0;
 
@@ -281,7 +281,7 @@ internal static class AppCleanerEngine
         log.AppendLine("Удалено .bak: " + count);
     }
 
-    private static void RestoreCSharpFilesFromBak(AppCleanerOptions options, StringBuilder log)
+    private static void RestoreCSharpFilesFromBak(VSHelperOptions options, StringBuilder log)
     {
         int count = 0;
 
@@ -304,7 +304,7 @@ internal static class AppCleanerEngine
         log.AppendLine("Восстановлено: " + count);
     }
 
-    private static void AddFilePathCommentToCsFiles(AppCleanerOptions options, StringBuilder log)
+    private static void AddFilePathCommentToCsFiles(VSHelperOptions options, StringBuilder log)
     {
         int changed = 0;
         string root = options.SolutionDir;
@@ -313,7 +313,7 @@ internal static class AppCleanerEngine
         {
             Encoding encoding = DetectEncoding(file);
             string text = File.ReadAllText(file, encoding);
-            string relativePath = AppCleanerToolsHelper.MakeRelativePath(root, file).Replace("/", "\\");
+            string relativePath = VSHelperToolsHelper.MakeRelativePath(root, file).Replace("/", "\\");
             string comment = "// " + relativePath;
 
             if (text.StartsWith(comment + "\r\n", StringComparison.Ordinal) ||
@@ -351,7 +351,7 @@ internal static class AppCleanerEngine
         return source;
     }
 
-    private static void FindValueOrClassAddScaveToProject(AppCleanerOptions options, StringBuilder log)
+    private static void FindValueOrClassAddScaveToProject(VSHelperOptions options, StringBuilder log)
     {
         string find = options.FindText;
 
@@ -384,7 +384,7 @@ internal static class AppCleanerEngine
         log.AppendLine("Скопировано: " + count);
     }
 
-    private static void DeleteNonProjectFiles(AppCleanerOptions options, StringBuilder log)
+    private static void DeleteNonProjectFiles(VSHelperOptions options, StringBuilder log)
     {
         string projectPath = options.SearchPath;
 
@@ -403,7 +403,7 @@ internal static class AppCleanerEngine
 
         foreach (string file in EnumerateFiles(projectDir, "*.cs"))
         {
-            string relative = AppCleanerToolsHelper.MakeRelativePath(projectDir, file).Replace("/", "\\");
+            string relative = VSHelperToolsHelper.MakeRelativePath(projectDir, file).Replace("/", "\\");
 
             if (projectFiles.Contains(relative))
                 continue;
@@ -421,7 +421,7 @@ internal static class AppCleanerEngine
         log.AppendLine("Файлов вне проекта: " + deleted);
     }
 
-    private static void SyncProjectFileWithSample(AppCleanerOptions options, StringBuilder log)
+    private static void SyncProjectFileWithSample(VSHelperOptions options, StringBuilder log)
     {
         if (!File.Exists(options.SearchPath) || !File.Exists(options.PlacePath))
         {
@@ -447,7 +447,7 @@ internal static class AppCleanerEngine
         log.AppendLine("Безопасный режим: операция пока только сравнивает .csproj и пишет лог.");
     }
 
-    private static void ConvertOldCsprojToSdkStyle(AppCleanerOptions options, StringBuilder log)
+    private static void ConvertOldCsprojToSdkStyle(VSHelperOptions options, StringBuilder log)
     {
         if (!File.Exists(options.SearchPath))
         {
@@ -491,13 +491,13 @@ internal static class AppCleanerEngine
         log.AppendLine("Создан базовый SDK-style .csproj. Проверь PackageReference/ресурсы вручную.");
     }
 
-    private static void RestoreMissingUsings(AppCleanerOptions options, StringBuilder log)
+    private static void RestoreMissingUsings(VSHelperOptions options, StringBuilder log)
     {
         log.AppendLine("Восстановление using требует анализа sample project и Roslyn.");
         log.AppendLine("В этой VS.Helper-версии операция зарезервирована и не меняет файлы.");
     }
 
-    private static void CreateOrUpdateVsHelperZipConfig(AppCleanerOptions options, StringBuilder log)
+    private static void CreateOrUpdateVsHelperZipConfig(VSHelperOptions options, StringBuilder log)
     {
         string root = options.SolutionDir;
         string configPath = Path.Combine(root, "VS.Helper.Zip.xml");
@@ -537,7 +537,7 @@ internal static class AppCleanerEngine
         log.AppendLine("Секция <Git> создана/проверена.");
     }
 
-    private static XDocument CreateDefaultVsHelperZipConfig(AppCleanerOptions options)
+    private static XDocument CreateDefaultVsHelperZipConfig(VSHelperOptions options)
     {
         return new XDocument(
             new XDeclaration("1.0", "utf-8", null),
@@ -637,7 +637,7 @@ internal static class AppCleanerEngine
 
     private static bool IsIgnored(string file)
     {
-        if (AppCleanerToolsHelper.IsIgnoredByPath(file))
+        if (VSHelperToolsHelper.IsIgnoredByPath(file))
             return true;
 
         string name = Path.GetFileName(file);
@@ -646,7 +646,7 @@ internal static class AppCleanerEngine
                name.EndsWith(".g.cs", StringComparison.OrdinalIgnoreCase);
     }
 
-    private static void Backup(string file, AppCleanerOptions options)
+    private static void Backup(string file, VSHelperOptions options)
     {
         if (!options.UseBackup || options.DryRun)
             return;
@@ -689,14 +689,14 @@ internal static class AppCleanerEngine
         return text.Replace("\r\n", "\n").Replace("\r", "\n").Split('\n');
     }
 
-    private static string Short(AppCleanerOptions options, string file)
+    private static string Short(VSHelperOptions options, string file)
     {
         try
         {
             if (!string.IsNullOrWhiteSpace(options.SolutionDir) &&
                 file.StartsWith(options.SolutionDir, StringComparison.OrdinalIgnoreCase))
             {
-                return AppCleanerToolsHelper.MakeRelativePath(options.SolutionDir, file);
+                return VSHelperToolsHelper.MakeRelativePath(options.SolutionDir, file);
             }
         }
         catch
