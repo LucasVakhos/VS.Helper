@@ -1,0 +1,11 @@
+E:\CS\26\GH.VpnService\GH.VpnService.Contracts\bin\Debug\net10.0\GH.VpnService.Contracts.deps.json
+E:\CS\26\GH.VpnService\GH.VpnService.Contracts\bin\Debug\net10.0\GH.VpnService.Contracts.dll
+E:\CS\26\GH.VpnService\GH.VpnService.Contracts\bin\Debug\net10.0\GH.VpnService.Contracts.pdb
+E:\CS\26\GH.VpnService\GH.VpnService.Contracts\obj\Debug\net10.0\GH.VpnService.Contracts.GeneratedMSBuildEditorConfig.editorconfig
+E:\CS\26\GH.VpnService\GH.VpnService.Contracts\obj\Debug\net10.0\GH.VpnService.Contracts.AssemblyInfoInputs.cache
+E:\CS\26\GH.VpnService\GH.VpnService.Contracts\obj\Debug\net10.0\GH.VpnService.Contracts.AssemblyInfo.cs
+E:\CS\26\GH.VpnService\GH.VpnService.Contracts\obj\Debug\net10.0\GH.VpnService.Contracts.csproj.CoreCompileInputs.cache
+E:\CS\26\GH.VpnService\GH.VpnService.Contracts\obj\Debug\net10.0\GH.VpnService.Contracts.dll
+E:\CS\26\GH.VpnService\GH.VpnService.Contracts\obj\Debug\net10.0\refint\GH.VpnService.Contracts.dll
+E:\CS\26\GH.VpnService\GH.VpnService.Contracts\obj\Debug\net10.0\GH.VpnService.Contracts.pdb
+E:\CS\26\GH.VpnService\GH.VpnService.Contracts\obj\Debug\net10.0\ref\GH.VpnService.Contracts.dll

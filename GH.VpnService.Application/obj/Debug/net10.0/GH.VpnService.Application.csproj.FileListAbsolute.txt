@@ -1,0 +1,15 @@
+E:\CS\26\GH.VpnService\GH.VpnService.Application\bin\Debug\net10.0\GH.VpnService.Application.deps.json
+E:\CS\26\GH.VpnService\GH.VpnService.Application\bin\Debug\net10.0\GH.VpnService.Application.dll
+E:\CS\26\GH.VpnService\GH.VpnService.Application\bin\Debug\net10.0\GH.VpnService.Application.pdb
+E:\CS\26\GH.VpnService\GH.VpnService.Application\obj\Debug\net10.0\GH.VpnService.Application.GeneratedMSBuildEditorConfig.editorconfig
+E:\CS\26\GH.VpnService\GH.VpnService.Application\obj\Debug\net10.0\GH.VpnService.Application.AssemblyInfoInputs.cache
+E:\CS\26\GH.VpnService\GH.VpnService.Application\obj\Debug\net10.0\GH.VpnService.Application.AssemblyInfo.cs
+E:\CS\26\GH.VpnService\GH.VpnService.Application\obj\Debug\net10.0\GH.VpnService.Application.csproj.CoreCompileInputs.cache
+E:\CS\26\GH.VpnService\GH.VpnService.Application\obj\Debug\net10.0\GH.VpnService.Application.dll
+E:\CS\26\GH.VpnService\GH.VpnService.Application\obj\Debug\net10.0\refint\GH.VpnService.Application.dll
+E:\CS\26\GH.VpnService\GH.VpnService.Application\obj\Debug\net10.0\GH.VpnService.Application.pdb
+E:\CS\26\GH.VpnService\GH.VpnService.Application\obj\Debug\net10.0\ref\GH.VpnService.Application.dll
+E:\CS\26\GH.VpnService\GH.VpnService.Application\bin\Debug\net10.0\GH.VpnService.Domain.dll
+E:\CS\26\GH.VpnService\GH.VpnService.Application\bin\Debug\net10.0\GH.VpnService.Domain.pdb
+E:\CS\26\GH.VpnService\GH.VpnService.Application\obj\Debug\net10.0\GH.VpnService.Application.csproj.AssemblyReference.cache
+E:\CS\26\GH.VpnService\GH.VpnService.Application\obj\Debug\net10.0\GH.VpnSe.FFE3C93E.Up2Date

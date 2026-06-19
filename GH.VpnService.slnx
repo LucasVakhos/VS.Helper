@@ -1,0 +1,9 @@
+<Solution>
+  <Project Path="GH.VpnService.Agent/GH.VpnService.Agent.csproj" />
+  <Project Path="GH.VpnService.Application/GH.VpnService.Application.csproj" />
+  <Project Path="GH.VpnService.Contracts/GH.VpnService.Contracts.csproj" />
+  <Project Path="GH.VpnService.Domain/GH.VpnService.Domain.csproj" />
+  <Project Path="GH.VpnService.Infrastructure/GH.VpnService.Infrastructure.csproj" />
+  <Project Path="GH.VpnService.Web/GH.VpnService.Web.csproj" />
+  <Project Path="GH.VpnService.Win/GH.VpnService.Win.csproj" />
+</Solution>

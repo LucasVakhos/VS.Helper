@@ -1,0 +1,39 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v10.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v10.0": {
+      "GH.VpnService.Win/1.0.0": {
+        "dependencies": {
+          "GH.VpnService.Contracts": "1.0.0"
+        },
+        "runtime": {
+          "GH.VpnService.Win.dll": {}
+        }
+      },
+      "GH.VpnService.Contracts/1.0.0": {
+        "runtime": {
+          "GH.VpnService.Contracts.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "GH.VpnService.Win/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GH.VpnService.Contracts/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,6 @@
+@GH.VpnService.Agent_HostAddress = http://localhost:5226
+
+GET {{GH.VpnService.Agent_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
