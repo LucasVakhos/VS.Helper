@@ -1,0 +1,22 @@
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011">
+  <Metadata>
+    <Identity Id="VS.Helper.594f3931-1da9-4fe1-83cf-803dab09a528" Version="2026.2.0.10" Language="ru-RU" Publisher="Copyright © 2026 GH Freelance" />
+    <DisplayName>VS.Helper</DisplayName>
+    <Description xml:space="preserve">VS Project  Помощник.</Description>
+    <License>LICENSE.txt</License>
+    <Icon>Resources\Icon.png</Icon>
+    <PreviewImage>Resources\Icon.png</PreviewImage>
+    <Preview>true</Preview>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[17.0, 19.0)">
+      <ProductArchitecture>amd64</ProductArchitecture>
+    </InstallationTarget>
+  </Installation>
+  <Prerequisites>
+    <Prerequisite Id="microsoft.net.runtime.mono.tooling.net8" DisplayName=".NET 8.0 Shared Mobile Build Tools" Version="[10.1.926.27113,11.0)" />
+  </Prerequisites>
+  <Assets>
+    <Asset Type="Microsoft.VisualStudio.VsPackage" Path="VS.Helper.pkgdef" />
+  </Assets>
+</PackageManifest>

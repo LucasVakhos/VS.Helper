@@ -2,6 +2,7 @@
 using Community.VisualStudio.Toolkit;
 using EnvDTE;
 using EnvDTE80;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
