@@ -1,6 +1,8 @@
 ﻿// Commands\BuildZipCommand.cs
+using Community.VisualStudio.Toolkit;
 using EnvDTE;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -57,7 +59,12 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
         try
         {
             string zipPath = BuildZipArchive(solutionPath);
-            ShowInfo($"ZIP собран:\n{zipPath}");
+            CopyZipToClipboard(zipPath);
+
+            string solutionName = Path.GetFileNameWithoutExtension(solutionPath);
+            string zipName = Path.GetFileName(zipPath);
+
+            ShowInfo($"ZIP создан и скопирован в буфер обмена:\n'{solutionName}' -> '{zipName}'");
         }
         catch (Exception ex)
         {
@@ -75,6 +82,20 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
             System.Windows.Forms.MessageBoxButtons.OK,
             System.Windows.Forms.MessageBoxIcon.Information);
     }
+
+    private static void CopyZipToClipboard(string zipPath)
+    {
+        ThreadHelper.ThrowIfNotOnUIThread();
+
+        if (string.IsNullOrWhiteSpace(zipPath) || !File.Exists(zipPath))
+            throw new FileNotFoundException("ZIP-файл не найден.", zipPath);
+
+        StringCollection files = new() { zipPath };
+        System.Windows.Forms.DataObject data = new();
+        data.SetFileDropList(files);
+        System.Windows.Forms.Clipboard.SetDataObject(data, true);
+    }
+
 
     private static void ShowError(string message)
     {

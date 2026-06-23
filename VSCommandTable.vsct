@@ -2,61 +2,76 @@
 <CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable"
               xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-  <Extern href="stdidcmd.h" />
-  <Extern href="vsshlids.h" />
+	<Extern href="stdidcmd.h" />
+	<Extern href="vsshlids.h" />
 
-  <Include href="VSGlobals.vsct" />
-  <Include href="KnownImageIds.vsct" />
+	<Include href="VSGlobals.vsct" />
+	<Include href="KnownImageIds.vsct" />
 
-  <Commands package="guidVSHelperPackage">
-    <Groups>
-      <Group guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" priority="0x0600">
-        <Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_EDIT" />
-      </Group>
-    </Groups>
+	<Commands package="guidVSHelperPackage">
+		<Groups>
+			<Group guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" priority="0x0600">
+				<Parent guid="guidSHLMainMenu" id="IDM_VS_MENU_EDIT" />
+			</Group>
+		</Groups>
 
-    <Buttons>
+		<Buttons>
 
-      <Button guid="guidVSHelperPackageCmdSet" id="BuildZipCommand" priority="0x0200" type="Button">
-        <Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
-        <Strings>
-          <ButtonText>GH: Build ZIP</ButtonText>
-        </Strings>
-      </Button>
+			<Button guid="guidVSHelperPackageCmdSet" id="CreateCommentCommand" priority="0x0100" type="Button">
+				<Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
+				<Strings>
+					<ButtonText>GH: Create Comment</ButtonText>
+				</Strings>
+			</Button>
 
-      <Button guid="guidVSHelperPackageCmdSet" id="CreateZipConfigCommand" priority="0x0300" type="Button">
-        <Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
-        <Strings>
-          <ButtonText>GH: Create config</ButtonText>
-        </Strings>
-      </Button>
+			<Button guid="guidVSHelperPackageCmdSet" id="BuildZipCommand" priority="0x0200" type="Button">
+				<Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
+				<Strings>
+					<ButtonText>GH: Build ZIP</ButtonText>
+				</Strings>
+			</Button>
 
-      <Button guid="guidVSHelperPackageCmdSet" id="CommitStampSyncGitCommand" priority="0x0400" type="Button">
-        <Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
-        <Strings>
-          <ButtonText>GH: Commit + Sync Git</ButtonText>
-        </Strings>
-      </Button>
+			<Button guid="guidVSHelperPackageCmdSet" id="BuildSolutionCommand" priority="0x0600" type="Button">
+				<Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
+				<Strings>
+					<ButtonText>GH: Build Solution</ButtonText>
+				</Strings>
+			</Button>
 
-      <Button guid="guidVSHelperPackageCmdSet" id="VSHelperToolsCommand" priority="0x0500" type="Button">
-        <Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
-        <Strings>
-          <ButtonText>GH: Other tools</ButtonText>
-        </Strings>
-      </Button>
-    </Buttons>
-  </Commands>
+			<Button guid="guidVSHelperPackageCmdSet" id="CreateZipConfigCommand" priority="0x0300" type="Button">
+				<Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
+				<Strings>
+					<ButtonText>GH: Create config</ButtonText>
+				</Strings>
+			</Button>
 
-  <Symbols>
-    <GuidSymbol name="guidVSHelperPackage" value="{32BF848A-BD7E-4F10-9B06-9C9F9FEB8E4A}" />
+			<Button guid="guidVSHelperPackageCmdSet" id="CommitStampSyncGitCommand" priority="0x0400" type="Button">
+				<Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
+				<Strings>
+					<ButtonText>GH: Commit + Sync Git</ButtonText>
+				</Strings>
+			</Button>
 
-    <GuidSymbol name="guidVSHelperPackageCmdSet" value="{32BF848A-BD7E-4F10-9B06-9C9F9FEB8E4A}">
-      <IDSymbol name="VSHelperGroup" value="0x0001" />
-      <IDSymbol name="CreateCommentCommand" value="0x0100" />
-      <IDSymbol name="BuildZipCommand" value="0x0200" />
-      <IDSymbol name="CreateZipConfigCommand" value="0x0300" />
-      <IDSymbol name="CommitStampSyncGitCommand" value="0x0400" />
-      <IDSymbol name="VSHelperToolsCommand" value="0x0500" />
-    </GuidSymbol>
-  </Symbols>
+			<Button guid="guidVSHelperPackageCmdSet" id="VSHelperToolsCommand" priority="0x0500" type="Button">
+				<Parent guid="guidVSHelperPackageCmdSet" id="VSHelperGroup" />
+				<Strings>
+					<ButtonText>GH: Other tools</ButtonText>
+				</Strings>
+			</Button>
+		</Buttons>
+	</Commands>
+
+	<Symbols>
+		<GuidSymbol name="guidVSHelperPackage" value="{32BF848A-BD7E-4F10-9B06-9C9F9FEB8E4A}" />
+
+		<GuidSymbol name="guidVSHelperPackageCmdSet" value="{32BF848A-BD7E-4F10-9B06-9C9F9FEB8E4A}">
+			<IDSymbol name="VSHelperGroup" value="0x0001" />
+			<IDSymbol name="CreateCommentCommand" value="0x0100" />
+			<IDSymbol name="BuildZipCommand" value="0x0200" />
+			<IDSymbol name="BuildSolutionCommand" value="0x0250" />
+			<IDSymbol name="CreateZipConfigCommand" value="0x0300" />
+			<IDSymbol name="CommitStampSyncGitCommand" value="0x0400" />
+			<IDSymbol name="VSHelperToolsCommand" value="0x0500" />
+		</GuidSymbol>
+	</Symbols>
 </CommandTable>

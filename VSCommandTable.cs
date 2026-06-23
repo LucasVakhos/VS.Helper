@@ -19,6 +19,7 @@ namespace VS.Helper
         public const int VSHelperGroup = 0x0001;
         public const int CreateCommentCommand = 0x0100;
         public const int BuildZipCommand = 0x0200;
+        public const int BuildSolutionCommand = 0x0250;
         public const int CreateZipConfigCommand = 0x0300;
         public const int CommitStampSyncGitCommand = 0x0400;
         public const int VSHelperToolsCommand = 0x0500;

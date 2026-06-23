@@ -1,4 +1,5 @@
 ﻿// Commands\VSHelperToolsCommand.cs
+using Community.VisualStudio.Toolkit;
 using EnvDTE;
 using System.Windows.Forms;
 

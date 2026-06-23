@@ -1,4 +1,5 @@
 ﻿// Commands\CreateCommentCommand.cs
+using Community.VisualStudio.Toolkit;
 using EnvDTE;
 using System.IO;
 using System.Runtime.InteropServices;
