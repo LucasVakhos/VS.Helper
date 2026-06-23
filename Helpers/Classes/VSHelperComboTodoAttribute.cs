@@ -1,5 +1,6 @@
 ﻿// Helpers\Classes\ComboTodoAttribute.cs
 // Commands\ComboTodoAttribute.cs
+using System;
 namespace VS.Helper.Commands;
 
 [AttributeUsage(AttributeTargets.Field)]

@@ -1,5 +1,6 @@
 ﻿// Helpers\Classes\EnumExtensions.cs
 // Commands\EnumExtensions.cs
+using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;

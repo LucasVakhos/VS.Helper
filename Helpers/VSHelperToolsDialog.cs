@@ -1,5 +1,6 @@
 ﻿// Helpers\VSHelperToolsDialog.cs
 // Commands\VSHelperToolsDialog.cs
+using System;
 using System.IO;
 using System.Windows.Forms;
 

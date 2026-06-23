@@ -1,5 +1,6 @@
 ﻿// Helpers\VSHelperEngine.cs
 // Commands\VSHelperEngine.cs
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;

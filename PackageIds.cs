@@ -3,5 +3,5 @@ namespace VS.Helper;
 
 internal sealed partial class PackageIds
 {
-    public const int BuildSolutionCommand = 0x0250;
+    // All constants are defined in VSCommandTable.cs
 }

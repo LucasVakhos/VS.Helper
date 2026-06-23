@@ -1,5 +1,6 @@
 ﻿// Helpers\VSHelperToolsHelper.cs
 // Commands\VSHelperToolsHelper.cs
+using System;
 using EnvDTE;
 using System.IO;
 using System.Linq;

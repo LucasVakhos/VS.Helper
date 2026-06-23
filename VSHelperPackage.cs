@@ -1,9 +1,9 @@
 ﻿// VSHelperPackage.cs
 global using Community.VisualStudio.Toolkit;
 global using Microsoft.VisualStudio.Shell;
-global using Community.VisualStudio.Toolkit;
-using System;
 global using Task = System.Threading.Tasks.Task;
+
+using System;
 using System.Runtime.InteropServices;
 using System.Threading;
 

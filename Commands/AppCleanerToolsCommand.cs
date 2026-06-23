@@ -1,6 +1,7 @@
 ﻿// Commands\VSHelperToolsCommand.cs
 using Community.VisualStudio.Toolkit;
 using EnvDTE;
+using System;
 using System.Windows.Forms;
 
 using WinFormsMessageBox = System.Windows.Forms.MessageBox;

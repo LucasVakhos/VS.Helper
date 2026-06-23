@@ -1,6 +1,7 @@
 ﻿// Commands\BuildZipCommand.cs
 using Community.VisualStudio.Toolkit;
 using EnvDTE;
+using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.IO;

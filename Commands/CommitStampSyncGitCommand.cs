@@ -1,6 +1,7 @@
 ﻿// Commands\CommitStampSyncGitCommand.cs
 using Community.VisualStudio.Toolkit;
 using EnvDTE;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
