@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<VSHelperZip>
+  <!-- NEW ZIP SCHEME: config + project-closure, no old CreateFromDirectory whole-folder mode. -->
+  <Root>$(SolutionDir)</Root>
+  <OutputDir>$(SolutionDir)</OutputDir>
+  <ArchiveName>$(SolutionName)_$(Date)_$(Time).zip</ArchiveName>
+
+  <!-- Empty = all projects from solution. Or set relative path, e.g. src\VS.Helper\VS.Helper.csproj -->
+  <StartProject></StartProject>
+
+  <IncludeManifest>true</IncludeManifest>
+  <IncludeProjectClosure>true</IncludeProjectClosure>
+
+  <Include>
+    <Path>$(SolutionName).sln</Path>
+    <Path>$(SolutionName).slnx</Path>
+    <Path>README.md</Path>
+    <Path>LICENSE.txt</Path>
+    <Path>.gitignore</Path>
+    <Path>Directory.Build.props</Path>
+    <Path>Directory.Build.targets</Path>
+    <Path>Directory.Packages.props</Path>
+    <Path>NuGet.config</Path>
+  </Include>
+
+  <Exclude>
+    <Path>**/bin/**</Path>
+    <Path>**/obj/**</Path>
+    <Path>**/.vs/**</Path>
+    <Path>**/.git/**</Path>
+    <Path>**/node_modules/**</Path>
+    <Path>**/packages/**</Path>
+    <Path>**/*.user</Path>
+    <Path>**/*.suo</Path>
+    <Path>**/*.pdb</Path>
+    <Path>**/*.cache</Path>
+    <Path>**/*.log</Path>
+    <Path>**/*.db</Path>
+    <Path>**/*.sqlite</Path>
+    <Path>**/*.zip</Path>
+  </Exclude>
+</VSHelperZip>

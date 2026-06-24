@@ -17,11 +17,14 @@ namespace VS.Helper
     internal sealed partial class PackageIds
     {
         public const int VSHelperGroup = 0x0001;
-        public const int CreateCommentCommand = 0x0100;
+        public const int VSHelperRootMenu = 0x0002;
         public const int BuildZipCommand = 0x0200;
         public const int CreateZipConfigCommand = 0x0300;
         public const int CommitStampSyncGitCommand = 0x0400;
         public const int BuildSolutionCommand = 0x0450;
+        public const int RunSwarmCommand = 0x0460;
+        public const int EvolveSwarmCommand = 0x0470;
+        public const int SelfUpgradeCommand = 0x0480;
         public const int VSHelperToolsCommand = 0x0500;
     }
 }
