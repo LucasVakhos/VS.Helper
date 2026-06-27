@@ -3,7 +3,7 @@ setlocal EnableExtensions EnableDelayedExpansion
 chcp 65001 >nul
 cd /d "E:\CS\26\VS.Helper"
 set "LOG=E:\CS\26\VS.Helper\_VS.Helper.SelfUpgrade.log"
-set "EXPECTED_VERSION=2026.2.1.72"
+set "EXPECTED_VERSION=2026.2.1.74"
 echo VS.Helper Self Upgrade > "%LOG%"
 echo Mode: install only, no uninstall >> "%LOG%"
 echo Expected Identity Version: %EXPECTED_VERSION% >> "%LOG%"

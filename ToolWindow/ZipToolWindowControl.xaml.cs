@@ -60,7 +60,7 @@ public partial class ZipToolWindowControl : System.Windows.Controls.UserControl
             SetStatus("Building ZIP...");
             var zip = new ZipEngine();
             zip.Build(sourcePath, outputZip);
-            
+
             if (!string.IsNullOrWhiteSpace(accessKey))
             {
                 // Store access key for later use (e.g., cloud sync)

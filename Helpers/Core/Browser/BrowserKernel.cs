@@ -66,5 +66,3 @@ internal static class BrowserKernel
     [DllImport("user32.dll")]
     private static extern bool SetForegroundWindow(IntPtr hWnd);
 }
-
-

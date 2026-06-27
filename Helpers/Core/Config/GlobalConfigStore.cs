@@ -43,5 +43,3 @@ internal static class GlobalConfigStore
             JsonSerializer.Serialize(cfg, new JsonSerializerOptions { WriteIndented = true }));
     }
 }
-
-

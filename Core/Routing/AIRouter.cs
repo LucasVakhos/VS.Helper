@@ -36,5 +36,3 @@ internal static class AIRouter
         }
     }
 }
-
-

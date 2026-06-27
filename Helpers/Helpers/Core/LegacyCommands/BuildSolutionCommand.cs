@@ -40,5 +40,3 @@ internal sealed class BuildSolutionCommand
         dte.Solution.SolutionBuild.Build(true);
     }
 }
-
-

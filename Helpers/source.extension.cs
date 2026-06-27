@@ -13,7 +13,7 @@ namespace VS.Helper
         public const string Name = "VS.Helper";
         public const string Description = @"VS Project помощник.";
         public const string Language = "ru-RU";
-        public const string Version = "2026.2.1.72";
+        public const string Version = "2026.2.1.74";
         public const string Author = "GH-Programmer";
         public const string Tags = "";
         public const bool IsPreview = true;

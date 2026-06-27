@@ -17,6 +17,7 @@ public sealed class VSHelperPackage : ToolkitPackage
         CancellationToken cancellationToken,
         IProgress<ServiceProgressData> progress)
     {
+        await JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
         await this.RegisterCommandsAsync();
     }
 }

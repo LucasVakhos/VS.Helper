@@ -29,7 +29,7 @@ $msbuild = "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Curren
 if (!(Test-Path $msbuild)) {
     Write-Host "MSBuild not found at expected path, skipping VSIX packaging."
 } else {
-    & $msbuild VS.Helper.csproj /p:Configuration=Release /p:DeployExtension=false /t:Build`;GeneratePkgDef`;CopyPkgDef`;CreateVsixContainer /v:minimal
+    & $msbuild VS.Helper.csproj /p:Configuration=Release /p:DeployExtension=false /t:Build,GeneratePkgDef,CopyPkgDef,CreateVsixContainer /v:minimal
     if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
     $vsix = Get-Item "bin\Release\net48\VS.Helper.vsix" -ErrorAction SilentlyContinue
     if ($vsix) {

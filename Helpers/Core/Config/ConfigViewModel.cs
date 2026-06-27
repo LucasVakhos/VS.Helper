@@ -55,4 +55,3 @@ internal class ConfigViewModel : INotifyPropertyChanged
 
     public event PropertyChangedEventHandler PropertyChanged;
 }
-
