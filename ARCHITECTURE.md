@@ -1,0 +1,1 @@
+Cosmic layer connects multiple Digital Species into interacting ecosystems.

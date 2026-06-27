@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
@@ -14,11 +14,11 @@ internal sealed class ZipBuildService
             throw new InvalidOperationException("Нет открытого Solution.");
 
         string solutionDir = Path.GetDirectoryName(solutionPath) ?? Environment.CurrentDirectory;
-        string configPath = Path.Combine(solutionDir, ZipBuildConfig.FileName);
+        ZipBuildConfig.TryMigrateLegacyConfig(solutionPath, out string configPath, out bool migrated);
         bool generated = !File.Exists(configPath);
 
         ZipBuildConfig config = ZipBuildConfig.LoadOrCreateDefault(solutionPath);
-        if (generated)
+        if (generated || migrated)
             config.Save(solutionPath);
 
         string solutionName = Path.GetFileNameWithoutExtension(solutionPath);
@@ -29,7 +29,7 @@ internal sealed class ZipBuildService
         string outputDir = ResolvePath(solutionDir, ExpandVariables(config.OutputDir, solutionDir, solutionName));
         Directory.CreateDirectory(outputDir);
 
-        string archiveName = ExpandVariables(config.ArchiveName, solutionDir, solutionName);
+        string archiveName = ExpandVariables("{Solution.Name}.zip", solutionDir, solutionName);
         if (!archiveName.EndsWith(".zip", StringComparison.OrdinalIgnoreCase))
             archiveName += ".zip";
 
@@ -110,7 +110,7 @@ internal sealed class ZipBuildService
             yield return solutionPath;
 
         string solutionDir = Path.GetDirectoryName(solutionPath) ?? Environment.CurrentDirectory;
-        string configPath = Path.Combine(solutionDir, ZipBuildConfig.FileName);
+        string configPath = ZipBuildConfig.GetConfigPath(solutionPath);
         if (File.Exists(configPath))
             yield return configPath;
 
@@ -139,9 +139,8 @@ internal sealed class ZipBuildService
                 yield return full;
             else if (Directory.Exists(full))
             {
-                // Новая схема не пакует директории целиком по имени.
-                // Для осознанного включения папки используй glob: Assets/** или Docs/**/*.md.
-                yield break;
+                foreach (string file in Directory.EnumerateFiles(full, "*.*", SearchOption.AllDirectories))
+                    yield return Path.GetFullPath(file);
             }
             yield break;
         }
@@ -185,6 +184,7 @@ internal sealed class ZipBuildService
         return (value ?? string.Empty)
             .Replace("$(SolutionDir)", solutionDir)
             .Replace("$(SolutionName)", solutionName)
+            .Replace("{Solution.Name}", solutionName)
             .Replace("$(Date)", nowDate)
             .Replace("$(Time)", nowTime);
     }

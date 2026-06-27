@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,7 +12,7 @@ internal sealed class ZipBuildConfig
 
     public string Root { get; set; } = ".";
     public string OutputDir { get; set; } = "_zip";
-    public string ArchiveName { get; set; } = "$(SolutionName)_$(Date)_$(Time).zip";
+    public string ArchiveName { get; set; } = "VS.Helper.zip";
     public string StartProject { get; set; } = string.Empty;
     public bool IncludeProjectClosure { get; set; } = true;
     public bool IncludeManifest { get; set; } = true;
@@ -35,7 +35,7 @@ internal sealed class ZipBuildConfig
         {
             Root = Read(root, "Root", "."),
             OutputDir = Read(root, "OutputDir", "_zip"),
-            ArchiveName = Read(root, "ArchiveName", "$(SolutionName)_$(Date)_$(Time).zip"),
+            ArchiveName = Read(root, "ArchiveName", "VS.Helper.zip"),
             StartProject = Read(root, "StartProject", string.Empty),
             IncludeProjectClosure = ReadBool(root, "IncludeProjectClosure", true),
             IncludeManifest = ReadBool(root, "IncludeManifest", true),
@@ -62,7 +62,7 @@ internal sealed class ZipBuildConfig
         {
             Root = ".",
             OutputDir = "_zip",
-            ArchiveName = solutionName + "_$(Date)_$(Time).zip",
+            ArchiveName = "VS.Helper.zip",
             IncludeProjectClosure = true,
             IncludeManifest = true,
             IncludeSolutionFiles = true,
@@ -83,6 +83,22 @@ internal sealed class ZipBuildConfig
         config.Include.Add("Directory.Packages.props");
         config.Include.Add("global.json");
         config.Include.Add("NuGet.config");
+        config.Include.Add(".editorconfig");
+        config.Include.Add(".gitattributes");
+        config.Include.Add(".gitignore");
+
+        string solutionDir = Path.GetDirectoryName(solutionPath) ?? Environment.CurrentDirectory;
+        foreach (string project in SolutionProjectScanner.GetProjects(solutionPath))
+        {
+            string projectDir = Path.GetDirectoryName(project);
+            if (string.IsNullOrWhiteSpace(projectDir))
+                continue;
+
+            string relative = ZipPath.GetRelativePath(solutionDir, projectDir);
+            if (!string.IsNullOrWhiteSpace(relative) && relative != "." &&
+                !config.Include.Any(x => string.Equals(ZipPath.NormalizeRelative(x), ZipPath.NormalizeRelative(relative), StringComparison.OrdinalIgnoreCase)))
+                config.Include.Add(relative);
+        }
 
         EnsureDefaultExcludes(config);
         return config;

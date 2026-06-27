@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -8,11 +8,57 @@ namespace VS.Helper.Core.Zip;
 
 internal sealed class ZipBuildConfig
 {
-    public const string FileName = "VS.Helper.Zip.xml";
+    public const string LegacyFileName = "VS.Helper.Zip.xml";
+    public const string FileNameTemplate = "{Solution.Name}.config";
+
+    public static string GetFileName(string solutionPath)
+    {
+        string solutionName = Path.GetFileNameWithoutExtension(solutionPath);
+        return $"{solutionName}.config";
+    }
+
+    public static string GetConfigPath(string solutionPath)
+    {
+        string solutionDir = Path.GetDirectoryName(solutionPath) ?? Environment.CurrentDirectory;
+        return Path.Combine(solutionDir, GetFileName(solutionPath));
+    }
+
+    public static string GetLegacyConfigPath(string solutionPath)
+    {
+        string solutionDir = Path.GetDirectoryName(solutionPath) ?? Environment.CurrentDirectory;
+        return Path.Combine(solutionDir, LegacyFileName);
+    }
+
+    public static bool TryMigrateLegacyConfig(string solutionPath, out string configPath, out bool migrated)
+    {
+        configPath = GetConfigPath(solutionPath);
+        migrated = false;
+
+        if (File.Exists(configPath))
+            return true;
+
+        string legacyPath = GetLegacyConfigPath(solutionPath);
+        if (!File.Exists(legacyPath))
+            return false;
+
+        Directory.CreateDirectory(Path.GetDirectoryName(configPath) ?? Environment.CurrentDirectory);
+
+        try
+        {
+            File.Move(legacyPath, configPath);
+        }
+        catch
+        {
+            File.Copy(legacyPath, configPath, true);
+        }
+
+        migrated = true;
+        return true;
+    }
 
     public string Root { get; set; } = ".";
     public string OutputDir { get; set; } = "_zip";
-    public string ArchiveName { get; set; } = "$(SolutionName)_$(Date)_$(Time).zip";
+    public string ArchiveName { get; set; } = "{Solution.Name}.zip";
     public string StartProject { get; set; } = string.Empty;
     public bool IncludeProjectClosure { get; set; } = true;
     public bool IncludeManifest { get; set; } = true;
@@ -23,19 +69,19 @@ internal sealed class ZipBuildConfig
     public static ZipBuildConfig LoadOrCreateDefault(string solutionPath)
     {
         string solutionDir = Path.GetDirectoryName(solutionPath) ?? Environment.CurrentDirectory;
-        string configPath = Path.Combine(solutionDir, FileName);
+        TryMigrateLegacyConfig(solutionPath, out string configPath, out _);
 
         if (!File.Exists(configPath))
             return CreateDefault(solutionPath);
 
         XDocument document = XDocument.Load(configPath);
-        XElement root = document.Root ?? throw new InvalidOperationException($"Файл {FileName} пустой.");
+        XElement root = document.Root ?? throw new InvalidOperationException($"Файл {Path.GetFileName(configPath)} пустой.");
 
         ZipBuildConfig config = new()
         {
             Root = Read(root, "Root", "."),
             OutputDir = Read(root, "OutputDir", "_zip"),
-            ArchiveName = Read(root, "ArchiveName", "$(SolutionName)_$(Date)_$(Time).zip"),
+            ArchiveName = NormalizeArchiveName(Read(root, "ArchiveName", "{Solution.Name}.zip")),
             StartProject = Read(root, "StartProject", string.Empty),
             IncludeProjectClosure = ReadBool(root, "IncludeProjectClosure", true),
             IncludeManifest = ReadBool(root, "IncludeManifest", true),
@@ -62,27 +108,46 @@ internal sealed class ZipBuildConfig
         {
             Root = ".",
             OutputDir = "_zip",
-            ArchiveName = solutionName + "_$(Date)_$(Time).zip",
+            ArchiveName = "{Solution.Name}.zip",
             IncludeProjectClosure = true,
             IncludeManifest = true,
             IncludeSolutionFiles = true,
         };
 
+        string solutionDir = Path.GetDirectoryName(solutionPath) ?? Environment.CurrentDirectory;
+
         string firstProject = SolutionProjectScanner.GetProjects(solutionPath).FirstOrDefault() ?? string.Empty;
         if (!string.IsNullOrWhiteSpace(firstProject))
         {
-            string solutionDir = Path.GetDirectoryName(solutionPath) ?? Environment.CurrentDirectory;
             config.StartProject = ZipPath.GetRelativePath(solutionDir, firstProject);
         }
 
         config.Include.Add(Path.GetFileName(solutionPath));
-        config.Include.Add(FileName);
+        config.Include.Add(GetFileName(solutionPath));
+        config.Include.Add(Path.GetFileNameWithoutExtension(solutionPath) + ".csproj");
+        config.Include.Add("source.extension.vsixmanifest");
+        config.Include.Add("VSCommandTable.vsct");
         config.Include.Add("README.md");
+        config.Include.Add("ABOUT.md");
         config.Include.Add("LICENSE*");
         config.Include.Add("Directory.Build.*");
         config.Include.Add("Directory.Packages.props");
         config.Include.Add("global.json");
         config.Include.Add("NuGet.config");
+        config.Include.Add(".editorconfig");
+        config.Include.Add(".gitattributes");
+        config.Include.Add(".gitignore");
+        foreach (string project in SolutionProjectScanner.GetProjects(solutionPath))
+        {
+            string projectDir = Path.GetDirectoryName(project);
+            if (string.IsNullOrWhiteSpace(projectDir))
+                continue;
+
+            string relative = ZipPath.GetRelativePath(solutionDir, projectDir);
+            if (!string.IsNullOrWhiteSpace(relative) && relative != "." &&
+                !config.Include.Any(x => string.Equals(ZipPath.NormalizeRelative(x), ZipPath.NormalizeRelative(relative), StringComparison.OrdinalIgnoreCase)))
+                config.Include.Add(relative);
+        }
 
         EnsureDefaultExcludes(config);
         return config;
@@ -91,7 +156,7 @@ internal sealed class ZipBuildConfig
     public void Save(string solutionPath)
     {
         string solutionDir = Path.GetDirectoryName(solutionPath) ?? Environment.CurrentDirectory;
-        string path = Path.Combine(solutionDir, FileName);
+        string path = GetConfigPath(solutionPath);
 
         XDocument document = new(
             new XElement("VSHelperZip",
@@ -106,6 +171,24 @@ internal sealed class ZipBuildConfig
                 new XElement("Exclude", Exclude.Select(x => new XElement("Pattern", x)))));
 
         document.Save(path);
+    }
+
+    private static string NormalizeArchiveName(string archiveName)
+    {
+        if (string.IsNullOrWhiteSpace(archiveName))
+            return "{Solution.Name}.zip";
+
+        string value = archiveName.Trim();
+
+        // Старые конфиги часто создавали датированные ZIP или жёстко VS.Helper.zip.
+        // Новый контракт Build Zip: архив всегда {Solution.Name}.zip.
+        if (value.Contains("$(Date)", StringComparison.OrdinalIgnoreCase) ||
+            value.Contains("$(Time)", StringComparison.OrdinalIgnoreCase) ||
+            value.Equals("VS.Helper.zip", StringComparison.OrdinalIgnoreCase) ||
+            value.Equals("$(SolutionName).zip", StringComparison.OrdinalIgnoreCase))
+            return "{Solution.Name}.zip";
+
+        return value;
     }
 
     private static string Read(XElement root, string name, string defaultValue)
@@ -138,7 +221,8 @@ internal sealed class ZipBuildConfig
             ".git/**", "**/.git/**", ".idea/**", "**/.idea/**", ".vscode/**", "**/.vscode/**",
             "packages/**", "**/packages/**", "TestResults/**", "**/TestResults/**",
             "_zip/**", "**/_zip/**", "VSIX/**", "**/VSIX/**",
-            "*.user", "*.suo", "*.cache", "*.log", "*.zip", "*.nupkg", "*.vsix", "*.pdb"
+            "*.user", "*.suo", "*.cache", "*.log", "*.zip", "*.nupkg", "*.vsix", "*.pdb",
+            "VS.Helper.Zip.xml", "**/*.bak", "**/*.tmp"
         };
 
         foreach (string item in defaults)

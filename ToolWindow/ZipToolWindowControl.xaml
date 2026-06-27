@@ -1,0 +1,126 @@
+<UserControl x:Class="ZipToolWindowControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Grid Margin="12">
+        <Border CornerRadius="10" Padding="14" BorderThickness="1" BorderBrush="#2A3A4A" Background="#F7FAFC">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" Margin="0,0,0,12">
+                    <TextBlock Text="VS.Helper ZIP Builder"
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               Foreground="#102A43" />
+                    <TextBlock Text="Собирает архив из выбранной папки в указанный .zip файл"
+                               Margin="0,4,0,0"
+                               FontSize="12"
+                               Foreground="#486581" />
+                </StackPanel>
+
+                <TextBlock Grid.Row="1"
+                           Text="Source Folder"
+                           FontWeight="SemiBold"
+                           Foreground="#243B53" />
+                <Grid Grid.Row="2" Margin="0,6,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox Grid.Column="0"
+                             x:Name="SourcePathBox"
+                             Padding="8,6"
+                             MinWidth="320"
+                             BorderBrush="#BCCCDC"
+                             Background="White"
+                             AllowDrop="True"
+                             TextChanged="SourcePathChanged"
+                             PreviewDragOver="PathBoxDragOver"
+                             Drop="SourcePathDrop" />
+
+                    <Button Grid.Column="1"
+                            Content="Browse..."
+                            Margin="8,0,0,0"
+                            Padding="10,5"
+                            MinWidth="84"
+                            BorderBrush="#BCCCDC"
+                            Background="White"
+                            Foreground="#334E68"
+                            Click="BrowseSource" />
+                </Grid>
+
+                <TextBlock Grid.Row="3"
+                           Text="Output ZIP"
+                           FontWeight="SemiBold"
+                           Foreground="#243B53" />
+                <Grid Grid.Row="4" Margin="0,6,0,12">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox Grid.Column="0"
+                             x:Name="OutputZipBox"
+                             Padding="8,6"
+                             BorderBrush="#BCCCDC"
+                             Background="White"
+                             TextChanged="OutputZipChanged" />
+
+                    <Button Grid.Column="1"
+                            Content="Browse..."
+                            Margin="8,0,0,0"
+                            Padding="10,5"
+                            MinWidth="84"
+                            BorderBrush="#BCCCDC"
+                            Background="White"
+                            Foreground="#334E68"
+                            Click="BrowseOutput" />
+                </Grid>
+
+                <Grid Grid.Row="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0"
+                            Content="Build ZIP"
+                            Width="110"
+                            Height="32"
+                            Padding="12,4"
+                            Margin="0,0,10,0"
+                            Background="#1D4ED8"
+                            Foreground="White"
+                            BorderBrush="#1D4ED8"
+                            FontWeight="SemiBold"
+                            Click="Build" />
+
+                    <Button Grid.Column="1"
+                            Content="Open Folder"
+                            Width="110"
+                            Height="32"
+                            Padding="12,4"
+                            Margin="0,0,10,0"
+                            BorderBrush="#BCCCDC"
+                            Background="White"
+                            Foreground="#334E68"
+                            Click="OpenOutputFolder" />
+
+                    <TextBlock Grid.Column="2"
+                               x:Name="StatusText"
+                               VerticalAlignment="Center"
+                               Foreground="#334E68"
+                               Text="Ready" />
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

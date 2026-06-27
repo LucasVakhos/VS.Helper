@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <Extern href="stdidcmd.h" />
+  <Extern href="vsshlids.h" />
+  <Include href="VSGlobals.vsct" />
+
+  <Commands package="guidVSHelper">
+    <Menus>
+      <Menu guid="guidVSHelper" id="VSHelperRootMenu" priority="0x0700" type="Menu">
+        <Parent guid="guidSHLMainMenu" id="IDG_VS_MM_TOOLSADDINS" />
+        <Strings>
+          <ButtonText>VS.Helper</ButtonText>
+          <CommandName>VS.Helper</CommandName>
+        </Strings>
+      </Menu>
+    </Menus>
+
+    <Groups>
+      <Group guid="guidVSHelper" id="VSHelperGroup" priority="0x0100">
+        <Parent guid="guidVSHelper" id="VSHelperRootMenu" />
+      </Group>
+    </Groups>
+
+    <Buttons>
+      <Button guid="guidVSHelper" id="BuildZipCommand" priority="0x0100" type="Button">
+        <Parent guid="guidVSHelper" id="VSHelperGroup" />
+        <Icon guid="guidImages" id="bmpPic1" />
+        <Strings><ButtonText>Build Zip</ButtonText></Strings>
+      </Button>
+      <Button guid="guidVSHelper" id="CreateZipConfigCommand" priority="0x0110" type="Button">
+        <Parent guid="guidVSHelper" id="VSHelperGroup" />
+        <Icon guid="guidImages" id="bmpPic1" />
+        <Strings><ButtonText>Create Zip Config</ButtonText></Strings>
+      </Button>
+      <Button guid="guidVSHelper" id="SelfUpgradeCommand" priority="0x0120" type="Button">
+        <Parent guid="guidVSHelper" id="VSHelperGroup" />
+        <Icon guid="guidImages" id="bmpPic1" />
+        <Strings><ButtonText>Self Upgrade</ButtonText></Strings>
+      </Button>
+      <Button guid="guidVSHelper" id="RunSwarmCommand" priority="0x0130" type="Button">
+        <Parent guid="guidVSHelper" id="VSHelperGroup" />
+        <Icon guid="guidImages" id="bmpPic1" />
+        <Strings><ButtonText>Run Swarm</ButtonText></Strings>
+      </Button>
+      <Button guid="guidVSHelper" id="EvolveSwarmCommand" priority="0x0140" type="Button">
+        <Parent guid="guidVSHelper" id="VSHelperGroup" />
+        <Icon guid="guidImages" id="bmpPic1" />
+        <Strings><ButtonText>Evolve Swarm</ButtonText></Strings>
+      </Button>
+      <Button guid="guidVSHelper" id="CommitStampSyncGitCommand" priority="0x0150" type="Button">
+        <Parent guid="guidVSHelper" id="VSHelperGroup" />
+        <Icon guid="guidImages" id="bmpPic1" />
+        <Strings><ButtonText>Commit Stamp Sync Git</ButtonText></Strings>
+      </Button>
+      <Button guid="guidVSHelper" id="VSHelperToolsCommand" priority="0x0160" type="Button">
+        <Parent guid="guidVSHelper" id="VSHelperGroup" />
+        <Icon guid="guidImages" id="bmpPic1" />
+        <Strings><ButtonText>Tools</ButtonText></Strings>
+      </Button>
+    </Buttons>
+
+    <Bitmaps>
+      <Bitmap guid="guidImages" href="Resources\Icon32.png" usedList="bmpPic1" />
+    </Bitmaps>
+  </Commands>
+
+  <Symbols>
+    <GuidSymbol name="guidVSHelper" value="{32bf848a-bd7e-4f10-9b06-9c9f9feb8e4a}">
+      <IDSymbol name="VSHelperRootMenu" value="0x0002" />
+      <IDSymbol name="VSHelperGroup" value="0x0001" />
+      <IDSymbol name="BuildZipCommand" value="0x0200" />
+      <IDSymbol name="CreateZipConfigCommand" value="0x0300" />
+      <IDSymbol name="CommitStampSyncGitCommand" value="0x0400" />
+      <IDSymbol name="BuildSolutionCommand" value="0x0450" />
+      <IDSymbol name="RunSwarmCommand" value="0x0460" />
+      <IDSymbol name="EvolveSwarmCommand" value="0x0470" />
+      <IDSymbol name="SelfUpgradeCommand" value="0x0480" />
+      <IDSymbol name="VSHelperToolsCommand" value="0x0500" />
+    </GuidSymbol>
+    <GuidSymbol name="guidImages" value="{5bf83d3c-8f61-48fd-a62f-82c41dc0ea8d}">
+      <IDSymbol name="bmpPic1" value="1" />
+    </GuidSymbol>
+  </Symbols>
+</CommandTable>

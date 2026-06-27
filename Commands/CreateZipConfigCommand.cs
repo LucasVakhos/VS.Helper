@@ -1,14 +1,13 @@
-﻿// Commands\CreateZipConfigCommand.cs
-using Community.VisualStudio.Toolkit;
+// Commands\CreateZipConfigCommand.cs
 using EnvDTE;
 using System;
 using System.IO;
-using System.Threading.Tasks;
+using System.Linq;
 using VS.Helper.Core.Zip;
 
 namespace VS.Helper.Commands;
 
-[Command(PackageIds.CreateZipConfigCommand)]
+[Community.VisualStudio.Toolkit.Command(PackageIds.CreateZipConfigCommand)]
 internal sealed class CreateZipConfigCommand : BaseCommand<CreateZipConfigCommand>
 {
     protected override void BeforeQueryStatus(EventArgs e)
@@ -37,13 +36,53 @@ internal sealed class CreateZipConfigCommand : BaseCommand<CreateZipConfigComman
 
         try
         {
-            ZipBuildConfig config = ZipBuildConfig.CreateDefault(solutionPath);
-            config.Save(solutionPath);
-            Show("Новый конфиг ZIP-схемы создан:\n" + Path.Combine(Path.GetDirectoryName(solutionPath)!, ZipBuildConfig.FileName), false);
+            ZipBuildConfig config = ZipBuildConfig.LoadOrCreateDefault(solutionPath);
+
+            string configPath = ZipBuildConfig.GetConfigPath(solutionPath);
+            using ZipConfigEditorDialog dialog = new(solutionPath, config);
+            System.Windows.Forms.DialogResult result = dialog.ShowDialog();
+
+            if (result == System.Windows.Forms.DialogResult.Retry)
+                OpenConfigForEdit(dte, configPath);
+            else if (result == System.Windows.Forms.DialogResult.OK)
+                Show("ZIP config сохранён:\r\n" + configPath, false);
+
         }
         catch (Exception ex)
         {
             Show(ex.ToString(), true);
+        }
+    }
+
+    private static void OpenConfigForEdit(DTE dte, string configPath)
+    {
+        ThreadHelper.ThrowIfNotOnUIThread();
+
+        if (string.IsNullOrWhiteSpace(configPath) || !File.Exists(configPath))
+            return;
+
+        try
+        {
+            Window window = dte.ItemOperations.OpenFile(configPath, EnvDTE.Constants.vsViewKindTextView);
+            window?.Activate();
+            return;
+        }
+        catch
+        {
+            // Fallback: open with default XML editor if VS editor could not open it.
+        }
+
+        try
+        {
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = configPath,
+                UseShellExecute = true
+            });
+        }
+        catch
+        {
+            // Path is shown in the message box even if fallback failed.
         }
     }
 

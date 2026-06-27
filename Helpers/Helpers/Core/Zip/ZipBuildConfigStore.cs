@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -99,24 +100,37 @@ internal sealed class ZipBuildConfigStore
             IncludeProjectClosure = ReadBool(root, "IncludeProjectClosure", true)
         };
 
-        foreach (XElement element in root.Element("Include")?.Elements("Path") ?? Enumerable.Empty<XElement>())
+        foreach (XElement element in ReadItems(root, "Include", "Path", "File", "Folder", "Directory", "Pattern"))
         {
             string value = ((string)element)?.Trim();
             if (!string.IsNullOrWhiteSpace(value))
                 config.Include.Add(value);
         }
 
-        foreach (XElement element in root.Element("Exclude")?.Elements("Path") ?? Enumerable.Empty<XElement>())
+        foreach (XElement element in ReadItems(root, "Exclude", "Path", "Pattern", "File", "Folder", "Directory"))
         {
             string value = ((string)element)?.Trim();
             if (!string.IsNullOrWhiteSpace(value))
                 config.Exclude.Add(value);
         }
 
-        if (config.Include.Count == 0 && !config.IncludeProjectClosure)
-            throw new InvalidOperationException(ConfigFileName + ": секция <Include> пуста и IncludeProjectClosure=false.");
+        // В новой схеме пустой <Include> не является фатальной ошибкой,
+        // если включён IncludeProjectClosure. Для старых/смешанных конфигов
+        // также не падаем, а автоматически включаем project-closure.
+        if (config.Include.Count == 0)
+            config.IncludeProjectClosure = true;
 
         return config;
+    }
+
+    private static IEnumerable<XElement> ReadItems(XElement root, string parentName, params string[] itemNames)
+    {
+        XElement parent = root.Element(parentName);
+        if (parent == null)
+            return Enumerable.Empty<XElement>();
+
+        return parent.Elements()
+            .Where(x => itemNames.Any(name => string.Equals(x.Name.LocalName, name, StringComparison.OrdinalIgnoreCase)));
     }
 
     private static void Save(string configPath, ZipBuildConfig config)
@@ -130,8 +144,8 @@ internal sealed class ZipBuildConfigStore
                 new XElement("StartProject", config.StartProject ?? string.Empty),
                 new XElement("IncludeManifest", config.IncludeManifest),
                 new XElement("IncludeProjectClosure", config.IncludeProjectClosure),
-                new XElement("Include", config.Include.Distinct(StringComparer.OrdinalIgnoreCase).OrderBy(x => x).Select(x => new XElement("Path", x))),
-                new XElement("Exclude", config.Exclude.Distinct(StringComparer.OrdinalIgnoreCase).OrderBy(x => x).Select(x => new XElement("Path", x)))));
+                new XElement("Include", config.Include.Distinct(StringComparer.OrdinalIgnoreCase).OrderBy(x => x).Select(x => new XElement("File", x))),
+                new XElement("Exclude", config.Exclude.Distinct(StringComparer.OrdinalIgnoreCase).OrderBy(x => x).Select(x => new XElement("Pattern", x)))));
 
         using (StreamWriter writer = new StreamWriter(configPath, false, new UTF8Encoding(true)))
             document.Save(writer);

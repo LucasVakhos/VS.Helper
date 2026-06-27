@@ -32,6 +32,10 @@ bld/
 [Oo]ut/
 [Ll]og/
 [Ll]ogs/
+*.vsix
+_zip/*.zip
+_VS.Helper.SelfUpgrade.log
+_VS.Helper.SelfUpgrade.error.log
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/

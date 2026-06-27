@@ -3,6 +3,7 @@ using Community.VisualStudio.Toolkit;
 using EnvDTE;
 using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using VS.Helper.Core.Zip;
 
@@ -37,13 +38,54 @@ internal sealed class CreateZipConfigCommand : BaseCommand<CreateZipConfigComman
 
         try
         {
-            ZipBuildConfig config = ZipBuildConfig.CreateDefault(solutionPath);
-            config.Save(solutionPath);
-            Show("Новый конфиг ZIP-схемы создан:\n" + Path.Combine(Path.GetDirectoryName(solutionPath)!, ZipBuildConfig.FileName), false);
+            ZipBuildConfig config = ZipBuildConfig.LoadOrCreateDefault(solutionPath);
+            EnsureSolutionFoldersInConfig(solutionPath, config);
+
+            string configPath = Path.Combine(Path.GetDirectoryName(solutionPath)!, ZipBuildConfig.FileName);
+            using ZipConfigEditorDialog dialog = new(solutionPath, config);
+            System.Windows.Forms.DialogResult result = dialog.ShowDialog();
+
+            if (result == System.Windows.Forms.DialogResult.Retry)
+                OpenConfigForEdit(dte, configPath);
+            else if (result == System.Windows.Forms.DialogResult.OK)
+                Show("ZIP config сохранён:\r\n" + configPath, false);
+
         }
         catch (Exception ex)
         {
             Show(ex.ToString(), true);
+        }
+    }
+
+    private static void OpenConfigForEdit(DTE dte, string configPath)
+    {
+        ThreadHelper.ThrowIfNotOnUIThread();
+
+        if (string.IsNullOrWhiteSpace(configPath) || !File.Exists(configPath))
+            return;
+
+        try
+        {
+            Window window = dte.ItemOperations.OpenFile(configPath, EnvDTE.Constants.vsViewKindTextView);
+            window?.Activate();
+            return;
+        }
+        catch
+        {
+            // Fallback: open with default XML editor if VS editor could not open it.
+        }
+
+        try
+        {
+            System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+            {
+                FileName = configPath,
+                UseShellExecute = true
+            });
+        }
+        catch
+        {
+            // Path is shown in the message box even if fallback failed.
         }
     }
 

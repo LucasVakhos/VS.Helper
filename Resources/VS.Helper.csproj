@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="15.0" DefaultTargets="Build">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectTypeGuids>{82b43b9b-a64c-4715-b499-d71e9ca2bd60};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{7420BD9F-4F44-41BF-B8FB-BB1EC4478ACF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VS.Helper</RootNamespace>
+    <AssemblyName>VS.Helper</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <LangVersion>latest</LangVersion>
+    <NoWarn>$(NoWarn);CS8632</NoWarn>
+    <SignAssembly>true</SignAssembly>
+    <GeneratePkgDefFile>true</GeneratePkgDefFile>
+    <UseCodebase>true</UseCodebase>
+    <IncludeAssemblyInVSIXContainer>true</IncludeAssemblyInVSIXContainer>
+    <IncludeDebugSymbolsInVSIXContainer>true</IncludeDebugSymbolsInVSIXContainer>
+    <IncludeDebugSymbolsInLocalVSIXDeployment>false</IncludeDebugSymbolsInLocalVSIXDeployment>
+    <CopyBuildOutputToOutputDirectory>true</CopyBuildOutputToOutputDirectory>
+    <CopyOutputSymbolsToOutputDirectory>true</CopyOutputSymbolsToOutputDirectory>
+    <StartAction>Program</StartAction>
+    <StartProgram Condition="'$(DevEnvDir)' != ''">$(DevEnvDir)devenv.exe</StartProgram>
+    <StartArguments>/rootsuffix Exp</StartArguments>
+    <Version>2026.2.1.71</Version>
+    <AssemblyVersion>2026.2.1.71</AssemblyVersion>
+    <FileVersion>2026.2.1.71</FileVersion>
+    <InformationalVersion>2026.2.1.71</InformationalVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CopyVsixExtensionFiles>True</CopyVsixExtensionFiles>
+    <CopyVsixExtensionLocation>
+    </CopyVsixExtensionLocation>
+    <CreateVsixContainer>True</CreateVsixContainer>
+    <DeployExtension>False</DeployExtension>
+    <CodeAnalysisRuleSet>
+    </CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Win32Resource>
+    </Win32Resource>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DelaySign>true</DelaySign>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Commands\BuildSolutionCommand.cs" />
+    <Compile Include="Commands\SelfUpgradeCommand.cs" />
+    <Compile Include="Commands\EvolveSwarmCommand.cs" />
+    <Compile Include="Commands\RunSwarmCommand.cs" />
+    <Compile Include="Core\Versioning\VsixVersionService.cs" />
+    <Compile Include="Helpers\AI\Agents\AgentSwarmCore.cs" />
+    <Compile Include="Helpers\AI\Agents\AgentSwarmEvolutionCore.cs" />
+    <Compile Include="Helpers\AI\Agents\FixAgent.cs" />
+    <Compile Include="Helpers\AI\Agents\OptimizationAgent.cs" />
+    <Compile Include="Helpers\AI\Agents\QualityAgent.cs" />
+    <Compile Include="Helpers\AI\Config\GlobalConfig.cs" />
+    <Compile Include="Helpers\AI\Config\GlobalConfigStore.cs" />
+    <Compile Include="Helpers\AI\SelfDefense\DefenseResponse.cs" />
+    <Compile Include="Helpers\AI\SelfDefense\ProjectScopeGuard.cs" />
+    <Compile Include="Helpers\AI\SelfDefense\SelfDefenseCore.cs" />
+    <Compile Include="Helpers\AI\SelfUpgrade\SelfUpgradeCore.cs" />
+    <Compile Include="Helpers\AI\SelfUpgrade\VersionBumpEngine.cs" />
+    <Compile Include="Helpers\AI\Swarm\SwarmError.cs" />
+    <Compile Include="Helpers\AI\Swarm\SwarmHash.cs" />
+    <Compile Include="Helpers\AI\Swarm\SwarmMemoryEntry.cs" />
+    <Compile Include="Helpers\AI\Swarm\SwarmMemoryState.cs" />
+    <Compile Include="Helpers\AI\Swarm\SwarmMemoryStore.cs" />
+    <Compile Include="Helpers\AI\Swarm\SwarmRule.cs" />
+    <Compile Include="Helpers\AI\Swarm\SwarmRuleEngine.cs" />
+    <Compile Include="Helpers\AI\Swarm\SwarmRuleState.cs" />
+    <Compile Include="Helpers\AI\Swarm\SwarmRuleStore.cs" />
+    <Compile Include="Helpers\AI\Swarm\SwarmStrategies.cs" />
+    <Compile Include="Helpers\AI\Threading\ThreadOrchestrator.cs" />
+    <Compile Include="Helpers\AI\VisualStudio\DTEProxy.cs" />
+    <Compile Include="Helpers\Commands\AppCleanerToolsCommand.cs" />
+    <Compile Include="Helpers\Commands\BuildSolutionCommand.cs" />
+    <Compile Include="Helpers\Commands\BuildZipCommand.cs" />
+    <Compile Include="Helpers\Commands\CommitStampSyncGitCommand.cs" />
+    <Compile Include="Helpers\Commands\CreateZipConfigCommand.cs" />
+    <Compile Include="Helpers\Commands\EvolveSwarmCommand.cs" />
+    <Compile Include="Helpers\Commands\RunSwarmCommand.cs" />
+    <Compile Include="Helpers\Commands\SelfUpgradeCommand.cs" />
+    <Compile Include="Helpers\Commands\VSHelperStatusCommand.cs" />
+    <Compile Include="Helpers\Core\Browser\BrowserKernel.cs" />
+    <Compile Include="Helpers\Core\Handoff\BrowserHandoffService.cs" />
+    <Compile Include="Helpers\Core\Config\ConfigViewModel.cs" />
+    <Compile Include="Helpers\Core\Config\GlobalConfig.cs" />
+    <Compile Include="Helpers\Core\Config\GlobalConfigStore.cs" />
+    <Compile Include="Helpers\Core\LegacyCommands\BuildSolutionCommand.cs" />
+    <Compile Include="Helpers\Core\LegacyCommands\CreateZipCommand.cs" />
+    <Compile Include="Helpers\Core\Routing\AIRouter.cs" />
+    <Compile Include="Helpers\Core\Routing\RouteIntent.cs" />
+    <Compile Include="Helpers\Core\Routing\RouteTarget.cs" />
+    <Compile Include="Helpers\Core\Versioning\VsixVersionService.cs" />
+    <Compile Include="Helpers\Core\Zip\ProjectClosureScanner.cs" />
+    <Compile Include="Helpers\Core\Zip\SolutionProjectScanner.cs" />
+    <Compile Include="Helpers\Core\Zip\ZipBuildConfig.cs" />
+    <Compile Include="Helpers\Core\Zip\ZipBuildConfigStore.cs" />
+    <Compile Include="Helpers\Core\Zip\ZipBuildEngine.cs" />
+    <Compile Include="Helpers\Core\Zip\ZipBuildManifestWriter.cs" />
+    <Compile Include="Helpers\Core\Zip\ZipBuildResult.cs" />
+    <Compile Include="Helpers\Core\Zip\ZipBuildService.cs" />
+    <Compile Include="Helpers\Core\Zip\ZipIgnoreMatcher.cs" />
+    <Compile Include="Helpers\Core\Zip\ZipManifestWriter.cs" />
+    <Compile Include="Helpers\Core\Zip\ZipPath.cs" />
+    <Compile Include="Helpers\Core\Zip\ZipPathMatcher.cs" />
+    <Compile Include="Helpers\Core\Zip\ZipPathTools.cs" />
+    <Compile Include="Helpers\Core\Zip\ZipProjectGraphReader.cs" />
+    <Compile Include="Helpers\Core\Zip\ZipVariableResolver.cs" />
+    <Compile Include="Helpers\Helpers\AI\Agents\AgentSwarmCore.cs" />
+    <Compile Include="Helpers\Helpers\AI\Agents\AgentSwarmEvolutionCore.cs" />
+    <Compile Include="Helpers\Helpers\AI\Agents\FixAgent.cs" />
+    <Compile Include="Helpers\Helpers\AI\Agents\OptimizationAgent.cs" />
+    <Compile Include="Helpers\Helpers\AI\Agents\QualityAgent.cs" />
+    <Compile Include="Helpers\Helpers\AI\Config\GlobalConfig.cs" />
+    <Compile Include="Helpers\Helpers\AI\Config\GlobalConfigStore.cs" />
+    <Compile Include="Helpers\Helpers\AI\SelfDefense\DefenseResponse.cs" />
+    <Compile Include="Helpers\Helpers\AI\SelfDefense\ProjectScopeGuard.cs" />
+    <Compile Include="Helpers\Helpers\AI\SelfDefense\SelfDefenseCore.cs" />
+    <Compile Include="Helpers\Helpers\AI\SelfUpgrade\SelfUpgradeCore.cs" />
+    <Compile Include="Helpers\Helpers\AI\SelfUpgrade\VersionBumpEngine.cs" />
+    <Compile Include="Helpers\Helpers\AI\Swarm\SwarmError.cs" />
+    <Compile Include="Helpers\Helpers\AI\Swarm\SwarmHash.cs" />
+    <Compile Include="Helpers\Helpers\AI\Swarm\SwarmMemoryEntry.cs" />
+    <Compile Include="Helpers\Helpers\AI\Swarm\SwarmMemoryState.cs" />
+    <Compile Include="Helpers\Helpers\AI\Swarm\SwarmMemoryStore.cs" />
+    <Compile Include="Helpers\Helpers\AI\Swarm\SwarmRule.cs" />
+    <Compile Include="Helpers\Helpers\AI\Swarm\SwarmRuleEngine.cs" />
+    <Compile Include="Helpers\Helpers\AI\Swarm\SwarmRuleState.cs" />
+    <Compile Include="Helpers\Helpers\AI\Swarm\SwarmRuleStore.cs" />
+    <Compile Include="Helpers\Helpers\AI\Swarm\SwarmStrategies.cs" />
+    <Compile Include="Helpers\Helpers\AI\Threading\ThreadOrchestrator.cs" />
+    <Compile Include="Helpers\Helpers\AI\VisualStudio\DTEProxy.cs" />
+    <Compile Include="Helpers\Helpers\Classes\VSHelperComboTodoAttribute.cs" />
+    <Compile Include="Helpers\Helpers\Classes\VSHelperComboTodoItems.cs" />
+    <Compile Include="Helpers\Helpers\Classes\VSHelperEnumExtensions.cs" />
+    <Compile Include="Helpers\Helpers\Classes\VSHelperOperationTypes.cs" />
+    <Compile Include="Helpers\Helpers\Classes\VSHelperOptions.cs" />
+    <Compile Include="Helpers\Helpers\Classes\VSHelperPatternType.cs" />
+    <Compile Include="Helpers\Helpers\Classes\VSHelperSolutionInfo.cs" />
+    <Compile Include="Helpers\Helpers\Commands\AppCleanerToolsCommand.cs" />
+    <Compile Include="Helpers\Helpers\Commands\BuildSolutionCommand.cs" />
+    <Compile Include="Helpers\Helpers\Commands\BuildZipCommand.cs" />
+    <Compile Include="Helpers\Helpers\Commands\CommitStampSyncGitCommand.cs" />
+    <Compile Include="Helpers\Helpers\Commands\CreateZipConfigCommand.cs" />
+    <Compile Include="Helpers\Helpers\Commands\EvolveSwarmCommand.cs" />
+    <Compile Include="Helpers\Helpers\Commands\RunSwarmCommand.cs" />
+    <Compile Include="Helpers\Helpers\Commands\SelfUpgradeCommand.cs" />
+    <Compile Include="Helpers\Helpers\Core\Browser\BrowserKernel.cs" />
+    <Compile Include="Helpers\Helpers\Core\Config\ConfigViewModel.cs" />
+    <Compile Include="Helpers\Helpers\Core\Config\GlobalConfig.cs" />
+    <Compile Include="Helpers\Helpers\Core\Config\GlobalConfigStore.cs" />
+    <Compile Include="Helpers\Helpers\Core\LegacyCommands\BuildSolutionCommand.cs" />
+    <Compile Include="Helpers\Helpers\Core\LegacyCommands\CreateZipCommand.cs" />
+    <Compile Include="Helpers\Helpers\Core\Routing\AIRouter.cs" />
+    <Compile Include="Helpers\Helpers\Core\Routing\RouteIntent.cs" />
+    <Compile Include="Helpers\Helpers\Core\Routing\RouteTarget.cs" />
+    <Compile Include="Helpers\Helpers\Core\Zip\ZipBuildConfig.cs" />
+    <Compile Include="Helpers\Helpers\Core\Zip\ZipBuildConfigStore.cs" />
+    <Compile Include="Helpers\Helpers\Core\Zip\ZipBuildEngine.cs" />
+    <Compile Include="Helpers\Helpers\Core\Zip\ZipBuildManifestWriter.cs" />
+    <Compile Include="Helpers\Helpers\Core\Zip\ZipBuildResult.cs" />
+    <Compile Include="Helpers\Helpers\Core\Zip\ZipPathMatcher.cs" />
+    <Compile Include="Helpers\Helpers\Core\Zip\ZipPathTools.cs" />
+    <Compile Include="Helpers\Helpers\Core\Zip\ZipProjectGraphReader.cs" />
+    <Compile Include="Helpers\Helpers\Core\Zip\ZipVariableResolver.cs" />
+    <Compile Include="Helpers\Helpers\Helpers\Classes\VSHelperComboTodoAttribute.cs" />
+    <Compile Include="Helpers\Helpers\Helpers\Classes\VSHelperComboTodoItems.cs" />
+    <Compile Include="Helpers\Helpers\Helpers\Classes\VSHelperEnumExtensions.cs" />
+    <Compile Include="Helpers\Helpers\Helpers\Classes\VSHelperOperationTypes.cs" />
+    <Compile Include="Helpers\Helpers\Helpers\Classes\VSHelperOptions.cs" />
+    <Compile Include="Helpers\Helpers\Helpers\Classes\VSHelperPatternType.cs" />
+    <Compile Include="Helpers\Helpers\Helpers\Classes\VSHelperSolutionInfo.cs" />
+    <Compile Include="Helpers\Helpers\Helpers\VSHelperEngine.cs" />
+    <Compile Include="Helpers\Helpers\Helpers\VSHelperLogDialog.cs" />
+    <Compile Include="Helpers\Helpers\Helpers\VSHelperToolsDialog.cs" />
+    <Compile Include="Helpers\Helpers\Helpers\VSHelperToolsHelper.cs" />
+    <Compile Include="Helpers\Helpers\PackageGuids.cs" />
+    <Compile Include="Helpers\Helpers\PackageIds.cs" />
+    <Compile Include="Helpers\Helpers\Properties\AssemblyInfo.cs" />
+    <Compile Include="Helpers\Helpers\source.extension.cs" />
+    <Compile Include="Helpers\Helpers\source.extension1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>source.extension.vsixmanifest</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\Helpers\VSCommandTable.cs" />
+    <Compile Include="Helpers\Helpers\VSHelper.Full.cs" />
+    <Compile Include="Helpers\Helpers\VSHelperEngine.cs" />
+    <Compile Include="Helpers\Helpers\VSHelperLogDialog.cs" />
+    <Compile Include="Helpers\Helpers\VSHelperPackage.cs" />
+    <Compile Include="Helpers\Helpers\VSHelperToolsDialog.cs" />
+    <Compile Include="Helpers\Helpers\VSHelperToolsHelper.cs" />
+    <Compile Include="Helpers\PackageGuids.cs" />
+    <Compile Include="Helpers\PackageIds.cs" />
+    <Compile Include="Helpers\Properties\AssemblyInfo.cs" />
+    <Compile Include="Helpers\VSHelperEngine.cs" />
+    <Compile Include="Helpers\VSHelperLogDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\VSHelperToolsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\VSHelperToolsHelper.cs" />
+    <Compile Include="Helpers\Classes\VSHelperOptions.cs" />
+    <Compile Include="Helpers\Classes\VSHelperSolutionInfo.cs" />
+    <Compile Include="Helpers\Classes\VSHelperComboTodoAttribute.cs" />
+    <Compile Include="Helpers\Classes\VSHelperComboTodoItems.cs" />
+    <Compile Include="Helpers\Classes\VSHelperEnumExtensions.cs" />
+    <Compile Include="Helpers\Classes\VSHelperOperationTypes.cs" />
+    <Compile Include="Helpers\Classes\VSHelperPatternType.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Commands\BuildZipCommand.cs" />
+    <Compile Include="Commands\CreateZipConfigCommand.cs" />
+    <Compile Include="Commands\CommitStampSyncGitCommand.cs" />
+    <Compile Include="Commands\AppCleanerToolsCommand.cs" />
+    <Compile Include="VSHelperPackage.cs" />
+    <Compile Include="PackageIds.cs" />
+    <Compile Include="PackageGuids.cs" />
+    <Compile Include="source.extension.cs">
+      <AutoGen>true</AutoGen>
+      <DesignTime>true</DesignTime>
+      <DependentUpon>source.extension.vsixmanifest</DependentUpon>
+    </Compile>
+    <Compile Include="VSCommandTable.cs">
+      <AutoGen>true</AutoGen>
+      <DesignTime>true</DesignTime>
+      <DependentUpon>VSCommandTable.vsct</DependentUpon>
+    </Compile>
+    <Compile Include="AI\Agents\AgentSwarmCore.cs" />
+    <Compile Include="AI\Agents\AgentSwarmEvolutionCore.cs" />
+    <Compile Include="AI\Agents\FixAgent.cs" />
+    <Compile Include="AI\Agents\OptimizationAgent.cs" />
+    <Compile Include="AI\Agents\QualityAgent.cs" />
+    <Compile Include="AI\Config\GlobalConfig.cs" />
+    <Compile Include="AI\Config\GlobalConfigStore.cs" />
+    <Compile Include="AI\SelfDefense\DefenseResponse.cs" />
+    <Compile Include="AI\SelfDefense\ProjectScopeGuard.cs" />
+    <Compile Include="AI\SelfDefense\SelfDefenseCore.cs" />
+    <Compile Include="AI\SelfUpgrade\SelfUpgradeCore.cs" />
+    <Compile Include="AI\SelfUpgrade\VersionBumpEngine.cs" />
+    <Compile Include="AI\Swarm\SwarmError.cs" />
+    <Compile Include="AI\Swarm\SwarmHash.cs" />
+    <Compile Include="AI\Swarm\SwarmMemoryEntry.cs" />
+    <Compile Include="AI\Swarm\SwarmMemoryState.cs" />
+    <Compile Include="AI\Swarm\SwarmMemoryStore.cs" />
+    <Compile Include="AI\Swarm\SwarmRule.cs" />
+    <Compile Include="AI\Swarm\SwarmRuleEngine.cs" />
+    <Compile Include="AI\Swarm\SwarmRuleState.cs" />
+    <Compile Include="AI\Swarm\SwarmRuleStore.cs" />
+    <Compile Include="AI\Swarm\SwarmStrategies.cs" />
+    <Compile Include="AI\Threading\ThreadOrchestrator.cs" />
+    <Compile Include="AI\VisualStudio\DTEProxy.cs" />
+    <Compile Include="Core\Browser\BrowserKernel.cs" />
+    <Compile Include="Core\Handoff\BrowserHandoffService.cs" />
+    <Compile Include="Core\Config\ConfigViewModel.cs" />
+    <Compile Include="Core\Config\GlobalConfig.cs" />
+    <Compile Include="Core\Config\GlobalConfigStore.cs" />
+    <Compile Include="Core\LegacyCommands\BuildSolutionCommand.cs" />
+    <Compile Include="Core\LegacyCommands\CreateZipCommand.cs" />
+    <Compile Include="Core\Routing\AIRouter.cs" />
+    <Compile Include="Core\Routing\RouteIntent.cs" />
+    <Compile Include="Core\Routing\RouteTarget.cs" />
+    <Compile Include="Core\Zip\ZipBuildConfig.cs" />
+    <Compile Include="Core\Zip\ZipBuildResult.cs" />
+    <Compile Include="Core\Zip\ZipBuildService.cs" />
+    <Compile Include="Core\Zip\ZipIgnoreMatcher.cs" />
+    <Compile Include="Core\Zip\ZipManifestWriter.cs" />
+    <Compile Include="Core\Zip\ZipPath.cs" />
+    <Compile Include="Core\Zip\SolutionProjectScanner.cs" />
+    <Compile Include="Core\Zip\ProjectClosureScanner.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="Helpers\Helpers\.gitignore" />
+    <Content Include="Helpers\Helpers\LICENSE.txt" />
+    <Content Include="Helpers\Helpers\Resources\Icon.png" />
+    <Content Include="Helpers\Helpers\VS.Helper.slnx" />
+    <Content Include="Helpers\Helpers\VS.Helper.Zip.Sample.xml" />
+    <Content Include="Helpers\Resources\VS.Helper.Icon.ico" />
+    <Content Include="Resources\Icon32.png" />
+    <Content Include="Resources\Icon.png" />
+    <Content Include="Resources\VS.Helper.Icon.ico" />
+    <None Include="Helpers\Helpers\README.md" />
+    <None Include="Helpers\Helpers\VS.Helper.csproj" />
+    <None Include="source.extension.vsixmanifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="VS.Helper.Zip.Sample.xml" />
+    <None Include="README.md" />
+    <Content Include="LICENSE.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <VSCTCompile Include="VSCommandTable.vsct">
+      <ResourceName>Menus.ctmenu</ResourceName>
+    </VSCTCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Helpers\**\*.cs" />
+    <VSCTInclude Remove="Helpers\**\*.vsct" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\VSHelperEngine.cs" />
+    <Compile Include="Helpers\VSHelperLogDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\VSHelperToolsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Helpers\VSHelperToolsHelper.cs" />
+    <Compile Include="Helpers\Classes\VSHelperOptions.cs" />
+    <Compile Include="Helpers\Classes\VSHelperSolutionInfo.cs" />
+    <Compile Include="Helpers\Classes\VSHelperComboTodoAttribute.cs" />
+    <Compile Include="Helpers\Classes\VSHelperComboTodoItems.cs" />
+    <Compile Include="Helpers\Classes\VSHelperEnumExtensions.cs" />
+    <Compile Include="Helpers\Classes\VSHelperOperationTypes.cs" />
+    <Compile Include="Helpers\Classes\VSHelperPatternType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Security" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Community.VisualStudio.VSCT" Version="16.0.29.13" PrivateAssets="all" />
+    <PackageReference Include="Community.VisualStudio.Toolkit.17" Version="17.0.549" />
+    <PackageReference Include="Microsoft.VisualStudio.SDK" Version="17.14.40265" />
+    <PackageReference Include="Microsoft.VSSDK.BuildTools" Version="17.14.2120" PrivateAssets="all" />
+    <PackageReference Include="System.Text.Json" Version="9.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\Diagnostics\" />
+    <Folder Include="Helpers\Core\VisualStudio\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

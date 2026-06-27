@@ -66,9 +66,12 @@ internal sealed class ProjectClosureScanner
         try { document = XDocument.Load(projectPath); }
         catch { yield break; }
 
+        List<string> removePatterns = CollectRemovePatterns(document);
+
+        // Explicit Include/Update items are authoritative and may re-add files after broad Remove rules.
         foreach (XElement item in document.Descendants().Where(x => FileItemNames.Contains(x.Name.LocalName)))
         {
-            string include = ReadPathAttribute(item);
+            string include = ReadIncludeOrUpdateAttribute(item);
             if (string.IsNullOrWhiteSpace(include) || include.Contains("$"))
                 continue;
 
@@ -80,30 +83,91 @@ internal sealed class ProjectClosureScanner
         foreach (string companion in CollectCompanionFiles(projectPath))
             yield return companion;
 
-        // SDK-style projects may omit Compile Include. In that case only add safe source/config files,
-        // not the whole project folder with bin/obj/VSIX/old archives.
+        // SDK-style projects may omit Compile Include. Respect MSBuild Remove rules so legacy duplicate
+        // folders (Helpers/**, Resources/**, etc.) do not get pulled back into the ZIP by the fallback scan.
         if (IsSdkStyle(document))
         {
             string[] patterns = { "*.cs", "*.razor", "*.cshtml", "*.resx", "*.xaml", "*.json", "*.config", "*.props", "*.targets" };
             foreach (string pattern in patterns)
+            {
                 foreach (string file in Directory.EnumerateFiles(projectDir, pattern, SearchOption.AllDirectories))
+                {
+                    string relative = ZipPath.NormalizeRelative(ZipPath.GetRelativePath(projectDir, file));
+                    if (IsRemoved(relative, removePatterns))
+                        continue;
+
                     yield return Path.GetFullPath(file);
+                }
+            }
         }
     }
 
-    private static string ReadPathAttribute(XElement item)
+    private static string ReadIncludeOrUpdateAttribute(XElement item)
         => ((string?)item.Attribute("Include")
             ?? (string?)item.Attribute("Update")
-            ?? (string?)item.Attribute("Remove")
             ?? string.Empty).Trim();
+
+    private static List<string> CollectRemovePatterns(XDocument document)
+    {
+        return document.Descendants()
+            .Where(x => FileItemNames.Contains(x.Name.LocalName))
+            .Select(x => ((string?)x.Attribute("Remove") ?? string.Empty).Trim())
+            .Where(x => !string.IsNullOrWhiteSpace(x) && !x.Contains("$"))
+            .Select(x => ZipPath.NormalizeRelative(x))
+            .Distinct(StringComparer.OrdinalIgnoreCase)
+            .ToList();
+    }
+
+    private static bool IsRemoved(string relative, IEnumerable<string> removePatterns)
+    {
+        foreach (string pattern in removePatterns)
+        {
+            if (GlobLikeMatch(relative, pattern))
+                return true;
+        }
+
+        return false;
+    }
+
+    private static bool GlobLikeMatch(string relative, string pattern)
+    {
+        relative = ZipPath.NormalizeRelative(relative);
+        pattern = ZipPath.NormalizeRelative(pattern);
+
+        if (string.Equals(relative, pattern, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (pattern.EndsWith("/**", StringComparison.OrdinalIgnoreCase))
+        {
+            string prefix = pattern.Substring(0, pattern.Length - 3).TrimEnd('/');
+            return relative.StartsWith(prefix + "/", StringComparison.OrdinalIgnoreCase);
+        }
+
+        if (pattern.EndsWith("/**/*", StringComparison.OrdinalIgnoreCase))
+        {
+            string prefix = pattern.Substring(0, pattern.Length - 5).TrimEnd('/');
+            return relative.StartsWith(prefix + "/", StringComparison.OrdinalIgnoreCase);
+        }
+
+        string regex = "^" + System.Text.RegularExpressions.Regex.Escape(pattern)
+            .Replace("\\*\\*", ".*")
+            .Replace("\\*", "[^/]*")
+            .Replace("\\?", ".") + "$";
+
+        return System.Text.RegularExpressions.Regex.IsMatch(
+            relative,
+            regex,
+            System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+    }
 
     private static IEnumerable<string> CollectCompanionFiles(string projectPath)
     {
         string projectDir = Path.GetDirectoryName(projectPath) ?? Environment.CurrentDirectory;
+        string solutionNameConfig = Path.GetFileNameWithoutExtension(projectPath) + ".config";
         string[] names =
         {
-            "source.extension.vsixmanifest", "VSCommandTable.vsct", "app.config", "App.config",
-            "packages.config", "README.md", "LICENSE.txt", "Directory.Build.props", "Directory.Packages.props", "NuGet.config"
+            "source.extension.vsixmanifest", "VSCommandTable.vsct", solutionNameConfig, "app.config", "App.config",
+            "packages.config", "README.md", "ABOUT.md", "LICENSE.txt", "Directory.Build.props", "Directory.Packages.props", "NuGet.config"
         };
 
         foreach (string name in names)

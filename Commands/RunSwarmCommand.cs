@@ -1,13 +1,11 @@
-﻿using System;
-using System.Threading.Tasks;
-using Community.VisualStudio.Toolkit;
 using EnvDTE;
 using EnvDTE80;
+using System;
 using VS.Helper.AI;
 
 namespace VS.Helper.Commands;
 
-[Command(PackageIds.RunSwarmCommand)]
+[Community.VisualStudio.Toolkit.Command(PackageIds.RunSwarmCommand)]
 internal sealed class RunSwarmCommand : BaseCommand<RunSwarmCommand>
 {
     protected override void BeforeQueryStatus(EventArgs e)

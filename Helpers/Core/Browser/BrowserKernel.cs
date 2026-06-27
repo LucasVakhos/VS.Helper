@@ -26,8 +26,9 @@ internal static class BrowserKernel
         var proc = Process.GetProcesses()
             .FirstOrDefault(p =>
                 p.ProcessName.Contains("chrome") ||
-                p.ProcessName.Contains("msedge") ||
-                p.ProcessName.Contains("firefox"));
+                p.ProcessName.Contains("firefox") ||
+                p.ProcessName.Contains("brave") ||
+                p.ProcessName.Contains("opera"));
 
         if (proc != null)
         {
@@ -57,7 +58,7 @@ internal static class BrowserKernel
     private static string SelectBrowser()
     {
         using var dlg = new OpenFileDialog();
-        dlg.Filter = "Browser|chrome.exe;msedge.exe;firefox.exe";
+        dlg.Filter = "Browser|chrome.exe;firefox.exe;brave.exe;opera.exe";
 
         return dlg.ShowDialog() == DialogResult.OK ? dlg.FileName : "";
     }

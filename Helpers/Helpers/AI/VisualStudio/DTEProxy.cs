@@ -68,10 +68,32 @@ internal static class DTEProxy
 
     public static Task BuildSolutionAsync(DTE2 dte)
     {
+        return BuildSolutionNoWaitAsync(dte);
+    }
+
+    public static Task BuildSolutionNoWaitAsync(DTE2 dte)
+    {
         return ThreadOrchestrator.RunUIAsync(async () =>
         {
             await Task.CompletedTask;
-            dte.Solution.SolutionBuild.Build(true);
+            // false = не ждать окончания сборки; иначе команда расширения может намертво подвесить Visual Studio.
+            dte.Solution.SolutionBuild.Build(false);
+        });
+    }
+
+    public static Task SaveAllAsync(DTE2 dte)
+    {
+        return ThreadOrchestrator.RunUIAsync(async () =>
+        {
+            await Task.CompletedTask;
+            try
+            {
+                dte.ExecuteCommand("File.SaveAll");
+            }
+            catch
+            {
+                // save-all is best-effort only
+            }
         });
     }
 

@@ -1,5 +1,4 @@
-﻿// Commands\CommitStampSyncGitCommand.cs
-using Community.VisualStudio.Toolkit;
+// Commands\CommitStampSyncGitCommand.cs
 using EnvDTE;
 using System;
 using System.Collections.Generic;
@@ -13,7 +12,7 @@ using DiagnosticsStartInfo = System.Diagnostics.ProcessStartInfo;
 
 namespace VS.Helper.Commands;
 
-[Command(PackageIds.CommitStampSyncGitCommand)]
+[Community.VisualStudio.Toolkit.Command(PackageIds.CommitStampSyncGitCommand)]
 internal sealed class CommitStampSyncGitCommand : BaseCommand<CommitStampSyncGitCommand>
 {
     private const string ConfigFileName = "VS.Helper.Zip.xml";
@@ -102,11 +101,14 @@ internal sealed class CommitStampSyncGitCommand : BaseCommand<CommitStampSyncGit
                 return;
             }
 
+            string shortDescription = await BuildShortChangeDescriptionAsync(repoRoot);
+            string commitMessage = BuildCommitMessage(stamp, shortDescription);
+
             GitResult commitResult = await RunGitAsync(
                 repoRoot,
-                "commit -m \"" + EscapeGitArgument(stamp) + "\"");
+                "commit -m \"" + EscapeGitArgument(commitMessage) + "\"");
 
-            log.AppendLine("> git commit -m \"" + stamp + "\"");
+            log.AppendLine("> git commit -m \"" + commitMessage + "\"");
             AppendResult(log, commitResult);
 
             if (commitResult.ExitCode != 0)
@@ -148,7 +150,7 @@ internal sealed class CommitStampSyncGitCommand : BaseCommand<CommitStampSyncGit
                 return;
             }
 
-            ShowInfo("Commit + Sync Git выполнено.\n\n" + stamp);
+            ShowInfo("Commit + Sync Git выполнено.\n\n" + commitMessage);
         }
         catch (Exception ex)
         {
@@ -208,8 +210,8 @@ internal sealed class CommitStampSyncGitCommand : BaseCommand<CommitStampSyncGit
 
                 new XElement("Git",
                     new XElement("UserName", "YOUR_GITHUB_LOGIN"),
-                    new XElement("Token", ""),
-                    new XElement("TokenProtected", "")
+                    new XElement("Token", string.Empty),
+                    new XElement("TokenProtected", string.Empty)
                 ),
 
                 new XElement("Include",
@@ -384,6 +386,76 @@ internal sealed class CommitStampSyncGitCommand : BaseCommand<CommitStampSyncGit
         report.AppendLine("git rebase --continue");
 
         return report.ToString();
+    }
+
+    private static async Task<string> BuildShortChangeDescriptionAsync(string repoRoot)
+    {
+        GitResult result = await RunGitAsync(repoRoot, "diff --cached --name-status --find-renames", true);
+        if (result.ExitCode != 0)
+            return "update";
+
+        int added = 0;
+        int modified = 0;
+        int deleted = 0;
+        int renamed = 0;
+        int total = 0;
+        List<string> sampleFiles = new List<string>();
+
+        using (StringReader reader = new StringReader(result.Output ?? string.Empty))
+        {
+            string line;
+            while ((line = await reader.ReadLineAsync()) != null)
+            {
+                if (string.IsNullOrWhiteSpace(line))
+                    continue;
+
+                string[] parts = line.Split('\t');
+                if (parts.Length == 0)
+                    continue;
+
+                string status = parts[0].Trim();
+                if (status.StartsWith("A", StringComparison.OrdinalIgnoreCase))
+                    added++;
+                else if (status.StartsWith("D", StringComparison.OrdinalIgnoreCase))
+                    deleted++;
+                else if (status.StartsWith("R", StringComparison.OrdinalIgnoreCase))
+                    renamed++;
+                else
+                    modified++;
+
+                total++;
+
+                string candidate = parts.Length >= 3 && status.StartsWith("R", StringComparison.OrdinalIgnoreCase)
+                    ? parts[2]
+                    : parts[parts.Length - 1];
+
+                if (!string.IsNullOrWhiteSpace(candidate) && sampleFiles.Count < 2)
+                    sampleFiles.Add(Path.GetFileName(candidate.Trim()));
+            }
+        }
+
+        if (total == 0)
+            return "update";
+
+        string summary = string.Format(
+            "{0} files (+{1} ~{2} -{3} r{4})",
+            total,
+            added,
+            modified,
+            deleted,
+            renamed);
+
+        if (sampleFiles.Count == 0)
+            return summary;
+
+        return summary + ": " + string.Join(", ", sampleFiles);
+    }
+
+    private static string BuildCommitMessage(string stamp, string description)
+    {
+        string safeStamp = string.IsNullOrWhiteSpace(stamp) ? "Stamp" : stamp.Trim();
+        string safeDescription = string.IsNullOrWhiteSpace(description) ? "update" : description.Trim();
+        return safeStamp + " - " + safeDescription;
     }
 
     private static void OpenUrl(string url)

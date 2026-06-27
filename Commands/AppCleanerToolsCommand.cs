@@ -1,15 +1,11 @@
-﻿// Commands\VSHelperToolsCommand.cs
-using Community.VisualStudio.Toolkit;
+// Commands\VSHelperToolsCommand.cs
 using EnvDTE;
 using System;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-using WinFormsMessageBox = System.Windows.Forms.MessageBox;
+using VS.Helper;
 
 namespace VS.Helper.Commands;
 
-[Command(PackageIds.VSHelperToolsCommand)]
+[Community.VisualStudio.Toolkit.Command(PackageIds.VSHelperToolsCommand)]
 internal sealed class VSHelperToolsCommand : BaseCommand<VSHelperToolsCommand>
 {
     protected override void BeforeQueryStatus(EventArgs e)

@@ -1,0 +1,979 @@
+Сборка начата 24.06.2026 3:55:27.
+Уровень детализации журнала: Detailed.Процесс = "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\MSBuild.exe"
+Путь к исполняемому файлу MSBuild = "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\MSBuild.exe"
+Аргументы командной строки = ""C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\MSBuild.exe" C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj /t:Rebuild /p:Configuration=Debug /p:DeployExtension=false /nologo /v:detailed /fl /flp:logfile=C:\Users\user\source\repos\VS.Helper\build_output.txt"
+Текущий каталог = "C:\Users\user\source\repos\VS.Helper"
+Версия MSBuild = "18.7.8+1ac568fee"
+На основе раздела реестра Windows LongPathsEnabled функция LongPaths имеет значение отключено.
+На основе раздела реестра Windows VerifiedAndReputablePolicyState, состояние SAC = 0: отключено.
+Некоторые параметры командной строки были считаны из файла автоматического ответа "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\MSBuild.rsp". Чтобы отключить этот файл, используйте параметр "-noAutoResponse".
+
+Повторное назначение свойства: $(MSBuildExtensionsPath)="C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild" (предыдущее значение: "C:\Program Files (x86)\MSBuild") для 
+Повторное назначение свойства: $(MSBuildExtensionsPath32)="C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild" (предыдущее значение: "C:\Program Files (x86)\MSBuild") для 
+Пути поиска, используемые для $(MSBuildExtensionsPath): C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+Попытка импортировать "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\$(MSBuildToolsVersion)\Microsoft.Common.props" с помощью пути расширений C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Microsoft.Common.props(60,5): message : Повторное назначение свойства: $(MSBuildProjectExtensionsPath)="C:\Users\user\source\repos\VS.Helper\obj\" (предыдущее значение: "obj\") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Microsoft.Common.props (60,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Microsoft.Common.props(84,119): message : Свойство "MSBuildUserExtensionsPath" со значением "C:\Users\user\AppData\Local\Microsoft\MSBuild" развернуто из окружения.
+Пути поиска, используемые для $(MSBuildExtensionsPath): C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+Попытка импортировать "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\$(MSBuildToolsVersion)\Imports\Microsoft.Common.props\ImportBefore\*" с помощью пути расширений C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild
+Свойство "Configuration" является глобальным и не подлежит изменению.
+Пути поиска, используемые для $(MSBuildExtensionsPath): C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+Попытка импортировать "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\$(MSBuildToolsVersion)\Microsoft.VisualStudioVersion.v*.Common.props" с помощью пути расширений C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild
+Попытка импортировать "C:\Program Files (x86)\MSBuild\$(MSBuildToolsVersion)\Microsoft.VisualStudioVersion.v*.Common.props" с помощью пути расширений C:\Program Files (x86)\MSBuild
+Пути поиска, используемые для $(MSBuildExtensionsPath): C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+Свойство "Configuration" является глобальным и не подлежит изменению.
+Пути поиска, используемые для $(MSBuildExtensionsPath): C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Roslyn\Microsoft.CSharp.Core.targets(213,5): message : Повторное назначение свойства: $(CommandLineArgsForDesignTimeEvaluation)="-langversion:latest -define:DEBUG;TRACE" (предыдущее значение: "-langversion:latest") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Roslyn\Microsoft.CSharp.Core.targets (213,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets(13,5): message : Повторное назначение свойства: $(DefineCommonItemSchemas)="false" (предыдущее значение: "true") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets (13,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets(14,5): message : Повторное назначение свойства: $(DefineCommonCapabilities)="false" (предыдущее значение: "true") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets (14,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets(15,5): message : Повторное назначение свойства: $(DefineCommonReferenceSchemas)="false" (предыдущее значение: "true") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets (15,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets(511,5): message : Повторное назначение свойства: $(CollectUpToDateCheckInputDesignTimeDependsOn)="CompileDesignTime;ResolveCodeAnalysisRuleSet" (предыдущее значение: "CompileDesignTime") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets (511,5)
+Пути поиска, используемые для $(MSBuildExtensionsPath): C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+Пути поиска, используемые для $(MSBuildExtensionsPath): C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+Попытка импортировать "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\$(MSBuildToolsVersion)\Microsoft.Common.targets\ImportBefore\*" с помощью пути расширений C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild
+Пути поиска, используемые для $(MSBuildExtensionsPath): C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.props(117,5): message : Повторное назначение свойства: $(AvailablePlatforms)="Any CPU,x86,x64,ARM64" (предыдущее значение: "Any CPU,x86,x64") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.props (117,5)
+Пути поиска, используемые для $(MSBuildExtensionsPath): C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+Сборка загружена во время Evaluation: Microsoft.Build.Utilities.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (расположение: C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Build.Utilities.Core.dll, MVID: c311112a-0ae1-4a8e-8383-8581329959a8, домен приложения: [Default])
+Свойство "Configuration" является глобальным и не подлежит изменению.
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(175,5): message : Повторное назначение свойства: $(_DebugSymbolsProduced)="true" (предыдущее значение: "false") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets (175,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(185,5): message : Повторное назначение свойства: $(_DocumentationFileProduced)="false" (предыдущее значение: "true") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets (185,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(393,5): message : Повторное назначение свойства: $(MSBuildCopyMarkerName)="VS.Helper.csproj.Up2Date" (предыдущее значение: "VS.Helper.csproj") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets (393,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(541,5): message : Повторное назначение свойства: $(ProcessorArchitecture)="msil" (предыдущее значение: "") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets (541,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(580,5): message : Повторное назначение свойства: $(DelaySign)="" (предыдущее значение: "false") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets (580,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(649,5): message : Повторное назначение свойства: $(AssemblySearchPaths)="{CandidateAssemblyFiles};" (предыдущее значение: "{CandidateAssemblyFiles}") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets (649,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(650,5): message : Повторное назначение свойства: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem}" (предыдущее значение: "{CandidateAssemblyFiles};") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets (650,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(651,5): message : Повторное назначение свойства: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory}" (предыдущее значение: "{CandidateAssemblyFiles};;{HintPathFromItem}") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets (651,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(652,5): message : Повторное назначение свойства: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\AssemblyFolders.config,v4.8};" (предыдущее значение: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory}") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets (652,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(653,5): message : Повторное назначение свойства: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\AssemblyFolders.config,v4.8};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx}" (предыдущее значение: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\AssemblyFolders.config,v4.8};") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets (653,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(654,5): message : Повторное назначение свойства: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\AssemblyFolders.config,v4.8};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders}" (предыдущее значение: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\AssemblyFolders.config,v4.8};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx}") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets (654,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(655,5): message : Повторное назначение свойства: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\AssemblyFolders.config,v4.8};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders};{GAC}" (предыдущее значение: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\AssemblyFolders.config,v4.8};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders}") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets (655,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(656,5): message : Повторное назначение свойства: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\AssemblyFolders.config,v4.8};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders};{GAC};{RawFileName}" (предыдущее значение: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\AssemblyFolders.config,v4.8};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders};{GAC}") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets (656,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(657,5): message : Повторное назначение свойства: $(AssemblySearchPaths)="{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\AssemblyFolders.config,v4.8};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders};{GAC};{RawFileName};bin\Debug\" (предыдущее значение: "{CandidateAssemblyFiles};;{HintPathFromItem};{TargetFrameworkDirectory};{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\AssemblyFolders.config,v4.8};;{Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx};{AssemblyFolders};{GAC};{RawFileName}") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets (657,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(2622,5): message : Свойство "LOCALAPPDATA" со значением "C:\Users\user\AppData\Local" развернуто из окружения.
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(3950,5): message : Повторное назначение свойства: $(_SGenGenerateSerializationAssembliesConfig)="Auto" (предыдущее значение: "") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets (3950,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(3951,5): message : Повторное назначение свойства: $(_SGenGenerateSerializationAssembliesConfig)="Off" (предыдущее значение: "Auto") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets (3951,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(5162,5): message : Повторное назначение свойства: $(_TargetsThatPrepareProjectReferences)="
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(5162,5): message :       AssignProjectConfiguration;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(5162,5): message :       _SplitProjectReferencesByFileExistence
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(5162,5): message :     " (предыдущее значение: "_SplitProjectReferencesByFileExistence") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets (5162,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\CodeAnalysis\Microsoft.CodeAnalysis.targets(125,5): message : Повторное назначение свойства: $(_CodeAnalysisTreatWarningsAsErrors)="false" (предыдущее значение: "") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\CodeAnalysis\Microsoft.CodeAnalysis.targets (125,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\CodeAnalysis\Microsoft.CodeAnalysis.targets(167,9): message : Повторное назначение свойства: $(PrepareForRunDependsOn)="
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\CodeAnalysis\Microsoft.CodeAnalysis.targets(167,9): message :       CopyFilesToOutputDirectory
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\CodeAnalysis\Microsoft.CodeAnalysis.targets(167,9): message :     ;RunCodeAnalysis" (предыдущее значение: "
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\CodeAnalysis\Microsoft.CodeAnalysis.targets(167,9): message :       CopyFilesToOutputDirectory
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\CodeAnalysis\Microsoft.CodeAnalysis.targets(167,9): message :     ") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\CodeAnalysis\Microsoft.CodeAnalysis.targets (167,9)
+Пути поиска, используемые для $(MSBuildExtensionsPath): C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message : Повторное назначение свойства: $(ResolveReferencesDependsOn)="
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       BeforeResolveReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       AssignProjectConfiguration;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveProjectReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       FindInvalidProjectReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveNativeReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveAssemblyReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       GenerateBindingRedirects;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       GenerateBindingRedirectsUpdateAppConfig;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveComReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       AfterResolveReferences
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :     ;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ImplicitlyExpandDesignTimeFacades
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :     " (предыдущее значение: "
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       BeforeResolveReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       AssignProjectConfiguration;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveProjectReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       FindInvalidProjectReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveNativeReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveAssemblyReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       GenerateBindingRedirects;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       GenerateBindingRedirectsUpdateAppConfig;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       ResolveComReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :       AfterResolveReferences
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets(74,5): message :     ") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets (74,5)
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(97,7): message : Повторное назначение свойства: $(PrepareResourceNamesDependsOn)="
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(97,7): message :                     AssignWinFXEmbeddedResource;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(97,7): message :                     
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(97,7): message :       AssignTargetPaths;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(97,7): message :       SplitResourcesByCulture;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(97,7): message :       CreateManifestResourceNames;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(97,7): message :       CreateCustomManifestResourceNames
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(97,7): message :     
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(97,7): message :       " (предыдущее значение: "
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(97,7): message :       AssignTargetPaths;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(97,7): message :       SplitResourcesByCulture;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(97,7): message :       CreateManifestResourceNames;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(97,7): message :       CreateCustomManifestResourceNames
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(97,7): message :     ") для C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (97,7)
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(108,7): message : Повторное назначение свойства: $(PrepareResourcesDependsOn)="
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(108,7): message :                 MarkupCompilePass1;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(108,7): message :                 AfterMarkupCompilePass1;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(108,7): message :                 MarkupCompilePass2ForMainAssembly;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(108,7): message :                 FileClassification;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(108,7): message :                 MainResourcesGeneration;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(108,7): message :                 
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(108,7): message :       ;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(108,7): message :       PrepareResourceNames;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(108,7): message :       ResGen;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(108,7): message :       CompileLicxFiles
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(108,7): message :     
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(108,7): message :       " (предыдущее значение: "
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(108,7): message :       ;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(108,7): message :       PrepareResourceNames;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(108,7): message :       ResGen;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(108,7): message :       CompileLicxFiles
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(108,7): message :     ") для C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (108,7)
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message : Повторное назначение свойства: $(CompileDependsOn)="
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :         
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       ResolveReferences;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       ResolveKeySource;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       SetWin32ManifestProperties;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       _SetPreferNativeArm64Win32ManifestProperties;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       FindReferenceAssembliesForReferences;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       _GenerateCompileInputs;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       BeforeCompile;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       _TimeStampBeforeCompile;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       _GenerateCompileDependencyCache;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       CoreCompile;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       _TimeStampAfterCompile;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       AfterCompile;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :     ;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :         _AfterCompileWinFXInternal
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :     " (предыдущее значение: "
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       ResolveReferences;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       ResolveKeySource;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       SetWin32ManifestProperties;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       _SetPreferNativeArm64Win32ManifestProperties;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       FindReferenceAssembliesForReferences;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       _GenerateCompileInputs;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       BeforeCompile;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       _TimeStampBeforeCompile;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       _GenerateCompileDependencyCache;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       CoreCompile;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       _TimeStampAfterCompile;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :       AfterCompile;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(184,5): message :     ") для C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (184,5)
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(813,9): message : Повторное назначение свойства: $(PublishBuildDependsOn)="
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(813,9): message :             BuildOnlySettings;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(813,9): message :             PrepareForBuild;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(813,9): message :             ResolveReferences;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(813,9): message :             PrepareResources;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(813,9): message :             ResolveKeySource;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(813,9): message :             PrepareResourcesForSatelliteAssemblies;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(813,9): message :             GenerateSerializationAssemblies;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(813,9): message :             CreateSatelliteAssemblies;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(813,9): message :         " (предыдущее значение: "
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(813,9): message :       BuildOnlySettings;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(813,9): message :       PrepareForBuild;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(813,9): message :       ResolveReferences;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(813,9): message :       PrepareResources;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(813,9): message :       ResolveKeySource;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(813,9): message :       GenerateSerializationAssemblies;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(813,9): message :       CreateSatelliteAssemblies;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets(813,9): message :     ") для C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets (813,9)
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(35,5): message : Повторное назначение свойства: $(BuildDependsOn)="
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(35,5): message :       EntityDeploy;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(35,5): message :       
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(35,5): message :       BeforeBuild;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(35,5): message :       CoreBuild;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(35,5): message :       AfterBuild
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(35,5): message :     
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(35,5): message :     " (предыдущее значение: "
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(35,5): message :       BeforeBuild;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(35,5): message :       CoreBuild;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(35,5): message :       AfterBuild
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(35,5): message :     ") для C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets (35,5)
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(42,5): message : Повторное назначение свойства: $(CleanDependsOn)="
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(42,5): message :       
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(42,5): message :       BeforeClean;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(42,5): message :       UnmanagedUnregistration;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(42,5): message :       CoreClean;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(42,5): message :       CleanReferencedProjects;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(42,5): message :       CleanPublishFolder;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(42,5): message :       AfterClean
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(42,5): message :     ;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(42,5): message :       EntityClean;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(42,5): message :     " (предыдущее значение: "
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(42,5): message :       BeforeClean;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(42,5): message :       UnmanagedUnregistration;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(42,5): message :       CoreClean;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(42,5): message :       CleanReferencedProjects;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(42,5): message :       CleanPublishFolder;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(42,5): message :       AfterClean
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets(42,5): message :     ") для C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Data.Entity.targets (42,5)
+Пути поиска, используемые для $(MSBuildExtensionsPath): C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message : Повторное назначение свойства: $(PrepareResourcesDependsOn)="
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :       XamlMarkupCompilePass1;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :       XamlMarkupCompilePass2;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :       
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :                 MarkupCompilePass1;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :                 AfterMarkupCompilePass1;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :                 MarkupCompilePass2ForMainAssembly;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :                 FileClassification;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :                 MainResourcesGeneration;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :                 
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :       ;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :       PrepareResourceNames;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :       ResGen;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :       CompileLicxFiles
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :     
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :        
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :     " (предыдущее значение: "
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :                 MarkupCompilePass1;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :                 AfterMarkupCompilePass1;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :                 MarkupCompilePass2ForMainAssembly;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :                 FileClassification;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :                 MainResourcesGeneration;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :                 
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :       ;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :       PrepareResourceNames;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :       ResGen;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :       CompileLicxFiles
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :     
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets(35,5): message :       ") для C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.Xaml.targets (35,5)
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message : Повторное назначение свойства: $(PrepareResourcesDependsOn)="
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :       ValidationExtension;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :       ExpressionBuildExtension;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :       
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :       XamlMarkupCompilePass1;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :       XamlMarkupCompilePass2;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :       
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :                 MarkupCompilePass1;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :                 AfterMarkupCompilePass1;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :                 MarkupCompilePass2ForMainAssembly;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :                 FileClassification;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :                 MainResourcesGeneration;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :                 
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :       ;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :       PrepareResourceNames;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :       ResGen;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :       CompileLicxFiles
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :     
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :        
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :     
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :     " (предыдущее значение: "
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :       XamlMarkupCompilePass1;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :       XamlMarkupCompilePass2;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :       
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :                 MarkupCompilePass1;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :                 AfterMarkupCompilePass1;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :                 MarkupCompilePass2ForMainAssembly;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :                 FileClassification;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :                 MainResourcesGeneration;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :                 
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :       ;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :       PrepareResourceNames;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :       ResGen;
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :       CompileLicxFiles
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :     
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :        
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets(16,5): message :     ") для C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets (16,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message : Повторное назначение свойства: $(ResolveReferencesDependsOn)="
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       BeforeResolveReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       AssignProjectConfiguration;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       ResolveProjectReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       FindInvalidProjectReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       ResolveNativeReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       ResolveAssemblyReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       GenerateBindingRedirects;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       GenerateBindingRedirectsUpdateAppConfig;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       ResolveComReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       AfterResolveReferences
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :     ;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       ImplicitlyExpandDesignTimeFacades
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :     ;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       ResolveTestReferences
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :     " (предыдущее значение: "
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       BeforeResolveReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       AssignProjectConfiguration;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       ResolveProjectReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       FindInvalidProjectReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       ResolveNativeReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       ResolveAssemblyReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       GenerateBindingRedirects;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       GenerateBindingRedirectsUpdateAppConfig;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       ResolveComReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       AfterResolveReferences
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :     ;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :       ImplicitlyExpandDesignTimeFacades
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets(4,5): message :     ") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\TeamTest\Microsoft.TeamTest.targets (4,5)
+Пути поиска, используемые для $(MSBuildExtensionsPath): C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+Попытка импортировать "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\$(MSBuildToolsVersion)\Microsoft.Common.targets\ImportAfter\*" с помощью пути расширений C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild
+Пути поиска, используемые для $(MSBuildExtensionsPath): C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+Попытка импортировать "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Sdks\Microsoft.Docker.Sdk\build\Microsoft.Docker.targets" с помощью пути расширений C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(74,5): message : Повторное назначение свойства: $(ProjectLockFile)="obj\project.assets.json" (предыдущее значение: "C:\Users\user\source\repos\VS.Helper\obj\project.assets.json") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets (74,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(185,5): message : Повторное назначение свойства: $(ResolveAssemblyReferencesDependsOn)="
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(185,5): message :       ResolveProjectReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(185,5): message :       FindInvalidProjectReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(185,5): message :       GetFrameworkPaths;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(185,5): message :       GetReferenceAssemblyPaths;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(185,5): message :       PrepareForBuild;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(185,5): message :       ResolveSDKReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(185,5): message :       ExpandSDKReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(185,5): message :     ;ResolveNuGetPackageAssets" (предыдущее значение: "
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(185,5): message :       ResolveProjectReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(185,5): message :       FindInvalidProjectReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(185,5): message :       GetFrameworkPaths;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(185,5): message :       GetReferenceAssemblyPaths;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(185,5): message :       PrepareForBuild;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(185,5): message :       ResolveSDKReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(185,5): message :       ExpandSDKReferences;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(185,5): message :     ") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets (185,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message : Повторное назначение свойства: $(PrepareResourcesDependsOn)="ResolveNuGetPackageAssets;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :       ValidationExtension;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :       ExpressionBuildExtension;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :       
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :       XamlMarkupCompilePass1;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :       XamlMarkupCompilePass2;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :       
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :                 MarkupCompilePass1;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :                 AfterMarkupCompilePass1;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :                 MarkupCompilePass2ForMainAssembly;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :                 FileClassification;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :                 MainResourcesGeneration;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :                 
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :       ;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :       PrepareResourceNames;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :       ResGen;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :       CompileLicxFiles
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :     
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :        
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :     
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :     " (предыдущее значение: "
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :       ValidationExtension;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :       ExpressionBuildExtension;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :       
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :       XamlMarkupCompilePass1;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :       XamlMarkupCompilePass2;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :       
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :                 MarkupCompilePass1;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :                 AfterMarkupCompilePass1;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :                 MarkupCompilePass2ForMainAssembly;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :                 FileClassification;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :                 MainResourcesGeneration;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :                 
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :       ;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :       PrepareResourceNames;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :       ResGen;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :       CompileLicxFiles
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :     
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :        
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :     
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(186,5): message :     ") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets (186,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets(267,5): message : Повторное назначение свойства: $(_HandlePackageFileConflictsAfter)="ResolveNuGetPackageAssets;ResolveNuGetPackageAssetsNonAOT" (предыдущее значение: "ResolveNuGetPackageAssets") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\NuGet\18.0\Microsoft.NuGet.targets (267,5)
+Пути поиска, используемые для $(MSBuildExtensionsPath): C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+Пути поиска, используемые для $(MSBuildExtensionsPath): C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+Попытка импортировать "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\WebTools.Aspire\Microsoft.WebTools.Aspire.targets" с помощью пути расширений C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\WebTools.Aspire\Microsoft.WebTools.Aspire.targets(25,5): message : Повторное назначение свойства: $(JsonSchemaCombinedFilePath)="C:\Users\user\source\repos\VS.Helper\obj\Debug\CombinedComponentSchema.json" (предыдущее значение: "obj\Debug\\CombinedComponentSchema.json") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\WebTools.Aspire\Microsoft.WebTools.Aspire.targets (25,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\WebTools.Aspire\Microsoft.WebTools.Aspire.targets(27,5): message : Повторное назначение свойства: $(AppSettingsJsonSchemaCombinedFilePath)="C:\Users\user\source\repos\VS.Helper\obj\Debug\AppSettingsSchema.json" (предыдущее значение: "obj\Debug\\AppSettingsSchema.json") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\WebTools.Aspire\Microsoft.WebTools.Aspire.targets (27,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Xamarin\Xamarin.Sdk.targets(9,9): message : Повторное назначение свойства: $(PrepareForRunDependsOn)="
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Xamarin\Xamarin.Sdk.targets(9,9): message :             _CalculatePostXamarinTelemetry;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Xamarin\Xamarin.Sdk.targets(9,9): message :             _PostXamarinTelemetry;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Xamarin\Xamarin.Sdk.targets(9,9): message :             
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Xamarin\Xamarin.Sdk.targets(9,9): message :       CopyFilesToOutputDirectory
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Xamarin\Xamarin.Sdk.targets(9,9): message :     ;RunCodeAnalysis
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Xamarin\Xamarin.Sdk.targets(9,9): message :         " (предыдущее значение: "
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Xamarin\Xamarin.Sdk.targets(9,9): message :       CopyFilesToOutputDirectory
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Xamarin\Xamarin.Sdk.targets(9,9): message :     ;RunCodeAnalysis") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Xamarin\Xamarin.Sdk.targets (9,9)
+Пути поиска, используемые для $(MSBuildExtensionsPath): C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild;$(MSBuildProgramFiles32)\MSBuild
+Пути поиска, используемые для $(VSToolsPath): C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0;$(MSBuildProgramFiles32)\MSBuild\Microsoft\VisualStudio\v$(VisualStudioVersion)
+Попытка импортировать "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets" с помощью пути расширений C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VisualStudio.Sdk.Common.targets(21,5): message : Повторное назначение свойства: $(Is64BitBuild)="true" (предыдущее значение: "false") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VisualStudio.Sdk.Common.targets (21,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VisualStudio.Sdk.Common.targets(25,5): message : Повторное назначение свойства: $(RequiredArchitecture)="amd64" (предыдущее значение: "x86") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VisualStudio.Sdk.Common.targets (25,5)
+Свойство "DeployExtension" является глобальным и не подлежит изменению.
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(348,5): message : Повторное назначение свойства: $(GetVsixSourceItemsDependsOn)=";AssignProjectConfiguration;DetokenizeVsixManifestFile;ZipProjects;ZipItems;SatelliteDllsProjectOutputGroup" (предыдущее значение: ";AssignProjectConfiguration;DetokenizeVsixManifestFile;ZipProjects;ZipItems") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets (348,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(881,5): message : Повторное назначение свойства: $(DeployVsixExtensionFilesDependsOn)=";Compile;GetVsixDeploymentPath;FindExistingDeploymentPath;GetVsixSourceItems" (предыдущее значение: ";Compile") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets (881,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1075,5): message : Повторное назначение свойства: $(PrepareForBuildDependsOn)="
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1075,5): message :             ;GetFrameworkPaths;GetReferenceAssemblyPaths;AssignLinkMetadata;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1075,5): message :             RunRegRiched
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1075,5): message :     " (предыдущее значение: ";GetFrameworkPaths;GetReferenceAssemblyPaths;AssignLinkMetadata") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets (1075,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message : Повторное назначение свойства: $(PrepareResourcesDependsOn)="ResolveNuGetPackageAssets;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :       ValidationExtension;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :       ExpressionBuildExtension;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :       
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :       XamlMarkupCompilePass1;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :       XamlMarkupCompilePass2;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :       
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :                 MarkupCompilePass1;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :                 AfterMarkupCompilePass1;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :                 MarkupCompilePass2ForMainAssembly;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :                 FileClassification;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :                 MainResourcesGeneration;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :                 
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :       ;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :       PrepareResourceNames;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :       ResGen;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :       CompileLicxFiles
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :     
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :        
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :     
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :     ;MergeCtoResource" (предыдущее значение: "ResolveNuGetPackageAssets;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :       ValidationExtension;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :       ExpressionBuildExtension;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :       
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :       XamlMarkupCompilePass1;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :       XamlMarkupCompilePass2;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :       
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :                 MarkupCompilePass1;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :                 AfterMarkupCompilePass1;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :                 MarkupCompilePass2ForMainAssembly;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :                 FileClassification;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :                 MainResourcesGeneration;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :                 
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :       ;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :       PrepareResourceNames;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :       ResGen;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :       CompileLicxFiles
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :     
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :        
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :     
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1121,5): message :     ") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets (1121,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1208,5): message : Повторное назначение свойства: $(PrepareForRunDependsOn)="
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1208,5): message :             
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1208,5): message :             _CalculatePostXamarinTelemetry;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1208,5): message :             _PostXamarinTelemetry;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1208,5): message :             
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1208,5): message :       CopyFilesToOutputDirectory
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1208,5): message :     ;RunCodeAnalysis
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1208,5): message :         ;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1208,5): message :             GeneratePkgDef;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1208,5): message :             CopyPkgDef;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1208,5): message :             CreateVsixContainer;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1208,5): message :             DeployVsixExtensionFiles;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1208,5): message :             CopyVsixManifestFile;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1208,5): message :             CopyVsixExtensionFiles;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1208,5): message :     " (предыдущее значение: "
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1208,5): message :             _CalculatePostXamarinTelemetry;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1208,5): message :             _PostXamarinTelemetry;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1208,5): message :             
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1208,5): message :       CopyFilesToOutputDirectory
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1208,5): message :     ;RunCodeAnalysis
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1208,5): message :         ") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets (1208,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message : Повторное назначение свойства: $(PrepareForRunDependsOn)="
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             ZipProjects;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             ZipItems;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             _CalculatePostXamarinTelemetry;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             _PostXamarinTelemetry;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :       CopyFilesToOutputDirectory
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :     ;RunCodeAnalysis
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :         ;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             GeneratePkgDef;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             CopyPkgDef;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             CreateVsixContainer;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             DeployVsixExtensionFiles;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             CopyVsixManifestFile;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             CopyVsixExtensionFiles;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :     
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :     " (предыдущее значение: "
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             _CalculatePostXamarinTelemetry;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             _PostXamarinTelemetry;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :       CopyFilesToOutputDirectory
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :     ;RunCodeAnalysis
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :         ;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             GeneratePkgDef;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             CopyPkgDef;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             CreateVsixContainer;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             DeployVsixExtensionFiles;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             CopyVsixManifestFile;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :             CopyVsixExtensionFiles;
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1393,5): message :     ") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets (1393,5)
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets(1680,5): message : Повторное назначение свойства: $(CollectUpToDateCheckInputDesignTimeDependsOn)="CompileDesignTime;ResolveCodeAnalysisRuleSet;AddUpToDateCheckVSIXSourceItems" (предыдущее значение: "CompileDesignTime;ResolveCodeAnalysisRuleSet") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets (1680,5)
+Переопределение целевого объекта "ResolveFrameworkReferences" в проекте "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets" целевым объект "ResolveFrameworkReferences" из проекта "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets".
+Переопределение целевого объекта "GetFrameworkPaths" в проекте "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" целевым объект "GetFrameworkPaths" из проекта "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets".
+Переопределение целевого объекта "SatelliteDllsProjectOutputGroup" в проекте "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" целевым объект "SatelliteDllsProjectOutputGroup" из проекта "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets".
+Переопределение целевого объекта "GenerateCompiledExpressionsTempFile" в проекте "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets" целевым объект "GenerateCompiledExpressionsTempFile" из проекта "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.WorkflowBuildExtensions.targets".
+Переопределение целевого объекта "CollectPackageReferences" в проекте "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets" целевым объект "CollectPackageReferences" из проекта "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\NuGet\NuGet.targets".
+Переопределение целевого объекта "CollectNuGetAuditSuppressions" в проекте "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets" целевым объект "CollectNuGetAuditSuppressions" из проекта "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\NuGet\NuGet.targets".
+Переопределение целевого объекта "CollectPrunePackageReferences" в проекте "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets" целевым объект "CollectPrunePackageReferences" из проекта "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\NuGet\NuGet.targets".
+Переопределение целевого объекта "CollectCopyToOutputDirectoryItemDesignTime" в проекте "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets" целевым объект "CollectCopyToOutputDirectoryItemDesignTime" из проекта "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\ProjectServices\Microsoft.DesignTime.targets".
+Переопределение целевого объекта "CompileDesignTime" в проекте "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.CSharp.DesignTime.targets" целевым объект "CompileDesignTime" из проекта "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\ProjectServices\Microsoft.DesignTime.targets".
+Переопределение целевого объекта "_CheckCompileDesignTimePrerequisite" в проекте "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\Managed\Microsoft.Managed.DesignTime.targets" целевым объект "_CheckCompileDesignTimePrerequisite" из проекта "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\CommonExtensions\Microsoft\ProjectServices\Microsoft.DesignTime.targets".
+Целевой объект "ClCompile", указанный в атрибуте AfterTargets для "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\CodeAnalysis\Microsoft.CodeAnalysis.targets (446,11)", не существует в проекте и будет пропущен.
+Проект "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" в узле 1 (целевые объекты Rebuild).
+Файл проекта содержит ToolsVersion="15.0". Возможно, этот набор инструментов неизвестен или отсутствует (в таком случае, эту проблему можно разрешить, установив соответствующую версию MSBuild), либо использование определенной версии ToolsVersion сборкой было задано принудительно в соответствии с политикой. Этот проект обрабатывается как содержащий ToolsVersion="Current". Дополнительные сведения см. по ссылке http://go.microsoft.com/fwlink/?LinkId=293424.
+Целевой объект "_CheckForInvalidConfigurationAndPlatform" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "BeforeRebuild" зависит от него):
+Используется задача "Message" из сборки "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Задача "Message"
+  Configuration=Debug
+Выполнение задачи "Message" завершено.
+Задача "Message"
+  Platform=AnyCPU
+Выполнение задачи "Message" завершено.
+Сборка целевого объекта "_CheckForInvalidConfigurationAndPlatform" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "BeforeRebuild" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "Rebuild" зависит от него):
+Сборка целевого объекта "BeforeRebuild" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "BeforeClean" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "Clean" зависит от него):
+Сборка целевого объекта "BeforeClean" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "CoreClean" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "Clean" зависит от него):
+Используется задача "Delete" из сборки "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Задача "Delete"
+  Файл "obj\Debug\\TempCA\VS.Helper.pdb" не существует. Пропускается.
+  Файл "obj\Debug\\TempCA\VS.Helper.dll" не существует. Пропускается.
+Выполнение задачи "Delete" завершено.
+Используется задача "ReadLinesFromFile" из сборки "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Задача "ReadLinesFromFile"
+Выполнение задачи "ReadLinesFromFile" завершено.
+Используется задача "FindUnderPath" из сборки "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Задача "FindUnderPath"
+  Путь сравнения: "bin\Debug\".
+Выполнение задачи "FindUnderPath" завершено.
+Задача "FindUnderPath"
+  Путь сравнения: "obj\Debug\".
+Выполнение задачи "FindUnderPath" завершено.
+Задача "Delete"
+  Файл "C:\Users\user\source\repos\VS.Helper\obj\Debug\VS.Helper.csproj.AssemblyReference.cache" удаляется.
+  Файл "C:\Users\user\source\repos\VS.Helper\obj\Debug\_EmptyResource.resources" удаляется.
+  Файл "C:\Users\user\source\repos\VS.Helper\obj\Debug\VS.Helper.csproj.GenerateResource.cache" удаляется.
+Выполнение задачи "Delete" завершено.
+Используется задача "RemoveDuplicates" из сборки "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Задача "RemoveDuplicates"
+Выполнение задачи "RemoveDuplicates" завершено.
+Используется задача "MakeDir" из сборки "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Задача "MakeDir"
+Выполнение задачи "MakeDir" завершено.
+Используется задача "WriteLinesToFile" из сборки "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Задача "WriteLinesToFile"
+Выполнение задачи "WriteLinesToFile" завершено.
+Сборка целевого объекта "CoreClean" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "IgnoreJavaScriptOutputAssembly" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "AssignProjectConfiguration" зависит от него):
+Сборка целевого объекта "IgnoreJavaScriptOutputAssembly" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "_SplitProjectReferencesByFileExistence" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "PrepareProjectReferences" зависит от него):
+Сборка целевого объекта "_SplitProjectReferencesByFileExistence" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "_AddOutputPathToGlobalPropertiesToRemove" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "_GetProjectReferenceTargetFrameworkProperties" зависит от него):
+Сборка целевого объекта "_AddOutputPathToGlobalPropertiesToRemove" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "_GetProjectReferenceTargetFrameworkProperties" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "PrepareProjectReferences" зависит от него):
+Используется задача "MSBuild" из сборки "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Задача "MSBuild"
+Выполнение задачи "MSBuild" завершено.
+Используется задача "SetRidAgnosticValueForProjects" из сборки "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Задача "SetRidAgnosticValueForProjects"
+Выполнение задачи "SetRidAgnosticValueForProjects" завершено.
+Сборка целевого объекта "_GetProjectReferenceTargetFrameworkProperties" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "PrepareProjectReferences" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "CleanReferencedProjects" зависит от него):
+Сборка целевого объекта "PrepareProjectReferences" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "CleanReferencedProjects" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "Clean" зависит от него):
+Сборка целевого объекта "CleanReferencedProjects" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "CleanPublishFolder" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "Clean" зависит от него):
+Сборка целевого объекта "CleanPublishFolder" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "CleanDeployedVsixExtensionFiles" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VisualStudio.Sdk.Common.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "AfterClean" зависит от него):
+Задача "ReadLinesFromFile"
+Выполнение задачи "ReadLinesFromFile" завершено.
+Задача "RemoveDuplicates"
+Выполнение задачи "RemoveDuplicates" завершено.
+Задача "Delete"
+Выполнение задачи "Delete" завершено.
+Сборка целевого объекта "CleanDeployedVsixExtensionFiles" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "AfterClean" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "Clean" зависит от него):
+Сборка целевого объекта "AfterClean" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "Clean" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "Rebuild" зависит от него):
+Сборка целевого объекта "Clean" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "CleanXsdCodeGen" в файле "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.ServiceModel.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "Rebuild" зависит от него):
+Задача "Delete"
+Выполнение задачи "Delete" завершено.
+Сборка целевого объекта "CleanXsdCodeGen" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "BeforeBuild" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "Build" зависит от него):
+Сборка целевого объекта "BeforeBuild" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "BuildOnlySettings" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "CoreBuild" зависит от него):
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1168,7): message : Повторное назначение свойства: $(BuildingProject)="true" (предыдущее значение: "false") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets (1168,7) [C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj]
+Сборка целевого объекта "BuildOnlySettings" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "GetFrameworkPaths" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "PrepareForBuild" зависит от него):
+Сборка целевого объекта "GetFrameworkPaths" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "GetFrameworkPaths" пропущен. Предыдущая сборка успешна.
+Целевой объект "GetReferenceAssemblyPaths" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "PrepareForBuild" зависит от него):
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1255,7): message : Повторное назначение свойства: $(TargetFrameworkDirectory)="" (предыдущее значение: "C:\Windows\Microsoft.NET\Framework\v4.0.30319") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets (1255,7) [C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj]
+Используется задача "GetReferenceAssemblyPaths" из сборки "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Задача "GetReferenceAssemblyPaths"
+Выполнение задачи "GetReferenceAssemblyPaths" завершено.
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1272,7): message : Повторное назначение свойства: $(TargetFrameworkDirectory)="C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\;;" (предыдущее значение: "C:\Windows\Microsoft.NET\Framework\v4.0.30319") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets (1272,7) [C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj]
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(1293,7): message : Повторное назначение свойства: $(TargetFrameworkDirectory)="C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\;;;C:\Program Files %28x86%29\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\" (предыдущее значение: "C:\Windows\Microsoft.NET\Framework\v4.0.30319") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets (1293,7) [C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj]
+Сборка целевого объекта "GetReferenceAssemblyPaths" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "PrepareForBuild" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "CoreBuild" зависит от него):
+Используется задача "FindAppConfigFile" из сборки "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Задача "FindAppConfigFile"
+Выполнение задачи "FindAppConfigFile" завершено.
+Задача "MakeDir"
+Выполнение задачи "MakeDir" завершено.
+Сборка целевого объекта "PrepareForBuild" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "BeforeResolveReferences" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "ResolveReferences" зависит от него):
+Сборка целевого объекта "BeforeResolveReferences" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "PrepareProjectReferences" пропущен. Предыдущая сборка успешна.
+Целевой объект "ResolveProjectReferences" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "ResolveReferences" зависит от него):
+Сборка целевого объекта "ResolveProjectReferences" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "ResolveProjectReferences" пропущен. Предыдущая сборка успешна.
+Целевой объект "GetFrameworkPaths" пропущен. Предыдущая сборка успешна.
+Целевой объект "GetReferenceAssemblyPaths" пропущен. Предыдущая сборка успешна.
+Целевой объект "PrepareForBuild" пропущен. Предыдущая сборка успешна.
+Целевой объект "ResolveSDKReferences" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "ResolveAssemblyReferences" зависит от него):
+Сборка целевого объекта "ResolveSDKReferences" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "ResolveSDKReferences" пропущен. Предыдущая сборка успешна.
+Целевой объект "ExpandSDKReferences" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "ResolveAssemblyReferences" зависит от него):
+Сборка целевого объекта "ExpandSDKReferences" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "ImplicitlyExpandNETStandardFacades" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.NETFramework.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "ResolveAssemblyReferences" зависит от него):
+Сборка целевого объекта "ImplicitlyExpandNETStandardFacades" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "GetFrameworkPaths" пропущен. Предыдущая сборка успешна.
+Целевой объект "GetReferenceAssemblyPaths" пропущен. Предыдущая сборка успешна.
+Целевой объект "_HandlePackageFileConflicts" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.ConflictResolution.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "ResolveAssemblyReferences" зависит от него):
+Используется задача "ResolvePackageFileConflicts" из сборки "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\\tools\net472\Microsoft.NET.Build.Extensions.Tasks.dll".
+Задача "ResolvePackageFileConflicts"
+Выполнение задачи "ResolvePackageFileConflicts" завершено.
+Сборка целевого объекта "_HandlePackageFileConflicts" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "ResolveAssemblyReferences" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "ResolveReferences" зависит от него):
+Используется задача "ResolveAssemblyReference" из сборки "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Задача "ResolveAssemblyReference"
+  TargetFrameworkMoniker:
+      .NETFramework,Version=v4.8
+  TargetFrameworkMonikerDisplayName:
+      .NET Framework 4.8
+  TargetedRuntimeVersion:
+      v4.0.30319
+  Assemblies:
+      EnvDTE
+      EnvDTE80
+      Microsoft.VisualStudio.Interop
+      System
+      System.Design
+      System.ComponentModel.Composition
+      System.Windows.Forms
+      System.Drawing
+      System.IO.Compression
+      System.IO.Compression.FileSystem
+      System.Xml
+      System.Xml.Linq
+      System.Security
+      System.Core
+  AssemblyFiles:
+      C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\mscorlib.dll
+  CandidateAssemblyFiles:
+  TargetFrameworkDirectories:
+      C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\,C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\
+  NonCultureResourceDirectories:
+      
+  InstalledAssemblyTables:
+  IgnoreInstalledAssemblyTable:
+      False
+  SearchPaths:
+      {CandidateAssemblyFiles}
+      {HintPathFromItem}
+      {TargetFrameworkDirectory}
+      {AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\AssemblyFolders.config,v4.8}
+      {Registry:Software\Microsoft\.NETFramework,v4.8,AssemblyFoldersEx}
+      {AssemblyFolders}
+      {GAC}
+      {RawFileName}
+      bin\Debug\
+  AllowedAssemblyExtensions:
+      .winmd
+      .dll
+      .exe
+  AllowedRelatedFileExtensions:
+      .pdb
+      .xml
+      .pri
+      .dll.config
+      .exe.config
+  AppConfigFile:
+      
+  AutoUnify:
+      True
+  EnableCustomCulture:
+      False
+  EnableCustomCulture:
+      False
+  CopyLocalDependenciesWhenParentReferenceInGac:
+      True
+  FindDependencies:
+      True
+  TargetProcessorArchitecture:
+      msil
+  StateFile:
+      obj\Debug\VS.Helper.csproj.AssemblyReference.cache
+  InstalledAssemblySubsetTables:
+  IgnoreInstalledAssemblySubsetTable:
+      False
+  TargetFrameworkSubsets:
+  FullTargetFrameworkSubsetNames:
+      Full
+  ProfileName:
+      
+  FullFrameworkFolders:
+      C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\
+  LatestTargetFrameworkDirectories:
+  ProfileTablesLocation:
+  Объединенная первичная ссылка "mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".
+      Использование этой версии вместо первоначальной версии "1.0.3300.0" в "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\PublicAssemblies\Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll", поскольку существует более поздняя версия этого файла инфраструктуры.
+      Разрешенный путь к файлу - "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\mscorlib.dll".
+      Обнаружена ссылка в расположении пути поиска "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\mscorlib.dll".
+      Данная ссылка не является "CopyLocal", так как это необходимый файл.
+  Первичная ссылка "envdte, Version=18.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+      Разрешенный путь к файлу - "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\PublicAssemblies\EnvDTE.dll".
+      Обнаружена ссылка в расположении пути поиска "{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\AssemblyFolders.config,v4.8}".
+          Для SearchPath "{TargetFrameworkDirectory}".
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\EnvDTE.winmd", но не существует.
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\EnvDTE.dll", но не существует.
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\EnvDTE.exe", но не существует.
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\EnvDTE.winmd", но не существует.
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\EnvDTE.dll", но не существует.
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\EnvDTE.exe", но не существует.
+          Для SearchPath "{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\AssemblyFolders.config,v4.8}".
+          Рассмотрено "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\Extensions\Microsoft\SqlDb\EnvDTE.winmd", но не существует.
+          Рассмотрено "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\Extensions\Microsoft\SqlDb\EnvDTE.dll", но не существует.
+          Рассмотрено "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\Extensions\Microsoft\SqlDb\EnvDTE.exe", но не существует.
+          Рассмотрено "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\PublicAssemblies\EnvDTE.winmd", но не существует.
+  Первичная ссылка "envdte80, Version=18.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+      Разрешенный путь к файлу - "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\PublicAssemblies\EnvDTE80.dll".
+      Обнаружена ссылка в расположении пути поиска "{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\AssemblyFolders.config,v4.8}".
+          Для SearchPath "{TargetFrameworkDirectory}".
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\EnvDTE80.winmd", но не существует.
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\EnvDTE80.dll", но не существует.
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\EnvDTE80.exe", но не существует.
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\EnvDTE80.winmd", но не существует.
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\EnvDTE80.dll", но не существует.
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\EnvDTE80.exe", но не существует.
+          Для SearchPath "{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\AssemblyFolders.config,v4.8}".
+          Рассмотрено "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\Extensions\Microsoft\SqlDb\EnvDTE80.winmd", но не существует.
+          Рассмотрено "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\Extensions\Microsoft\SqlDb\EnvDTE80.dll", но не существует.
+          Рассмотрено "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\Extensions\Microsoft\SqlDb\EnvDTE80.exe", но не существует.
+          Рассмотрено "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\PublicAssemblies\EnvDTE80.winmd", но не существует.
+  Первичная ссылка "Microsoft.VisualStudio.Interop, Version=18.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+      Разрешенный путь к файлу - "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\PublicAssemblies\Microsoft.VisualStudio.Interop.dll".
+      Обнаружена ссылка в расположении пути поиска "{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\AssemblyFolders.config,v4.8}".
+          Для SearchPath "{TargetFrameworkDirectory}".
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Microsoft.VisualStudio.Interop.winmd", но не существует.
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Microsoft.VisualStudio.Interop.dll", но не существует.
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Microsoft.VisualStudio.Interop.exe", но не существует.
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\Microsoft.VisualStudio.Interop.winmd", но не существует.
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\Microsoft.VisualStudio.Interop.dll", но не существует.
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\Microsoft.VisualStudio.Interop.exe", но не существует.
+          Для SearchPath "{AssemblyFoldersFromConfig:C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\AssemblyFolders.config,v4.8}".
+          Рассмотрено "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\Extensions\Microsoft\SqlDb\Microsoft.VisualStudio.Interop.winmd", но не существует.
+          Рассмотрено "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\Extensions\Microsoft\SqlDb\Microsoft.VisualStudio.Interop.dll", но не существует.
+          Рассмотрено "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\Extensions\Microsoft\SqlDb\Microsoft.VisualStudio.Interop.exe", но не существует.
+          Рассмотрено "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\PublicAssemblies\Microsoft.VisualStudio.Interop.winmd", но не существует.
+  Первичная ссылка "System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".
+      Разрешенный путь к файлу - "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll".
+      Обнаружена ссылка в расположении пути поиска "{TargetFrameworkDirectory}".
+          Для SearchPath "{TargetFrameworkDirectory}".
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.winmd", но не существует.
+      Данная ссылка не является "CopyLocal", так как это необходимый файл.
+  Первичная ссылка "System.Design, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+      Разрешенный путь к файлу - "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Design.dll".
+      Обнаружена ссылка в расположении пути поиска "{TargetFrameworkDirectory}".
+          Для SearchPath "{TargetFrameworkDirectory}".
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Design.winmd", но не существует.
+      Данная ссылка не является "CopyLocal", так как это необходимый файл.
+  Первичная ссылка "System.ComponentModel.Composition, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".
+      Разрешенный путь к файлу - "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.ComponentModel.Composition.dll".
+      Обнаружена ссылка в расположении пути поиска "{TargetFrameworkDirectory}".
+          Для SearchPath "{TargetFrameworkDirectory}".
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.ComponentModel.Composition.winmd", но не существует.
+      Данная ссылка не является "CopyLocal", так как это необходимый файл.
+  Первичная ссылка "System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".
+      Разрешенный путь к файлу - "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Windows.Forms.dll".
+      Обнаружена ссылка в расположении пути поиска "{TargetFrameworkDirectory}".
+          Для SearchPath "{TargetFrameworkDirectory}".
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Windows.Forms.winmd", но не существует.
+      Данная ссылка не является "CopyLocal", так как это необходимый файл.
+  Первичная ссылка "System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+      Разрешенный путь к файлу - "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Drawing.dll".
+      Обнаружена ссылка в расположении пути поиска "{TargetFrameworkDirectory}".
+          Для SearchPath "{TargetFrameworkDirectory}".
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Drawing.winmd", но не существует.
+      Данная ссылка не является "CopyLocal", так как это необходимый файл.
+  Первичная ссылка "System.IO.Compression, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".
+      Разрешенный путь к файлу - "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.IO.Compression.dll".
+      Обнаружена ссылка в расположении пути поиска "{TargetFrameworkDirectory}".
+          Для SearchPath "{TargetFrameworkDirectory}".
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.IO.Compression.winmd", но не существует.
+      Данная ссылка не является "CopyLocal", так как это необходимый файл.
+  Первичная ссылка "System.IO.Compression.FileSystem, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".
+      Разрешенный путь к файлу - "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.IO.Compression.FileSystem.dll".
+      Обнаружена ссылка в расположении пути поиска "{TargetFrameworkDirectory}".
+          Для SearchPath "{TargetFrameworkDirectory}".
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.IO.Compression.FileSystem.winmd", но не существует.
+      Данная ссылка не является "CopyLocal", так как это необходимый файл.
+  Первичная ссылка "System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".
+      Разрешенный путь к файлу - "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xml.dll".
+      Обнаружена ссылка в расположении пути поиска "{TargetFrameworkDirectory}".
+          Для SearchPath "{TargetFrameworkDirectory}".
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xml.winmd", но не существует.
+      Данная ссылка не является "CopyLocal", так как это необходимый файл.
+  Первичная ссылка "System.Xml.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".
+      Разрешенный путь к файлу - "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xml.Linq.dll".
+      Обнаружена ссылка в расположении пути поиска "{TargetFrameworkDirectory}".
+          Для SearchPath "{TargetFrameworkDirectory}".
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xml.Linq.winmd", но не существует.
+      Данная ссылка не является "CopyLocal", так как это необходимый файл.
+  Первичная ссылка "System.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+      Разрешенный путь к файлу - "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Security.dll".
+      Обнаружена ссылка в расположении пути поиска "{TargetFrameworkDirectory}".
+          Для SearchPath "{TargetFrameworkDirectory}".
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Security.winmd", но не существует.
+      Данная ссылка не является "CopyLocal", так как это необходимый файл.
+  Первичная ссылка "System.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089".
+      Разрешенный путь к файлу - "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Core.dll".
+      Обнаружена ссылка в расположении пути поиска "{TargetFrameworkDirectory}".
+          Для SearchPath "{TargetFrameworkDirectory}".
+          Рассмотрено "C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Core.winmd", но не существует.
+      Данная ссылка не является "CopyLocal", так как это необходимый файл.
+  Зависимость "Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+      Разрешенный путь к файлу - "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\PublicAssemblies\Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.dll".
+      Обнаружена ссылка в расположении пути поиска "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\PublicAssemblies".
+          Для SearchPath "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\PublicAssemblies" (добавлено путем ссылки на сборку "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\PublicAssemblies\Microsoft.VisualStudio.Interop.dll").
+          Рассмотрено "C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\PublicAssemblies\Microsoft.VisualStudio.Imaging.Interop.14.0.DesignTime.winmd", но не существует.
+      Требуется для "Microsoft.VisualStudio.Interop".
+      Требуется для "EnvDTE".
+      Требуется для "EnvDTE80".
+      Значение ImageRuntimeVersion для данной ссылки: "v2.0.50727".
+Выполнение задачи "ResolveAssemblyReference" завершено.
+Сборка целевого объекта "ResolveAssemblyReferences" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "ResolveAssemblyReferences" пропущен. Предыдущая сборка успешна.
+Целевой объект "_RemoveZipFileSuggestedRedirect" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\Microsoft.NET.Build.Extensions\Microsoft.NET.Build.Extensions.NETFramework.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "GenerateBindingRedirects" зависит от него):
+Сборка целевого объекта "_RemoveZipFileSuggestedRedirect" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "AfterResolveReferences" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "ResolveReferences" зависит от него):
+Сборка целевого объекта "AfterResolveReferences" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "GetReferenceAssemblyPaths" пропущен. Предыдущая сборка успешна.
+Целевой объект "ImplicitlyExpandDesignTimeFacades" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.NETFramework.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "ResolveReferences" зависит от него):
+Сборка целевого объекта "ImplicitlyExpandDesignTimeFacades" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "ResolveReferences" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "CoreBuild" зависит от него):
+Сборка целевого объекта "ResolveReferences" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "ValidationExtension" в файле "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "PrepareResources" зависит от него):
+Сборка целевого объекта "ValidationExtension" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "ExpressionBuildExtension" в файле "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WorkflowBuildExtensions.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "PrepareResources" зависит от него):
+Сборка целевого объекта "ExpressionBuildExtension" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "AfterMarkupCompilePass1" в файле "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "PrepareResources" зависит от него):
+Сборка целевого объекта "AfterMarkupCompilePass1" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "FileClassification" в файле "C:\Windows\Microsoft.NET\Framework\v4.0.30319\Microsoft.WinFx.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "PrepareResources" зависит от него):
+Сборка целевого объекта "FileClassification" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "CopyAdditionalFiles" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Roslyn\Microsoft.Managed.Core.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "AssignTargetPaths" зависит от него):
+Сборка целевого объекта "CopyAdditionalFiles" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "EnsureResourceToMergeWithCTO" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "AssignTargetPaths" зависит от него):
+Сборка целевого объекта "EnsureResourceToMergeWithCTO" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "AssignTargetPaths" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "PrepareResourceNames" зависит от него):
+Используется задача "AssignTargetPath" из сборки "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Задача "AssignTargetPath"
+Выполнение задачи "AssignTargetPath" завершено.
+Задача "AssignTargetPath"
+Выполнение задачи "AssignTargetPath" завершено.
+Задача "AssignTargetPath"
+Выполнение задачи "AssignTargetPath" завершено.
+Задача "AssignTargetPath"
+Выполнение задачи "AssignTargetPath" завершено.
+Сборка целевого объекта "AssignTargetPaths" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "AssignTargetPaths" пропущен. Предыдущая сборка успешна.
+Целевой объект "SplitResourcesByCulture" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "PrepareResourceNames" зависит от него):
+Используется задача "AssignCulture" из сборки "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Задача "AssignCulture"
+  Культура "" назначена файлу "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\\Empty.resx".
+Выполнение задачи "AssignCulture" завершено.
+Сборка целевого объекта "SplitResourcesByCulture" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "CreateManifestResourceNames" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.CSharp.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "PrepareResourceNames" зависит от него):
+Сборка целевого объекта "CreateManifestResourceNames" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "CreateCustomManifestResourceNames" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "PrepareResourceNames" зависит от него):
+Сборка целевого объекта "CreateCustomManifestResourceNames" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "PrepareResourceNames" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "PrepareResources" зависит от него):
+Сборка целевого объекта "PrepareResourceNames" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "ResolveAssemblyReferences" пропущен. Предыдущая сборка успешна.
+Целевой объект "SplitResourcesByCulture" пропущен. Предыдущая сборка успешна.
+Целевой объект "BeforeResGen" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "ResGen" зависит от него):
+Сборка целевого объекта "BeforeResGen" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "ResolveReferences" пропущен. Предыдущая сборка успешна.
+Целевой объект "FindReferenceAssembliesForReferences" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "CoreResGen" зависит от него):
+Сборка целевого объекта "FindReferenceAssembliesForReferences" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "CoreResGen" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "ResGen" зависит от него):
+Используется задача "GenerateResource" из сборки "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Задача "GenerateResource"
+  Выходной файл "obj\Debug\_EmptyResource.resources" не существует.
+  "C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\resgen.exe" /useSourcePath /r:"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\PublicAssemblies\EnvDTE.dll" /r:"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\PublicAssemblies\EnvDTE80.dll" /r:"C:\Program Files\Microsoft Visual Studio\18\Community\Common7\IDE\PublicAssemblies\Microsoft.VisualStudio.Interop.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\mscorlib.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.ComponentModel.Composition.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Core.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Design.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Drawing.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.IO.Compression.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.IO.Compression.FileSystem.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Security.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Windows.Forms.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xml.dll" /r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xml.Linq.dll" /compile "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\\Empty.resx",obj\Debug\_EmptyResource.resources
+  Обрабатывается файл ресурсов "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\\Empty.resx", результирующий объект: "obj\Debug\_EmptyResource.resources".
+  Обработка ресурсов (количество ресурсов: 0) из файла "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\\Empty.resx".
+Выполнение задачи "GenerateResource" завершено.
+Сборка целевого объекта "CoreResGen" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "AfterResGen" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "ResGen" зависит от него):
+Сборка целевого объекта "AfterResGen" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "ResGen" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "PrepareResources" зависит от него):
+Сборка целевого объекта "ResGen" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "GenerateListOfCTO" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VsSDK.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "MergeCtoResource" зависит от него):
+Задача "AssignCulture"
+  Культура "" назначена файлу "obj\Debug\VSCommandTable.cto".
+Выполнение задачи "AssignCulture" завершено.
+Сборка целевого объекта "GenerateListOfCTO" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "FindSDKInstallation" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VisualStudio.Sdk.Common.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "VSCTCompile" зависит от него):
+Сборка загружена во время TaskRun: Microsoft.VisualStudio.Sdk.BuildTasks.17.0, Version=18.7.1159.1381, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (расположение: C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VisualStudio.Sdk.BuildTasks.17.0.dll, MVID: 7c882364-afed-491c-a92e-b1980cc79ae7, домен приложения: [Default])
+Сборка загружена во время TaskRun: Microsoft.VisualStudio.Sdk.BuildTasks, Version=18.7.1159.1381, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (расположение: C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VisualStudio.Sdk.BuildTasks.dll, MVID: c53ca06c-ca67-488e-9b9b-232e73071ac9, домен приложения: [Default])
+Сборка загружена во время TaskRun: Microsoft.VisualStudio.ExtensionEngine, Version=18.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a (расположение: C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VisualStudio.ExtensionEngine.dll, MVID: ca7506b8-31a6-4525-9fe8-05f5107e07b0, домен приложения: [Default])
+Используется задача "FindVsSDKInstallation" из сборки "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VisualStudio.Sdk.BuildTasks.17.0.dll".
+Задача "FindVsSDKInstallation"
+Выполнение задачи "FindVsSDKInstallation" завершено.
+Сборка целевого объекта "FindSDKInstallation" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "VSCTCompile" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VisualStudio.Sdk.Common.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "MergeCtoResource" зависит от него):
+Используется задача "VSCTCompiler" из сборки "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VisualStudio.Sdk.BuildTasks.17.0.dll".
+Задача "VSCTCompiler"
+  C:\Program Files\Microsoft Visual Studio\18\Community\VSSDK\VisualStudioIntegration\Tools\bin\vsct.exe C:\Users\user\source\repos\VS.Helper\VSCommandTable.vsct
+  VSCommandTable.cto
+  -Xobj\Debug\
+  -depends
+  -nologo
+  -Lru-RU
+  -IC:\Program Files\Microsoft Visual Studio\18\Community\VSSDK\VisualStudioIntegration\Common\inc
+  -IC:\Program Files\Microsoft Visual Studio\18\Community\VSSDK\VisualStudioIntegration\Common\inc\office10
+  -D__CTC__
+  -D_CTC_GUIDS_
+  
+  C:\Users\user\source\repos\VS.Helper\VSCommandTable.vsct(8,12): ошибка VSCT1118: Файл не найден: не удалось найти "VSGlobals.vsct" в указанных путях включения
+  C:\Users\user\source\repos\VS.Helper\VSCommandTable.vsct(8,4): ошибка VSCT1002: Не удалось прочитать включаемый файл: VSGlobals.vsct
+  
+  VSCT: ошибки   = 2
+  VSCT: предупреждения = 0
+  Сборка загружена во время TaskRun (Microsoft.VisualStudio.Sdk.BuildTasks.VSCTCompiler): Microsoft.Build.Utilities.Core.resources, Version=15.1.0.0, Culture=ru, PublicKeyToken=b03f5f7f11d50a3a (расположение: C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\ru\Microsoft.Build.Utilities.Core.resources.dll, MVID: 7761e9e4-eb35-47fa-9cf0-f00c39a828f1, домен приложения: [Default])
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VisualStudio.Sdk.Common.targets(88,5): error MSB6006: "vsct.exe" завершилась с кодом 1. [C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj]
+Выполнение задачи "VSCTCompiler" завершено с ошибкой.
+Сборка целевого объекта "VSCTCompile" в проекте "VS.Helper.csproj" завершена с ошибкой.
+Целевой объект "_CheckForCompileOutputs" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "_CleanGetCurrentAndPriorFileWrites" зависит от него):
+C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets(5593,7): message : Повторное назначение свойства: $(_DebugSymbolsProduced)="false" (предыдущее значение: "true") для C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets (5593,7) [C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj]
+Сборка целевого объекта "_CheckForCompileOutputs" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "_CleanGetCurrentAndPriorFileWrites" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "_CleanRecordFileWrites" зависит от него):
+Задача "ReadLinesFromFile"
+Выполнение задачи "ReadLinesFromFile" завершено.
+Используется задача "ConvertToAbsolutePath" из сборки "Microsoft.Build.Tasks.Core, Version=15.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a".
+Задача "ConvertToAbsolutePath"
+Выполнение задачи "ConvertToAbsolutePath" завершено.
+Задача "FindUnderPath"
+  Путь сравнения: "C:\Users\user\source\repos\VS.Helper".
+Выполнение задачи "FindUnderPath" завершено.
+Задача "FindUnderPath"
+  Путь сравнения: "bin\Debug\".
+Выполнение задачи "FindUnderPath" завершено.
+Задача "FindUnderPath"
+  Путь сравнения: "obj\Debug\".
+Выполнение задачи "FindUnderPath" завершено.
+Задача "RemoveDuplicates"
+Выполнение задачи "RemoveDuplicates" завершено.
+Сборка целевого объекта "_CleanGetCurrentAndPriorFileWrites" в проекте "VS.Helper.csproj" завершена.
+Целевой объект "_CleanRecordFileWrites" в файле "C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Current\Bin\Microsoft.Common.CurrentVersion.targets" из проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект "CoreBuild" зависит от него):
+Задача "RemoveDuplicates"
+Выполнение задачи "RemoveDuplicates" завершено.
+Задача "MakeDir"
+Выполнение задачи "MakeDir" завершено.
+Задача "WriteLinesToFile"
+Выполнение задачи "WriteLinesToFile" завершено.
+Сборка целевого объекта "_CleanRecordFileWrites" в проекте "VS.Helper.csproj" завершена.
+Сборка проекта "C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" завершена (целевые объекты Rebuild) с ошибкой.
+
+
+Ошибка сборки.
+
+"C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj" (целевой объект Rebuild ) (1) ->
+(Целевой объект VSCTCompile) -> 
+  C:\Program Files\Microsoft Visual Studio\18\Community\MSBuild\Microsoft\VisualStudio\v18.0\VSSDK\Microsoft.VisualStudio.Sdk.Common.targets(88,5): error MSB6006: "vsct.exe" завершилась с кодом 1. [C:\Users\user\source\repos\VS.Helper\VS.Helper.csproj]
+
+    Предупреждений: 0
+    Ошибок: 1
+
+Прошло времени 00:00:00.54

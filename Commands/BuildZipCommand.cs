@@ -1,15 +1,14 @@
-﻿// Commands\BuildZipCommand.cs
-using Community.VisualStudio.Toolkit;
+// Commands\BuildZipCommand.cs
 using EnvDTE;
 using System;
 using System.Collections.Specialized;
 using System.IO;
-using System.Threading.Tasks;
+using VS.Helper.Core.Handoff;
 using VS.Helper.Core.Zip;
 
 namespace VS.Helper.Commands;
 
-[Command(PackageIds.BuildZipCommand)]
+[Community.VisualStudio.Toolkit.Command(PackageIds.BuildZipCommand)]
 internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
 {
     protected override void BeforeQueryStatus(EventArgs e)
@@ -45,8 +44,12 @@ internal sealed class BuildZipCommand : BaseCommand<BuildZipCommand>
                 "ZIP создан новым движком и скопирован в буфер обмена.\n\n" +
                 "Файл: " + Path.GetFileName(result.ZipPath) + "\n" +
                 "Файлов внутри: " + result.FileCount + "\n" +
+                "Версия VSIX не изменялась: Build Zip только упаковывает проект. Версию поднимает Self Upgrade.\n" +
                 "Конфиг: " + Path.GetFileName(result.ConfigPath) +
-                (result.UsedGeneratedConfig ? "\n\nКонфиг был создан автоматически. Проверь VS.Helper.Zip.xml и запускай Build Zip ещё раз." : string.Empty));
+                (result.UsedGeneratedConfig ? "\n\nКонфиг был создан автоматически. Проверь " + Path.GetFileName(result.ConfigPath) + " и запускай Build Zip ещё раз." : string.Empty) +
+                "\n\nПосле OK откроется браузер без новой вкладки ChatGPT. Вставь ZIP сюда и напиши: продолжаем.");
+
+            BrowserHandoffService.OpenBrowser();
         }
         catch (Exception ex)
         {

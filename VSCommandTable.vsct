@@ -2,7 +2,6 @@
 <CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <Extern href="stdidcmd.h" />
   <Extern href="vsshlids.h" />
-  <Include href="VSGlobals.vsct" />
 
   <Commands package="guidVSHelper">
     <Menus>
@@ -24,48 +23,43 @@
     <Buttons>
       <Button guid="guidVSHelper" id="BuildZipCommand" priority="0x0100" type="Button">
         <Parent guid="guidVSHelper" id="VSHelperGroup" />
-        <Icon guid="guidImages" id="bmpPic1" />
+        <Icon guid="guidImages" id="icoBuildZip" />
         <Strings><ButtonText>Build Zip</ButtonText></Strings>
       </Button>
       <Button guid="guidVSHelper" id="CreateZipConfigCommand" priority="0x0110" type="Button">
         <Parent guid="guidVSHelper" id="VSHelperGroup" />
-        <Icon guid="guidImages" id="bmpPic1" />
+        <Icon guid="guidImages" id="icoCreateZipConfig" />
         <Strings><ButtonText>Create Zip Config</ButtonText></Strings>
       </Button>
-      <Button guid="guidVSHelper" id="BuildSolutionCommand" priority="0x0120" type="Button">
+      <Button guid="guidVSHelper" id="SelfUpgradeCommand" priority="0x0120" type="Button">
         <Parent guid="guidVSHelper" id="VSHelperGroup" />
-        <Icon guid="guidImages" id="bmpPic1" />
-        <Strings><ButtonText>Build Solution</ButtonText></Strings>
-      </Button>
-      <Button guid="guidVSHelper" id="SelfUpgradeCommand" priority="0x0130" type="Button">
-        <Parent guid="guidVSHelper" id="VSHelperGroup" />
-        <Icon guid="guidImages" id="bmpPic1" />
+        <Icon guid="guidImages" id="icoSelfUpgrade" />
         <Strings><ButtonText>Self Upgrade</ButtonText></Strings>
       </Button>
-      <Button guid="guidVSHelper" id="RunSwarmCommand" priority="0x0140" type="Button">
+      <Button guid="guidVSHelper" id="RunSwarmCommand" priority="0x0130" type="Button">
         <Parent guid="guidVSHelper" id="VSHelperGroup" />
-        <Icon guid="guidImages" id="bmpPic1" />
+        <Icon guid="guidImages" id="icoRunSwarm" />
         <Strings><ButtonText>Run Swarm</ButtonText></Strings>
       </Button>
-      <Button guid="guidVSHelper" id="EvolveSwarmCommand" priority="0x0150" type="Button">
+      <Button guid="guidVSHelper" id="EvolveSwarmCommand" priority="0x0140" type="Button">
         <Parent guid="guidVSHelper" id="VSHelperGroup" />
-        <Icon guid="guidImages" id="bmpPic1" />
+        <Icon guid="guidImages" id="icoEvolveSwarm" />
         <Strings><ButtonText>Evolve Swarm</ButtonText></Strings>
       </Button>
-      <Button guid="guidVSHelper" id="CommitStampSyncGitCommand" priority="0x0160" type="Button">
+      <Button guid="guidVSHelper" id="CommitStampSyncGitCommand" priority="0x0150" type="Button">
         <Parent guid="guidVSHelper" id="VSHelperGroup" />
-        <Icon guid="guidImages" id="bmpPic1" />
+        <Icon guid="guidImages" id="icoCommitGit" />
         <Strings><ButtonText>Commit Stamp Sync Git</ButtonText></Strings>
       </Button>
-      <Button guid="guidVSHelper" id="VSHelperToolsCommand" priority="0x0170" type="Button">
+      <Button guid="guidVSHelper" id="VSHelperToolsCommand" priority="0x0160" type="Button">
         <Parent guid="guidVSHelper" id="VSHelperGroup" />
-        <Icon guid="guidImages" id="bmpPic1" />
+        <Icon guid="guidImages" id="icoTools" />
         <Strings><ButtonText>Tools</ButtonText></Strings>
       </Button>
     </Buttons>
 
     <Bitmaps>
-      <Bitmap guid="guidImages" href="Resources\Icon.png" usedList="bmpPic1" />
+      <Bitmap guid="guidImages" href="Resources\CommandIcons16.png" usedList="icoBuildZip, icoCreateZipConfig, icoSelfUpgrade, icoRunSwarm, icoEvolveSwarm, icoCommitGit, icoTools" />
     </Bitmaps>
   </Commands>
 
@@ -83,7 +77,13 @@
       <IDSymbol name="VSHelperToolsCommand" value="0x0500" />
     </GuidSymbol>
     <GuidSymbol name="guidImages" value="{5bf83d3c-8f61-48fd-a62f-82c41dc0ea8d}">
-      <IDSymbol name="bmpPic1" value="1" />
+      <IDSymbol name="icoBuildZip" value="1" />
+      <IDSymbol name="icoCreateZipConfig" value="2" />
+      <IDSymbol name="icoSelfUpgrade" value="3" />
+      <IDSymbol name="icoRunSwarm" value="4" />
+      <IDSymbol name="icoEvolveSwarm" value="5" />
+      <IDSymbol name="icoCommitGit" value="6" />
+      <IDSymbol name="icoTools" value="7" />
     </GuidSymbol>
   </Symbols>
 </CommandTable>

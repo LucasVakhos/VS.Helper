@@ -1,13 +1,11 @@
-﻿using System;
-using System.Threading.Tasks;
-using Community.VisualStudio.Toolkit;
 using EnvDTE;
 using EnvDTE80;
+using System;
 using VS.Helper.AI;
 
 namespace VS.Helper.Commands;
 
-[Command(PackageIds.EvolveSwarmCommand)]
+[Community.VisualStudio.Toolkit.Command(PackageIds.EvolveSwarmCommand)]
 internal sealed class EvolveSwarmCommand : BaseCommand<EvolveSwarmCommand>
 {
     protected override void BeforeQueryStatus(EventArgs e)

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
@@ -139,9 +139,8 @@ internal sealed class ZipBuildService
                 yield return full;
             else if (Directory.Exists(full))
             {
-                // Новая схема не пакует директории целиком по имени.
-                // Для осознанного включения папки используй glob: Assets/** или Docs/**/*.md.
-                yield break;
+                foreach (string file in Directory.EnumerateFiles(full, "*.*", SearchOption.AllDirectories))
+                    yield return Path.GetFullPath(file);
             }
             yield break;
         }

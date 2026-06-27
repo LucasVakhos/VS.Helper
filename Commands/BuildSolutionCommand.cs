@@ -1,9 +1,7 @@
-﻿// Commands\BuildSolutionCommand.cs
-using Community.VisualStudio.Toolkit;
+// Commands\BuildSolutionCommand.cs
 using EnvDTE;
 using EnvDTE80;
 using System;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -12,7 +10,7 @@ using System.Xml.Linq;
 
 namespace VS.Helper.Commands;
 
-[Command(PackageIds.BuildSolutionCommand)]
+[Community.VisualStudio.Toolkit.Command(PackageIds.BuildSolutionCommand)]
 internal sealed class BuildSolutionCommand : BaseCommand<BuildSolutionCommand>
 {
     private const string DefaultBaseVersion = "1.0.2.3520";

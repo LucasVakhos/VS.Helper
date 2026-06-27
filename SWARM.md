@@ -1,0 +1,1 @@
+Conscious Swarm + Governance + Voting + Multi-agent reasoning.

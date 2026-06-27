@@ -1,12 +1,14 @@
 ﻿VS.Helper ZIP Manifest
 Scheme: NEW ZIP ENGINE
-CreatedUtc: 2026-06-24 01:56:51
+CreatedUtc: 2026-06-27 03:27:48
 Solution: C:\Users\user\source\repos\VS.Helper\VS.Helper.slnx
 Root: C:\Users\user\source\repos\VS.Helper
 
 Files:
+ - .cr/personal/FavoritesList/List.xml
  - .gitattributes
  - .gitignore
+ - ABOUT.md
  - AI/Agents/AgentSwarmCore.cs
  - AI/Agents/AgentSwarmEvolutionCore.cs
  - AI/Agents/FixAgent.cs
@@ -31,35 +33,52 @@ Files:
  - AI/Swarm/SwarmStrategies.cs
  - AI/Threading/ThreadOrchestrator.cs
  - AI/VisualStudio/DTEProxy.cs
- - buildresult.txt
- - build_final.txt
- - build_output.txt
+ - clean-build.cmd
+ - clean-build.ps1
  - Commands/AppCleanerToolsCommand.cs
  - Commands/BuildSolutionCommand.cs
  - Commands/BuildZipCommand.cs
  - Commands/CommitStampSyncGitCommand.cs
+ - Commands/CreateCommentCommand.cs
  - Commands/CreateZipConfigCommand.cs
  - Commands/EvolveSwarmCommand.cs
+ - Commands/ProjectGenomeCommand.cs
  - Commands/RunSwarmCommand.cs
  - Commands/SelfUpgradeCommand.cs
  - Core/Browser/BrowserKernel.cs
  - Core/Config/ConfigViewModel.cs
  - Core/Config/GlobalConfig.cs
  - Core/Config/GlobalConfigStore.cs
+ - Core/Handoff/BrowserHandoffService.cs
  - Core/LegacyCommands/BuildSolutionCommand.cs
  - Core/LegacyCommands/CreateZipCommand.cs
+ - Core/OS/EngineBus.cs
+ - Core/OS/EngineCommandResult.cs
+ - Core/OS/EngineContext.cs
+ - Core/OS/IEngineCommand.cs
+ - Core/OS/ProjectGenome.cs
+ - Core/OS/ProjectGenomeAnalyzer.cs
+ - Core/OS/ProjectGenomeCommandCore.cs
+ - Core/OS/V5/CoreEngineV5.cs
+ - Core/OS/V5/EventBus.cs
+ - Core/OS/V5/ExecutionGovernorV5.cs
+ - Core/OS/V5/PersistentMemory.cs
+ - Core/OS/V5/SwarmEngineV5.cs
  - Core/Routing/AIRouter.cs
  - Core/Routing/RouteIntent.cs
  - Core/Routing/RouteTarget.cs
+ - Core/Versioning/VsixVersionService.cs
  - Core/Zip/ProjectClosureScanner.cs
  - Core/Zip/SolutionProjectScanner.cs
  - Core/Zip/ZipBuildConfig.cs
  - Core/Zip/ZipBuildResult.cs
  - Core/Zip/ZipBuildService.cs
+ - Core/Zip/ZipConfigEditorDialog.cs
  - Core/Zip/ZipIgnoreMatcher.cs
  - Core/Zip/ZipManifestWriter.cs
  - Core/Zip/ZipPath.cs
- - errors.txt
+ - Core/ZipEngine.cs
+ - extension.vsixmanifest
  - Helpers/.gitignore
  - Helpers/AI/Agents/AgentSwarmCore.cs
  - Helpers/AI/Agents/AgentSwarmEvolutionCore.cs
@@ -100,24 +119,59 @@ Files:
  - Helpers/Commands/EvolveSwarmCommand.cs
  - Helpers/Commands/RunSwarmCommand.cs
  - Helpers/Commands/SelfUpgradeCommand.cs
+ - Helpers/Commands/VSHelperStatusCommand.cs
  - Helpers/Core/Browser/BrowserKernel.cs
  - Helpers/Core/Config/ConfigViewModel.cs
  - Helpers/Core/Config/GlobalConfig.cs
  - Helpers/Core/Config/GlobalConfigStore.cs
+ - Helpers/Core/Handoff/BrowserHandoffService.cs
  - Helpers/Core/LegacyCommands/BuildSolutionCommand.cs
  - Helpers/Core/LegacyCommands/CreateZipCommand.cs
  - Helpers/Core/Routing/AIRouter.cs
  - Helpers/Core/Routing/RouteIntent.cs
  - Helpers/Core/Routing/RouteTarget.cs
+ - Helpers/Core/Versioning/VsixVersionService.cs
+ - Helpers/Core/Zip/ProjectClosureScanner.cs
+ - Helpers/Core/Zip/SolutionProjectScanner.cs
  - Helpers/Core/Zip/ZipBuildConfig.cs
  - Helpers/Core/Zip/ZipBuildConfigStore.cs
  - Helpers/Core/Zip/ZipBuildEngine.cs
  - Helpers/Core/Zip/ZipBuildManifestWriter.cs
  - Helpers/Core/Zip/ZipBuildResult.cs
+ - Helpers/Core/Zip/ZipBuildService.cs
+ - Helpers/Core/Zip/ZipConfigEditorDialog.cs
+ - Helpers/Core/Zip/ZipIgnoreMatcher.cs
+ - Helpers/Core/Zip/ZipManifestWriter.cs
+ - Helpers/Core/Zip/ZipPath.cs
  - Helpers/Core/Zip/ZipPathMatcher.cs
  - Helpers/Core/Zip/ZipPathTools.cs
  - Helpers/Core/Zip/ZipProjectGraphReader.cs
  - Helpers/Core/Zip/ZipVariableResolver.cs
+ - Helpers/Helpers/.gitignore
+ - Helpers/Helpers/AI/Agents/AgentSwarmCore.cs
+ - Helpers/Helpers/AI/Agents/AgentSwarmEvolutionCore.cs
+ - Helpers/Helpers/AI/Agents/FixAgent.cs
+ - Helpers/Helpers/AI/Agents/OptimizationAgent.cs
+ - Helpers/Helpers/AI/Agents/QualityAgent.cs
+ - Helpers/Helpers/AI/Config/GlobalConfig.cs
+ - Helpers/Helpers/AI/Config/GlobalConfigStore.cs
+ - Helpers/Helpers/AI/SelfDefense/DefenseResponse.cs
+ - Helpers/Helpers/AI/SelfDefense/ProjectScopeGuard.cs
+ - Helpers/Helpers/AI/SelfDefense/SelfDefenseCore.cs
+ - Helpers/Helpers/AI/SelfUpgrade/SelfUpgradeCore.cs
+ - Helpers/Helpers/AI/SelfUpgrade/VersionBumpEngine.cs
+ - Helpers/Helpers/AI/Swarm/SwarmError.cs
+ - Helpers/Helpers/AI/Swarm/SwarmHash.cs
+ - Helpers/Helpers/AI/Swarm/SwarmMemoryEntry.cs
+ - Helpers/Helpers/AI/Swarm/SwarmMemoryState.cs
+ - Helpers/Helpers/AI/Swarm/SwarmMemoryStore.cs
+ - Helpers/Helpers/AI/Swarm/SwarmRule.cs
+ - Helpers/Helpers/AI/Swarm/SwarmRuleEngine.cs
+ - Helpers/Helpers/AI/Swarm/SwarmRuleState.cs
+ - Helpers/Helpers/AI/Swarm/SwarmRuleStore.cs
+ - Helpers/Helpers/AI/Swarm/SwarmStrategies.cs
+ - Helpers/Helpers/AI/Threading/ThreadOrchestrator.cs
+ - Helpers/Helpers/AI/VisualStudio/DTEProxy.cs
  - Helpers/Helpers/Classes/VSHelperComboTodoAttribute.cs
  - Helpers/Helpers/Classes/VSHelperComboTodoItems.cs
  - Helpers/Helpers/Classes/VSHelperEnumExtensions.cs
@@ -125,8 +179,62 @@ Files:
  - Helpers/Helpers/Classes/VSHelperOptions.cs
  - Helpers/Helpers/Classes/VSHelperPatternType.cs
  - Helpers/Helpers/Classes/VSHelperSolutionInfo.cs
+ - Helpers/Helpers/Commands/AppCleanerToolsCommand.cs
+ - Helpers/Helpers/Commands/BuildSolutionCommand.cs
+ - Helpers/Helpers/Commands/BuildZipCommand.cs
+ - Helpers/Helpers/Commands/CommitStampSyncGitCommand.cs
+ - Helpers/Helpers/Commands/CreateZipConfigCommand.cs
+ - Helpers/Helpers/Commands/EvolveSwarmCommand.cs
+ - Helpers/Helpers/Commands/RunSwarmCommand.cs
+ - Helpers/Helpers/Commands/SelfUpgradeCommand.cs
+ - Helpers/Helpers/Core/Browser/BrowserKernel.cs
+ - Helpers/Helpers/Core/Config/ConfigViewModel.cs
+ - Helpers/Helpers/Core/Config/GlobalConfig.cs
+ - Helpers/Helpers/Core/Config/GlobalConfigStore.cs
+ - Helpers/Helpers/Core/Handoff/BrowserHandoffService.cs
+ - Helpers/Helpers/Core/LegacyCommands/BuildSolutionCommand.cs
+ - Helpers/Helpers/Core/LegacyCommands/CreateZipCommand.cs
+ - Helpers/Helpers/Core/Routing/AIRouter.cs
+ - Helpers/Helpers/Core/Routing/RouteIntent.cs
+ - Helpers/Helpers/Core/Routing/RouteTarget.cs
+ - Helpers/Helpers/Core/Zip/ZipBuildConfig.cs
+ - Helpers/Helpers/Core/Zip/ZipBuildConfigStore.cs
+ - Helpers/Helpers/Core/Zip/ZipBuildEngine.cs
+ - Helpers/Helpers/Core/Zip/ZipBuildManifestWriter.cs
+ - Helpers/Helpers/Core/Zip/ZipBuildResult.cs
+ - Helpers/Helpers/Core/Zip/ZipConfigEditorDialog.cs
+ - Helpers/Helpers/Core/Zip/ZipPathMatcher.cs
+ - Helpers/Helpers/Core/Zip/ZipPathTools.cs
+ - Helpers/Helpers/Core/Zip/ZipProjectGraphReader.cs
+ - Helpers/Helpers/Core/Zip/ZipVariableResolver.cs
+ - Helpers/Helpers/Helpers/Classes/VSHelperComboTodoAttribute.cs
+ - Helpers/Helpers/Helpers/Classes/VSHelperComboTodoItems.cs
+ - Helpers/Helpers/Helpers/Classes/VSHelperEnumExtensions.cs
+ - Helpers/Helpers/Helpers/Classes/VSHelperOperationTypes.cs
+ - Helpers/Helpers/Helpers/Classes/VSHelperOptions.cs
+ - Helpers/Helpers/Helpers/Classes/VSHelperPatternType.cs
+ - Helpers/Helpers/Helpers/Classes/VSHelperSolutionInfo.cs
+ - Helpers/Helpers/Helpers/VSHelperEngine.cs
+ - Helpers/Helpers/Helpers/VSHelperLogDialog.cs
+ - Helpers/Helpers/Helpers/VSHelperToolsDialog.cs
+ - Helpers/Helpers/Helpers/VSHelperToolsHelper.cs
+ - Helpers/Helpers/LICENSE.txt
+ - Helpers/Helpers/PackageGuids.cs
+ - Helpers/Helpers/PackageIds.cs
+ - Helpers/Helpers/Properties/AssemblyInfo.cs
+ - Helpers/Helpers/README.md
+ - Helpers/Helpers/Resources/Icon.png
+ - Helpers/Helpers/source.extension.cs
+ - Helpers/Helpers/source.extension.vsixmanifest
+ - Helpers/Helpers/source.extension1.cs
+ - Helpers/Helpers/VS.Helper.csproj
+ - Helpers/Helpers/VS.Helper.slnx
+ - Helpers/Helpers/VS.Helper.Zip.Sample.xml
+ - Helpers/Helpers/VSCommandTable.cs
+ - Helpers/Helpers/VSHelper.Full.cs
  - Helpers/Helpers/VSHelperEngine.cs
  - Helpers/Helpers/VSHelperLogDialog.cs
+ - Helpers/Helpers/VSHelperPackage.cs
  - Helpers/Helpers/VSHelperToolsDialog.cs
  - Helpers/Helpers/VSHelperToolsHelper.cs
  - Helpers/LICENSE.txt
@@ -134,35 +242,164 @@ Files:
  - Helpers/PackageIds.cs
  - Helpers/Properties/AssemblyInfo.cs
  - Helpers/README.md
- - Helpers/Resources/Icon.png
+ - Helpers/README_PATCH_42_MENU_AVAILABLE.txt
+ - Helpers/Resources/VS.Helper.Icon.ico
  - Helpers/source.extension.cs
  - Helpers/source.extension.vsixmanifest
  - Helpers/VS.Helper.csproj
  - Helpers/VS.Helper.slnx
  - Helpers/VS.Helper.Zip.Sample.xml
+ - Helpers/VS.Helper.Zip.xml
  - Helpers/VSCommandTable.cs
+ - Helpers/VSCommandTable.vsct
+ - Helpers/VSExtensionPackage.cs
  - Helpers/VSHelper.Full.cs
  - Helpers/VSHelperEngine.cs
  - Helpers/VSHelperLogDialog.cs
  - Helpers/VSHelperPackage.cs
  - Helpers/VSHelperToolsDialog.cs
  - Helpers/VSHelperToolsHelper.cs
+ - Helpers/_VS.Helper.ZipManifest.txt
  - LICENSE.txt
- - PackageGuids.cs
- - PackageIds.cs
  - Properties/AssemblyInfo.cs
- - README.md
- - README_MERGE_PASS.txt
- - README_PATCH_39.txt
- - README_PATCH_40.txt
+ - Resources/.gitignore
+ - Resources/ABOUT.md
+ - Resources/AI/Agents/AgentSwarmCore.cs
+ - Resources/AI/Agents/AgentSwarmEvolutionCore.cs
+ - Resources/AI/Agents/FixAgent.cs
+ - Resources/AI/Agents/OptimizationAgent.cs
+ - Resources/AI/Agents/QualityAgent.cs
+ - Resources/AI/Config/GlobalConfig.cs
+ - Resources/AI/Config/GlobalConfigStore.cs
+ - Resources/AI/SelfDefense/DefenseResponse.cs
+ - Resources/AI/SelfDefense/ProjectScopeGuard.cs
+ - Resources/AI/SelfDefense/SelfDefenseCore.cs
+ - Resources/AI/SelfUpgrade/SelfUpgradeCore.cs
+ - Resources/AI/SelfUpgrade/VersionBumpEngine.cs
+ - Resources/AI/Swarm/SwarmError.cs
+ - Resources/AI/Swarm/SwarmHash.cs
+ - Resources/AI/Swarm/SwarmMemoryEntry.cs
+ - Resources/AI/Swarm/SwarmMemoryState.cs
+ - Resources/AI/Swarm/SwarmMemoryStore.cs
+ - Resources/AI/Swarm/SwarmRule.cs
+ - Resources/AI/Swarm/SwarmRuleEngine.cs
+ - Resources/AI/Swarm/SwarmRuleState.cs
+ - Resources/AI/Swarm/SwarmRuleStore.cs
+ - Resources/AI/Swarm/SwarmStrategies.cs
+ - Resources/AI/Threading/ThreadOrchestrator.cs
+ - Resources/AI/VisualStudio/DTEProxy.cs
+ - Resources/CommandIcons16.png
+ - Resources/Commands/AppCleanerToolsCommand.cs
+ - Resources/Commands/BuildSolutionCommand.cs
+ - Resources/Commands/BuildZipCommand.cs
+ - Resources/Commands/CommitStampSyncGitCommand.cs
+ - Resources/Commands/CreateZipConfigCommand.cs
+ - Resources/Commands/EvolveSwarmCommand.cs
+ - Resources/Commands/RunSwarmCommand.cs
+ - Resources/Commands/SelfUpgradeCommand.cs
+ - Resources/Core/Browser/BrowserKernel.cs
+ - Resources/Core/Config/ConfigViewModel.cs
+ - Resources/Core/Config/GlobalConfig.cs
+ - Resources/Core/Config/GlobalConfigStore.cs
+ - Resources/Core/Handoff/BrowserHandoffService.cs
+ - Resources/Core/LegacyCommands/BuildSolutionCommand.cs
+ - Resources/Core/LegacyCommands/CreateZipCommand.cs
+ - Resources/Core/Routing/AIRouter.cs
+ - Resources/Core/Routing/RouteIntent.cs
+ - Resources/Core/Routing/RouteTarget.cs
+ - Resources/Core/Versioning/VsixVersionService.cs
+ - Resources/Core/Zip/ProjectClosureScanner.cs
+ - Resources/Core/Zip/SolutionProjectScanner.cs
+ - Resources/Core/Zip/ZipBuildConfig.cs
+ - Resources/Core/Zip/ZipBuildResult.cs
+ - Resources/Core/Zip/ZipBuildService.cs
+ - Resources/Core/Zip/ZipIgnoreMatcher.cs
+ - Resources/Core/Zip/ZipManifestWriter.cs
+ - Resources/Core/Zip/ZipPath.cs
+ - Resources/Helpers/Classes/VSHelperComboTodoAttribute.cs
+ - Resources/Helpers/Classes/VSHelperComboTodoItems.cs
+ - Resources/Helpers/Classes/VSHelperEnumExtensions.cs
+ - Resources/Helpers/Classes/VSHelperOperationTypes.cs
+ - Resources/Helpers/Classes/VSHelperOptions.cs
+ - Resources/Helpers/Classes/VSHelperPatternType.cs
+ - Resources/Helpers/Classes/VSHelperSolutionInfo.cs
+ - Resources/Helpers/Commands/AppCleanerToolsCommand.cs
+ - Resources/Helpers/Commands/BuildSolutionCommand.cs
+ - Resources/Helpers/Commands/BuildZipCommand.cs
+ - Resources/Helpers/Commands/CommitStampSyncGitCommand.cs
+ - Resources/Helpers/Commands/CreateZipConfigCommand.cs
+ - Resources/Helpers/Commands/EvolveSwarmCommand.cs
+ - Resources/Helpers/Commands/RunSwarmCommand.cs
+ - Resources/Helpers/Commands/SelfUpgradeCommand.cs
+ - Resources/Helpers/Commands/VSHelperStatusCommand.cs
+ - Resources/Helpers/PackageGuids.cs
+ - Resources/Helpers/PackageIds.cs
+ - Resources/Helpers/Properties/AssemblyInfo.cs
+ - Resources/Helpers/source.extension.cs
+ - Resources/Helpers/VSCommandTable.cs
+ - Resources/Helpers/VSHelper.Full.cs
+ - Resources/Helpers/VSHelperEngine.cs
+ - Resources/Helpers/VSHelperLogDialog.cs
+ - Resources/Helpers/VSHelperPackage.cs
+ - Resources/Helpers/VSHelperToolsDialog.cs
+ - Resources/Helpers/VSHelperToolsHelper.cs
  - Resources/Icon.png
- - source.extension.cs
+ - Resources/Icon32.png
+ - Resources/LICENSE.txt
+ - Resources/PackageGuids.cs
+ - Resources/PackageIds.cs
+ - Resources/Properties/AssemblyInfo.cs
+ - Resources/README.md
+ - Resources/source.extension.cs
+ - Resources/source.extension.vsixmanifest
+ - Resources/stop-code-error-in-windows-10.png
+ - Resources/VS.Helper.csproj
+ - Resources/VS.Helper.Icon.ico
+ - Resources/VS.Helper.slnx
+ - Resources/VS.Helper.Zip.Sample.xml
+ - Resources/VS.Helper.Zip.xml
+ - Resources/VSCommandTable.cs
+ - Resources/VSCommandTable.vsct
+ - Resources/VSHelperPackage.cs
+ - Resources/_VS.Helper.ZipManifest.txt
  - source.extension.vsixmanifest
+ - ToolWindow/ZipToolWindowControl.xaml
+ - ToolWindow/ZipToolWindowControl.xaml.cs
+ - VS.Helper.config
  - VS.Helper.csproj
  - VS.Helper.slnx
- - VS.Helper.Zip.Sample.xml
- - VS.Helper.Zip.xml
- - VSCommandTable.cs
  - VSCommandTable.vsct
- - VSExtensionPackage.cs
- - VSHelperPackage.cs
+ - VsRoot/GlobalUsings.cs
+ - VsRoot/PackageGuids.cs
+ - VsRoot/PackageIds.cs
+ - VsRoot/source.extension.cs
+ - VsRoot/VSCommandTable.cs
+ - VsRoot/VSExtensionPackage.cs
+ - VsRoot/VSHelperPackage.cs
+ - z.saves/ARCHITECTURE.md
+ - z.saves/buildresult.txt
+ - z.saves/build_final.txt
+ - z.saves/build_output.txt
+ - z.saves/CTO.md
+ - z.saves/DIGITAL_SPECIES.md
+ - z.saves/ENGINE.md
+ - z.saves/ENTERPRISE.md
+ - z.saves/errors.txt
+ - z.saves/GH Programmer.pfx
+ - z.saves/GREEN_LINE_REPORT.md
+ - z.saves/LICENSE.txt
+ - z.saves/MENU_FIX_REPORT.md
+ - z.saves/MERGE_REPORT.md
+ - z.saves/README_MERGE_PASS.txt
+ - z.saves/README_PATCH_39.txt
+ - z.saves/README_PATCH_40.txt
+ - z.saves/README_PATCH_43_INCLUDE_FILE_FIX.txt
+ - z.saves/README_PATCH_44_BROWSER_HANDOFF.txt
+ - z.saves/README_PATCH_45_VERSION_ZIPNAME_RU.md
+ - z.saves/README_PATCH_46_VSIX_INSTALL_FIX.md
+ - z.saves/SELF_REWRITE.md
+ - z.saves/SWARM.md
+ - z.saves/TASK_FIX_REPORT.md
+ - z.saves/_VS.Helper.ZipManifest.txt
+ - _VS.Helper.SelfUpgrade.cmd
+ - _VS.Helper.ZipManifest.txt
