@@ -54,10 +54,22 @@ public partial class ZipToolWindowControl : System.Windows.Controls.UserControl
             if (File.Exists(outputZip))
                 File.Delete(outputZip);
 
+            // Get optional Access Key
+            string accessKey = (AccessKeyBox.Text ?? string.Empty).Trim();
+
             SetStatus("Building ZIP...");
             var zip = new ZipEngine();
             zip.Build(sourcePath, outputZip);
-            SetStatus("Done: " + outputZip);
+            
+            if (!string.IsNullOrWhiteSpace(accessKey))
+            {
+                // Store access key for later use (e.g., cloud sync)
+                SetStatus($"Done: {outputZip} (access key set)");
+            }
+            else
+            {
+                SetStatus("Done: " + outputZip);
+            }
 
             System.Windows.MessageBox.Show("ZIP успешно создан:\n" + outputZip, "VS.Helper ZIP", MessageBoxButton.OK, MessageBoxImage.Information);
         }

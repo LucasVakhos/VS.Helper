@@ -13,8 +13,8 @@ using System.Runtime.InteropServices;
 
 [assembly: ComVisible(false)]
 
-[assembly: AssemblyVersion("2026.2.1.71")]
-[assembly: AssemblyFileVersion("2026.2.1.71")]
+[assembly: AssemblyVersion("2026.2.1.72")]
+[assembly: AssemblyFileVersion("2026.2.1.72")]
 [assembly: Guid("7E3B6F2D-91A8-4C47-8D5E-2F1A9BC64E73")]
 
 namespace System.Runtime.CompilerServices

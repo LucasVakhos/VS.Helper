@@ -11,6 +11,8 @@
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
                 <StackPanel Grid.Row="0" Margin="0,0,0,12">
@@ -84,7 +86,18 @@
                             Click="BrowseOutput" />
                 </Grid>
 
-                <Grid Grid.Row="5">
+                <TextBlock Grid.Row="5"
+                           Text="Access Key (optional)"
+                           FontWeight="SemiBold"
+                           Foreground="#243B53" />
+                <TextBox Grid.Row="6"
+                         x:Name="AccessKeyBox"
+                         Padding="8,6"
+                         Margin="0,6,0,12"
+                         BorderBrush="#BCCCDC"
+                         Background="White" />
+
+                <Grid Grid.Row="7">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />

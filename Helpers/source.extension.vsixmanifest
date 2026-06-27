@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="VS.Helper.594f3931-1da9-4fe1-83cf-803dab09a528" Version="2026.2.1.71" Language="ru-RU" Publisher="Copyright © 2026 GH Freelance" />
+    <Identity Id="VS.Helper.594f3931-1da9-4fe1-83cf-803dab09a528" Version="2026.2.1.72" Language="ru-RU" Publisher="Copyright © 2026 GH Freelance" />
     <DisplayName>VS.Helper</DisplayName>
     <Description xml:space="preserve">VS Project  Помощник.</Description>
     <License>LICENSE.txt</License>

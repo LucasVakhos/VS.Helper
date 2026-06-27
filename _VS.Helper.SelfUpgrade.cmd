@@ -1,9 +1,9 @@
 @echo off
 setlocal EnableExtensions EnableDelayedExpansion
 chcp 65001 >nul
-cd /d "C:\Users\user\source\repos\VS.Helper"
-set "LOG=C:\Users\user\source\repos\VS.Helper\_VS.Helper.SelfUpgrade.log"
-set "EXPECTED_VERSION=2026.2.1.71"
+cd /d "E:\CS\26\VS.Helper"
+set "LOG=E:\CS\26\VS.Helper\_VS.Helper.SelfUpgrade.log"
+set "EXPECTED_VERSION=2026.2.1.72"
 echo VS.Helper Self Upgrade > "%LOG%"
 echo Mode: install only, no uninstall >> "%LOG%"
 echo Expected Identity Version: %EXPECTED_VERSION% >> "%LOG%"
@@ -27,12 +27,12 @@ if not defined MSBUILD if exist "%ProgramFiles%\Microsoft Visual Studio\17\Commu
 if not defined MSBUILD if exist "%ProgramFiles(x86)%\Microsoft Visual Studio\17\Community\MSBuild\Current\Bin\MSBuild.exe" set "MSBUILD=%ProgramFiles(x86)%\Microsoft Visual Studio\17\Community\MSBuild\Current\Bin\MSBuild.exe"
 if not defined MSBUILD goto build_with_dotnet
 echo MSBuild: %MSBUILD% >> "%LOG%"
-"%MSBUILD%" "C:\Users\user\source\repos\VS.Helper\VS.Helper.slnx" "/t:Build;GeneratePkgDef;CreateVsixContainer" /p:Configuration=Debug /p:TargetFramework=net48 /p:DeployExtension=false /nologo >> "%LOG%" 2>&1
+"%MSBUILD%" "E:\CS\26\VS.Helper\VS.Helper.slnx" "/t:Build;GeneratePkgDef;CreateVsixContainer" /p:Configuration=Debug /p:TargetFramework=net48 /p:DeployExtension=false /nologo >> "%LOG%" 2>&1
 if errorlevel 1 goto build_failed
 goto build_done
 :build_with_dotnet
 echo MSBuild.exe not found, fallback to dotnet build... >> "%LOG%"
-dotnet build "C:\Users\user\source\repos\VS.Helper\VS.Helper.slnx" /p:Configuration=Debug /p:DeployExtension=true /p:CreateVsixContainer=true >> "%LOG%" 2>&1
+dotnet build "E:\CS\26\VS.Helper\VS.Helper.slnx" /p:Configuration=Debug /p:DeployExtension=true /p:CreateVsixContainer=true >> "%LOG%" 2>&1
 if errorlevel 1 goto build_failed
 :build_done
 echo. >> "%LOG%"
